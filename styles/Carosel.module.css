@@ -1,0 +1,114 @@
+/* .carousel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.slide-content {
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+}
+
+.slick-dots li button:before {
+  color: white;
+  width: 10px;
+  height: 10px;
+}
+
+.top-section {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.bottom-section {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+} */
+
+
+.sliderCarousel {
+  object-fit: cover;
+  background-size: cover;
+  min-height: 21.375rem;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  display: block;
+  position: relative;
+}
+
+.navContainer{
+  display: flex;
+  padding: 0 4.25rem;
+  height: 5rem;
+  background-color: transparent;
+}
+
+
+
+.flexCont{
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.rgtCont{
+  display: flex;
+  align-items: center;
+}
+
+
+.navItem{
+  padding: .38rem 1rem;
+  border-radius: 40px;
+  transition: 0.5s;
+  font-size: 16px;
+  margin: 0 0.3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.navIcon{
+  /* padding: .38rem 1rem; */
+  /* padding: 0.5rem; */
+  border-radius: 100px;
+  transition: 0.5s;
+  /* background-color: red; */
+  margin-right: 10px;
+
+
+}
+.navIcon:hover{
+  background-color: #ffffff32;
+}
+
+.navItem:hover{
+  background-color: #ffffff32;
+}
+
+.icon{
+  background-color: red;
+  vertical-align: middle;
+}
+

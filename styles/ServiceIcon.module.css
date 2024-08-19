@@ -1,0 +1,34 @@
+.imageCont {
+    width: 164px;
+    height: 164px;
+    border-radius: 82px;
+    background: #eaebed;
+    background: #F3F3F3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    color: transparent;
+    width: 90%;
+    height: auto;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.image:hover {
+    width: 100%;
+}
+
+
+
+.title {
+    font-size: 1.125rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 1.25rem;
+    color: #6d6d6d;
+    text-align: center;
+    font-weight: 500;
+}
