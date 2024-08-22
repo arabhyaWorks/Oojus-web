@@ -24,3 +24,16 @@
     /* column-gap: 5rem; */
     /* row-gap: 3rem; */
 }
+
+.blogHeading{
+    letter-spacing: -1.2px;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #1D1E20;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

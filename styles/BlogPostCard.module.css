@@ -1,0 +1,143 @@
+.superCont {
+    /* margin-bottom: 10px; */
+    width: 372px;
+    /* height: 200px; */
+    /* background-color: lightgreen; */
+}
+
+.card {
+
+    position: relative;
+    border-radius: 16px;
+    /* overflow: hidden; */
+    width: 300px;
+    height: 186px;
+    transition: 0.5s;
+    /* aspect-ratio: 3/2; */
+}
+
+.card:hover {
+    cursor: pointer;
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 8px);
+
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0px;
+    height: 80px;
+    display: flex;
+    align-items: flex-end;
+    background: linear-gradient(rgba(27, 30, 36, 0) 0%, rgb(27, 30, 36) 84.21%);
+}
+
+.title {
+    margin: 0px;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-bottom: 25px;
+
+}
+
+.name {
+    /* font-weight: 700; */
+    /* font-size: 18px; */
+    /* line-height: 24px; */
+    /* letter-spacing: -0.3px; */
+    color: rgba(2, 6, 12, 0.92);
+
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0px
+}
+
+.rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+    font-weight: 500;
+}
+
+.ratingText {
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.3px;
+    color: rgba(2, 6, 12, 0.92);
+    margin: 0px
+}
+
+.price {
+    font-weight: 700;
+    font-size: 22px;
+    color: rgba(2, 6, 12, 0.92);
+    margin: 0px
+}
+
+.discount {
+    font-weight: 600;
+    font-size: 22px;
+    color: #858080;
+    text-decoration: line-through;
+    padding-left: 10px;
+    margin: 0px
+}
+
+.details {
+    margin: 10px 0px;
+}
+
+
+
+.authorImage{
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 100%;
+}
+
+.description{
+    color:#475467;
+    /* font-size: 1rem;
+    font-weight: 400;
+    margin: 0px; */
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.author{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0px;
+}
+
+.authorName{
+    /* font-size: 1rem;
+    font-weight: 600;
+    margin: 0px;
+    padding-left: 10px; */
+
+    color: #101828;
+    font-size: .875rem;
+    font-weight: 600;
+    margin:0px;
+    padding-left: 10px;
+}
+
+.date{
+    color: #475467;
+    font-size: .875rem;
+    margin: 0px;
+    padding-left: 10px;
+}

@@ -2,11 +2,22 @@ import { useEffect, useState } from "react";
 import styles from "../../styles/Services.module.css";
 import ServiceIcon from "../components/serviceIcon";
 import MustVisitCard from "../components/mustVisitCard";
-import ProductsCard from "../components/productsCard";
+import CategoryCard from "../components/CategoryCard";
+import ProductCard from "../components/productCard";
+
 import Image from "next/image";
-import BannerImage from '../../public/banner.png';
+// import BannerImage from '../../public/banner.png';
+const BannerImage =
+  "https://staticin.sadhguru.org/in/pub/media/wysiwyg/Isha10-Rakhi-Web.jpg";
+const swiggy =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png";
 
 import products from "../products";
+import poojas from "../poojas";
+import PoojaCard from "../components/PoojaCard";
+import BlogPostCard from "../components/blogPost";
+
+import blogs from "../blogs";
 
 const services = [
   {
@@ -86,7 +97,8 @@ const MustVisit = [
     name: "Dhamek Stupa Sarnath",
   },
   {
-    image: "https://aadikashi.com/wp-content/uploads/2023/12/Sankat-Mochan-Hanuman-Mandir-Main-Gate.jpg",
+    image:
+      "https://aadikashi.com/wp-content/uploads/2023/12/Sankat-Mochan-Hanuman-Mandir-Main-Gate.jpg",
     name: "Shri Sankat Mochan Mandir",
   },
   {
@@ -99,13 +111,7 @@ const MustVisit = [
   },
 ];
 
-
-
-
 const Services = () => {
-
-
-
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>Our Services</h2>
@@ -117,38 +123,86 @@ const Services = () => {
       </div>
 
       <h2 className={styles.heading}>Must Visit Places</h2>
-
-
       <div className={styles.visit}>
-        {MustVisit.slice(0,4).map((place, index) => (
+        {MustVisit.slice(0, 4).map((place, index) => (
           <MustVisitCard key={index} {...place} />
         ))}
       </div>
 
       <section>
-      <Image
-        src={BannerImage}
-        layout="responsive"
-        width={1918}
-        height={533}
-        style={{borderRadius:10, marginTop:"2rem",}}
-        alt="Banner Image"
-      />
-    </section>
+        <Image
+          src={BannerImage}
+          layout="responsive"
+          width={1918}
+          height={533}
+          style={{ borderRadius: 10, marginTop: "2rem" }}
+          alt="Banner Image"
+        />
+      </section>
 
-    <h2 className={styles.heading}>Purchase Gifts</h2>
+      <h2 className={styles.heading}>Souvenir Categories</h2>
 
+      <div className={styles.visit}>
+        {Object.values(products)
+          .slice(0, 4)
+          .map((place, index) => (
+            <CategoryCard key={index} {...place} />
+          ))}
+      </div>
 
-    <div className={styles.visit}>
-        {Object.values(products).slice(0,4).map((place, index) => (
-          <ProductsCard key={index} {...place} />
+      <section>
+        <Image
+          src={
+            "https://staticin.sadhguru.org/in/pub/media/wysiwyg/homepage/Rudraksh-Guide-Mar-22-Web.jpg"
+          }
+          layout="responsive"
+          width={1918}
+          height={533}
+          style={{ borderRadius: 10, marginTop: "2rem" }}
+          alt="Banner Image"
+        />
+      </section>
+
+      <h2 className={styles.heading}>Purchase Gifts</h2>
+
+      <div className={styles.visit}>
+        {Object.values(products)
+          .slice(4, 8)
+          .map((product, index) => (
+            <ProductCard key={index} {...product} />
+          ))}
+      </div>
+
+      <section>
+        <Image
+          src={swiggy}
+          layout="responsive"
+          width={1918}
+          height={533}
+          style={{ borderRadius: 10, marginTop: "2rem" }}
+          alt="Banner Image"
+        />
+      </section>
+
+      <h2 className={styles.heading}>Perform Pooja in Kashi</h2>
+
+      <div className={styles.visit}>
+        {poojas.map((product, index) => (
+          <PoojaCard key={index} {...product} />
         ))}
       </div>
 
+      <h2 className={styles.blogHeading}>Latest blog posts</h2>
+
+
+      <div className={styles.visit}>
+        {blogs.map((product, index) => (
+          <BlogPostCard key={index} {...product} />
+        ))}
+      </div>
 
     </div>
   );
 };
-
 
 export default Services;

@@ -22,6 +22,7 @@ const products = {
       "Durable and Long-lasting: The stone is robust and maintains its sacred energy for generations, making it a cherished family heirloom.",
     ],
     rating: 4.5,
+
   },
   "66a65a041bbcce2024861714": {
     _id: "66a65a041bbcce2024861714",

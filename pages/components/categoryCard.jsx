@@ -1,6 +1,6 @@
-import styles from "../../styles/ProductsCard.module.css";
+import styles from "../../styles/CategoryCard.module.css";
 
-const ProductsCard = (props) => {
+const CategoryCard = (props) => {
   const { images, name } = props;
   console.log(props)
   return (
@@ -17,4 +17,4 @@ const ProductsCard = (props) => {
   );
 };
 
-export default ProductsCard;
+export default CategoryCard;

@@ -19,6 +19,8 @@ const Carousel = () => {
 
   const slides = [
     {
+      // image:
+      //   "https://staticin.sadhguru.org/in/pub/media/om/homeslider/r/u/rudraksha_web.jpg",
       image:
         "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/HomeBanner/Web-Banner/Home_Page_Hero_Banner_DBSDF10.jpg",
       content: "Slide 1 Content",

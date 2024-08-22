@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "../components/carousel";
 import Services from "./services";
+import Footer from "../components/footer";
 
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +11,7 @@ const HomePage = () => (
     {/* <NavHeader /> */}
     <Carousel />
     <Services />
+    <Footer />
     
   </div>
 );
