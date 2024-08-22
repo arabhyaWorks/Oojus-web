@@ -1,0 +1,87 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navLeft {
+    display: flex;
+    align-items: center;
+  }
+  
+  .menuButton {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .logoContainer {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .logoText h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .logoText p {
+    margin: 0;
+    font-size: 12px;
+    color: #666;
+  }
+  
+  .navCenter {
+    flex-grow: 1;
+  }
+  
+  .searchBar {
+    display: flex;
+    align-items: center;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+  
+  .searchInput {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    flex-grow: 1;
+  }
+  
+  .searchIcon {
+    font-size: 18px;
+  }
+  
+  .navRight {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cartButton {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .profileIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }

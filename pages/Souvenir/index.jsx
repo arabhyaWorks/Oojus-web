@@ -1,0 +1,565 @@
+import styles from "../../styles/souvenir/Souvenir.module.css";
+import SouvenirNavBar from "../components/souvenirNavBar";
+import Footer from "../components/footer";
+import Image from "next/image";
+import CategoriesCarousel from "../components/categoriesCarousel";
+import ProductCard from "../components/productCard";
+const products = {
+    "66a659f71bbcce2024861712": {
+      _id: "66a659f71bbcce2024861712",
+      about:
+        "The Sudarshan Shaligram is a sacred stone revered in Hinduism, associated particularly with Lord Vishnu, the preserver of the universe. Shaligram stones are naturally occurring fossilized ammonite shells found in the riverbeds of the Gandaki River in Nepal, and each Shaligram is believed to represent a different form of Vishnu. The Sudarshan Shaligram is distinguished by its unique markings that resemble the Sudarshan Chakra, the divine discus weapon of Vishnu. Devotees worship this Shaligram for protection, prosperity, and spiritual growth. It is often placed in homes, temples, or personal altars and is used in various rituals and prayers to invoke the blessings of Lord Vishnu.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 5,
+      gst: 18,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shaligram.png?alt=media&token=9a66c43c-58e2-4ad2-9607-0f4b2a0e5f77",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shaligram.png?alt=media&token=9a66c43c-58e2-4ad2-9607-0f4b2a0e5f77",
+      ],
+      inStock: 20,
+      name: "Mahalaxmi Shaligram",
+      price: 900,
+      productFeatures: [
+        "Authentic Shaligram: Naturally occurring fossilized ammonite shell from the Gandaki River in Nepal, revered as a symbol of Lord Vishnu.",
+        "Sudarshan Chakra Markings: Unique markings on the Shaligram resemble the Sudarshan Chakra, making it a powerful symbol of protection and divine power.",
+        "Spiritual Significance: Worshipping the Sudarshan Shaligram is believed to bring protection, prosperity, and spiritual growth to the devotee.",
+        "Ideal for Rituals and Prayers: Commonly used in various Hindu rituals, prayers, and as a part of daily worship to invoke the blessings of Lord Vishnu.",
+        "Perfect for Homes and Temples: This Shaligram is ideal for placement in homes, temples, or personal altars, creating a spiritually charged environment.",
+        "Durable and Long-lasting: The stone is robust and maintains its sacred energy for generations, making it a cherished family heirloom.",
+      ],
+      rating: 4.5,
+  
+    },
+    "66a65a041bbcce2024861714": {
+      _id: "66a65a041bbcce2024861714",
+      about:
+        "The Rudraksha Maala 8mm is a spiritual accessory consisting of 108 + 1 beads of equal size. These beads are believed to be the tears of Lord Shiva and hold significant religious and spiritual importance. The mala is designed for daily use, suitable for both boys and girls, and is strung on a strong thread for durability.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 0,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/55/55_55DiamondCutSphatikMala27072019160633_Photoroom_16052024154213.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/55/55_55DiamondCutSphatikMala27072019160633_Photoroom_16052024154213.jpg",
+      ],
+      inStock: 20,
+      name: "Sphatik mala diamond fine cut",
+      price: 1400,
+      productFeatures: [
+        "Contains 108 + 1 beads of equal size Rudraksha.",
+        "8mm size beads, ideal for daily use.",
+        "Suitable for both boys and girls.",
+        "Can be worn at all times, including during sleep and spiritual practices.",
+        "Should not come in contact with hot water or soap.",
+        "Avoid contact with metal; can be cast in gold or silver with care.",
+        "Strong thread ensures durability.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a061bbcce2024861716": {
+      _id: "66a65a061bbcce2024861716",
+      about:
+        "The Rudraksha Maala 8mm is a spiritual accessory consisting of 108 + 1 beads of equal size. These beads are believed to be the tears of Lord Shiva and hold significant religious and spiritual importance. The mala is designed for daily use, suitable for both boys and girls, and is strung on a strong thread for durability.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 5,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/226/226_226annapurnaji26122019141751_Photoroom1_23052024122527.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/226/226_226annapurnaji26122019141751_Photoroom1_23052024122527.jpg",
+      ],
+      inStock: 20,
+      name: "Brass Idols Maa Annapurna Devi",
+      price: 1000,
+      productFeatures: [
+        "Contains 108 + 1 beads of equal size Rudraksha.",
+        "8mm size beads, ideal for daily use.",
+        "Suitable for both boys and girls.",
+        "Can be worn at all times, including during sleep and spiritual practices.",
+        "Should not come in contact with hot water or soap.",
+        "Avoid contact with metal; can be cast in gold or silver with care.",
+        "Strong thread ensures durability.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a0a1bbcce2024861718": {
+      _id: "66a65a0a1bbcce2024861718",
+      about:
+        "The Ram Ji on Shaligram is a sacred and spiritually significant artifact, combining the divine essence of Lord Ram with the revered Shaligram stone. In Hindu tradition, Shaligram (or Shaligram Shila) is a sacred black stone found in the Gandaki River in Nepal, cherished by Vaishnavas as a representation of Lord Vishnu. Since Lord Ram is an incarnation of Vishnu, this Shaligram holds immense spiritual value, symbolizing the divine presence and attributes of both Vishnu and Ram. Devotees believe that keeping a Ram Ji Shaligram in their homes brings divine blessings, protection, and spiritual prosperity. It is revered for its purity and sanctity, making it a cherished item for daily worship and spiritual rituals.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 18,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shali2.png?alt=media&token=27975b37-b493-4393-87b9-26695b7f9667",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shali2.png?alt=media&token=27975b37-b493-4393-87b9-26695b7f9667",
+      ],
+      inStock: 20,
+      name: "Ram Ji On Shaligram",
+      price: "11112",
+      productFeatures: [
+        "Sacred Shaligram Stone: Found naturally in the Gandaki River, Nepal, the Shaligram is a fossilized stone representing Lord Vishnu, making it highly revered in Hinduism.",
+        "Depiction of Lord Ram: This Shaligram features an intricate carving of Lord Ram, symbolizing his divine presence and attributes, making it an ideal representation of Vishnu’s seventh avatar.",
+        "Spiritual Significance: Worshipping the Ram Ji Shaligram is believed to bring blessings, protection from evil, and spiritual growth, making it an essential part of a devotee’s spiritual practices.",
+        "Purity and Sanctity: The Shaligram is celebrated for its inherent purity and is often kept in homes and temples to ensure a spiritually charged and protective environment.",
+        "Ideal for Rituals: Perfect for use in daily prayers, pujas, and other spiritual rituals, the Ram Ji Shaligram is considered a divine object of worship.",
+        "Cultural Heritage: This Shaligram is not just a stone but a piece of cultural and religious heritage, passed down through generations as a sacred family heirloom.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a0c1bbcce202486171a": {
+      _id: "66a65a0c1bbcce202486171a",
+      about:
+        "The 2 Mukhi Rudraksha Bracelet is a powerful and spiritually significant accessory, representing the divine union of Lord Shiva and Goddess Parvati in the form of Ardhanarishvara. Controlled by the planet Moon, this Rudraksha is believed to bring emotional balance, harmony in relationships, and overall well-being to the wearer. It is particularly beneficial for those dealing with anxiety, depression, or a wavering mind. The bracelet is designed not only to enhance spiritual growth but also to foster a sense of inner bliss and fulfillment. Wearing the 2 Mukhi Rudraksha Bracelet is recommended for those seeking to strengthen their emotional stability, self-confidence, and to improve physical ailments related to the kidneys, intestines, and reproductive organs.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 18,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/bracelet.png?alt=media&token=94145836-118f-4b0f-8462-5da94ab51317",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/bracelet.png?alt=media&token=94145836-118f-4b0f-8462-5da94ab51317",
+      ],
+      inStock: 20,
+      name: "2 Mukhi Rudraksha Bracelet",
+      price: 445,
+      productFeatures: [
+        "Divine Connection: Represents the Ardhanarishvara form of Lord Shiva and Goddess Parvati, symbolizing unity and harmony.",
+        "Emotional Stability: Helps control a wavering and emotionally vulnerable mind, reducing anxiety and depression.",
+        "Relationship Harmony: Promotes strong and harmonious relationships, fostering love and understanding.",
+        "Self-Confidence and Inner Bliss: Bestows self-confidence, emotional stability, and a deep sense of inner fulfillment.",
+        "Health Benefits: Recommended for improving issues related to kidneys, intestines, infertility, and sexual ailments.",
+        "Planetary Influence: Controlled by the Moon, enhancing the positive effects of this celestial body on the wearer.",
+        "Durable Design: Crafted with high-quality Rudraksha beads, ensuring durability and comfort for daily wear.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a0f1bbcce202486171c": {
+      _id: "66a65a0f1bbcce202486171c",
+      about:
+        "The Rudraksha Maala 8mm is a spiritual accessory consisting of 108 + 1 beads of equal size. These beads are believed to be the tears of Lord Shiva and hold significant religious and spiritual importance. The mala is designed for daily use, suitable for both boys and girls, and is strung on a strong thread for durability.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 0,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/592/592_BrassRamDarbarSmall_Photoroom1_24052024105223.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/592/592_BrassRamDarbarSmall_Photoroom1_24052024105223.jpg",
+      ],
+      inStock: 20,
+      name: "Brass Ram Darbar Small",
+      price: 1000,
+      productFeatures: [
+        "Contains 108 + 1 beads of equal size Rudraksha.",
+        "8mm size beads, ideal for daily use.",
+        "Suitable for both boys and girls.",
+        "Can be worn at all times, including during sleep and spiritual practices.",
+        "Should not come in contact with hot water or soap.",
+        "Avoid contact with metal; can be cast in gold or silver with care.",
+        "Strong thread ensures durability.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a121bbcce202486171e": {
+      _id: "66a65a121bbcce202486171e",
+      about:
+        "The Sudarshan Shaligram is a sacred stone revered in Hinduism, associated particularly with Lord Vishnu, the preserver of the universe. Shaligram stones are naturally occurring fossilized ammonite shells found in the riverbeds of the Gandaki River in Nepal, and each Shaligram is believed to represent a different form of Vishnu. The Sudarshan Shaligram is distinguished by its unique markings that resemble the Sudarshan Chakra, the divine discus weapon of Vishnu. Devotees worship this Shaligram for protection, prosperity, and spiritual growth. It is often placed in homes, temples, or personal altars and is used in various rituals and prayers to invoke the blessings of Lord Vishnu.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 18,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/697/697_Mahalaxmi_Photoroomcopy_28062024114515.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/697/697_Mahalaxmi_Photoroomcopy_28062024114515.jpg",
+      ],
+      inStock: 20,
+      name: "Mahalaxmi Shaligram",
+      price: 1000,
+      productFeatures: [
+        "Authentic Shaligram: Naturally occurring fossilized ammonite shell from the Gandaki River in Nepal, revered as a symbol of Lord Vishnu.",
+        "Sudarshan Chakra Markings: Unique markings on the Shaligram resemble the Sudarshan Chakra, making it a powerful symbol of protection and divine power.",
+        "Spiritual Significance: Worshipping the Sudarshan Shaligram is believed to bring protection, prosperity, and spiritual growth to the devotee.",
+        "Ideal for Rituals and Prayers: Commonly used in various Hindu rituals, prayers, and as a part of daily worship to invoke the blessings of Lord Vishnu.",
+        "Perfect for Homes and Temples: This Shaligram is ideal for placement in homes, temples, or personal altars, creating a spiritually charged environment.",
+        "Durable and Long-lasting: The stone is robust and maintains its sacred energy for generations, making it a cherished family heirloom.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a161bbcce2024861720": {
+      _id: "66a65a161bbcce2024861720",
+      about:
+        "The Rudraksha Mala (8mm Beads) is a sacred necklace made from 108+1 natural Rudraksha beads, each measuring 8mm in size. Rudraksha beads are revered in Hinduism for their spiritual and medicinal properties, symbolizing the tears of Lord Shiva. According to ancient legends, these beads are considered a divine gift, bringing peace, health, and spiritual growth to those who wear them. This mala is simple yet powerful, ideal for daily use in meditation, prayer, or spiritual practice. It is designed for both boys and girls and is suitable for all age groups, making it a versatile accessory for anyone seeking spiritual upliftment.",
+      description: ["Brands : OOJUS", "Product Code : 9SKV_SC"],
+      discount: 10,
+      gst: 18,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/46/46_RUDRAKSHMALAIMAGE_Photoroom1_15052024160936.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/46/46_RUDRAKSHMALAIMAGE_Photoroom1_15052024160936.jpg",
+      ],
+      inStock: 20,
+      name: "Rudraksha Mala Normal 8mm",
+      price: 350,
+      productFeatures: [
+        "108+1 Beads: The mala is composed of 108 beads plus one additional bead, following the traditional count used in meditation practices.",
+        "8mm Bead Size: Each Rudraksha bead in the mala measures 8mm in diameter, providing a comfortable size for wearing and counting during prayers.",
+        "High-Quality Product: The mala is crafted from best-in-class natural Rudraksha beads, ensuring authenticity and effectiveness.",
+        "Ideal for All: Designed to be suitable for both boys and girls, making it an inclusive spiritual accessory.",
+        "Simple and Basic Design: The mala is simple in design, making it perfect for daily use during meditation, prayers, or spiritual rituals.",
+        "Durable and Strong Thread: The mala is strung with a strong and durable thread, ensuring it lasts long despite daily wear.",
+        "Cultural and Spiritual Significance: Wearing Rudraksha is believed to bring spiritual growth, protection, and divine blessings, making it an essential item for spiritual seekers.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a1a1bbcce2024861722": {
+      _id: "66a65a1a1bbcce2024861722",
+      about:
+        "The Santaan Gopal Shaligram is a sacred stone revered in Hinduism, associated with Lord Krishna in his child form, known as Bal Gopal or Gopal. This Shaligram is particularly venerated for its connection to blessings related to progeny and child welfare. Couples who desire the blessing of children often worship the Santaan Gopal Shaligram, seeking divine grace to be blessed with a child. It is believed to have divine properties that ensure the health, happiness, and prosperity of children, bringing overall joy and well-being to the family. The Santaan Gopal Shaligram is also valued for its spiritual significance, promoting devotion, spiritual growth, and a harmonious household.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SA"],
+      discount: 10,
+      gst: 10,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shali3.png?alt=media&token=4aaa401a-14bc-4b69-8c18-8944625f5695",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shali3.png?alt=media&token=4aaa401a-14bc-4b69-8c18-8944625f5695",
+      ],
+      inStock: 20,
+      name: "Santaan Gopal Shaligram",
+      price: 278,
+      productFeatures: [
+        "Progeny Blessings: The Santaan Gopal Shaligram is believed to bestow blessings related to the birth of children, making it highly revered among couples seeking to conceive.",
+        "Child Welfare: Worshipping this Shaligram is believed to ensure the health, protection, and prosperity of existing children, providing comfort to parents.",
+        "Spiritual Significance: The Shaligram is a source of spiritual growth, promoting devotion and enhancing one’s spiritual practices.",
+        "Holistic Well-being: It is thought to bring overall prosperity, happiness, and harmony to the household, creating a joyful family environment.",
+        "Authentic and Natural: Each Santaan Gopal Shaligram is naturally formed and sourced with care, ensuring its authenticity and divine essence.",
+        "Ideal for Gifting: The Shaligram makes a thoughtful and spiritually significant gift for occasions like baby showers, religious ceremonies, and family gatherings.",
+      ],
+      rating: 4.5,
+    },
+    "66a759c39666fb9e714578d3": {
+      _id: "66a759c39666fb9e714578d3",
+      about:
+        "Narmdeshwar Shivling, also known as Narmada Banalinga, is a unique type of Shiva Lingam found in the Narmada River in India. These lingams are naturally occurring and are revered in Hinduism for their spiritual significance. They are believed to represent Lord Shiva and are considered highly sacred. The Narmada River, one of the seven holy rivers in India, is particularly associated with these lingams.Key Features of Narmdeshwar Shivling:Natural Formation: These lingams are naturally formed due to the river's flow and are often perfectly round or oval.Symbol of Shiva: They are worshipped as a symbol of Lord Shiva, one of the principal deities in Hinduism.Spiritual Importance: It is believed that worshipping the Narmdeshwar Shivling brings peace, prosperity, and spiritual growth.Holy Origin: Originating from the Narmada River, these lingams carry the sanctity of the holy river, adding to their religious significance.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 0,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+      ],
+      inStock: 20,
+      name: "Narmdeshwar Shivling",
+      price: 528,
+      productFeatures: [
+        "Natural Formation: The Narmadeshwar Shivling is naturally formed due to the flow of the Narmada River, resulting in a perfectly round or oval shape.",
+        "Symbol of Lord Shiva: This Shivling is worshipped as a symbol of Lord Shiva, one of the principal deities in Hinduism, representing his divine presence.",
+        "Spiritual Significance: Worshipping the Narmadeshwar Shivling is believed to bring peace, prosperity, and spiritual growth to devotees.",
+        "Holy Origin: The lingam originates from the Narmada River, which carries the sanctity of the holy river, adding to its religious significance.",
+        "Cultural Heritage: The Narmadeshwar Shivling is closely associated with the religious and cultural traditions of India, particularly with the worship practices related to Lord Shiva.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a0f1bbcce202486171c": {
+      _id: "66a65a0f1bbcce202486171c",
+      about:
+        "The Rudraksha Maala 8mm is a spiritual accessory consisting of 108 + 1 beads of equal size. These beads are believed to be the tears of Lord Shiva and hold significant religious and spiritual importance. The mala is designed for daily use, suitable for both boys and girls, and is strung on a strong thread for durability.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 0,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/592/592_BrassRamDarbarSmall_Photoroom1_24052024105223.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/592/592_BrassRamDarbarSmall_Photoroom1_24052024105223.jpg",
+      ],
+      inStock: 20,
+      name: "Brass Ram Darbar Small",
+      price: 1000,
+      productFeatures: [
+        "Contains 108 + 1 beads of equal size Rudraksha.",
+        "8mm size beads, ideal for daily use.",
+        "Suitable for both boys and girls.",
+        "Can be worn at all times, including during sleep and spiritual practices.",
+        "Should not come in contact with hot water or soap.",
+        "Avoid contact with metal; can be cast in gold or silver with care.",
+        "Strong thread ensures durability.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a121bbcce202486171e": {
+      _id: "66a65a121bbcce202486171e",
+      about:
+        "The Sudarshan Shaligram is a sacred stone revered in Hinduism, associated particularly with Lord Vishnu, the preserver of the universe. Shaligram stones are naturally occurring fossilized ammonite shells found in the riverbeds of the Gandaki River in Nepal, and each Shaligram is believed to represent a different form of Vishnu. The Sudarshan Shaligram is distinguished by its unique markings that resemble the Sudarshan Chakra, the divine discus weapon of Vishnu. Devotees worship this Shaligram for protection, prosperity, and spiritual growth. It is often placed in homes, temples, or personal altars and is used in various rituals and prayers to invoke the blessings of Lord Vishnu.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 18,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/697/697_Mahalaxmi_Photoroomcopy_28062024114515.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/697/697_Mahalaxmi_Photoroomcopy_28062024114515.jpg",
+      ],
+      inStock: 20,
+      name: "Mahalaxmi Shaligram",
+      price: 1000,
+      productFeatures: [
+        "Authentic Shaligram: Naturally occurring fossilized ammonite shell from the Gandaki River in Nepal, revered as a symbol of Lord Vishnu.",
+        "Sudarshan Chakra Markings: Unique markings on the Shaligram resemble the Sudarshan Chakra, making it a powerful symbol of protection and divine power.",
+        "Spiritual Significance: Worshipping the Sudarshan Shaligram is believed to bring protection, prosperity, and spiritual growth to the devotee.",
+        "Ideal for Rituals and Prayers: Commonly used in various Hindu rituals, prayers, and as a part of daily worship to invoke the blessings of Lord Vishnu.",
+        "Perfect for Homes and Temples: This Shaligram is ideal for placement in homes, temples, or personal altars, creating a spiritually charged environment.",
+        "Durable and Long-lasting: The stone is robust and maintains its sacred energy for generations, making it a cherished family heirloom.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a161bbcce2024861720": {
+      _id: "66a65a161bbcce2024861720",
+      about:
+        "The Rudraksha Mala (8mm Beads) is a sacred necklace made from 108+1 natural Rudraksha beads, each measuring 8mm in size. Rudraksha beads are revered in Hinduism for their spiritual and medicinal properties, symbolizing the tears of Lord Shiva. According to ancient legends, these beads are considered a divine gift, bringing peace, health, and spiritual growth to those who wear them. This mala is simple yet powerful, ideal for daily use in meditation, prayer, or spiritual practice. It is designed for both boys and girls and is suitable for all age groups, making it a versatile accessory for anyone seeking spiritual upliftment.",
+      description: ["Brands : OOJUS", "Product Code : 9SKV_SC"],
+      discount: 10,
+      gst: 18,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/46/46_RUDRAKSHMALAIMAGE_Photoroom1_15052024160936.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/46/46_RUDRAKSHMALAIMAGE_Photoroom1_15052024160936.jpg",
+      ],
+      inStock: 20,
+      name: "Rudraksha Mala Normal 8mm",
+      price: 350,
+      productFeatures: [
+        "108+1 Beads: The mala is composed of 108 beads plus one additional bead, following the traditional count used in meditation practices.",
+        "8mm Bead Size: Each Rudraksha bead in the mala measures 8mm in diameter, providing a comfortable size for wearing and counting during prayers.",
+        "High-Quality Product: The mala is crafted from best-in-class natural Rudraksha beads, ensuring authenticity and effectiveness.",
+        "Ideal for All: Designed to be suitable for both boys and girls, making it an inclusive spiritual accessory.",
+        "Simple and Basic Design: The mala is simple in design, making it perfect for daily use during meditation, prayers, or spiritual rituals.",
+        "Durable and Strong Thread: The mala is strung with a strong and durable thread, ensuring it lasts long despite daily wear.",
+        "Cultural and Spiritual Significance: Wearing Rudraksha is believed to bring spiritual growth, protection, and divine blessings, making it an essential item for spiritual seekers.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a1a1bbcce2024861722": {
+      _id: "66a65a1a1bbcce2024861722",
+      about:
+        "The Santaan Gopal Shaligram is a sacred stone revered in Hinduism, associated with Lord Krishna in his child form, known as Bal Gopal or Gopal. This Shaligram is particularly venerated for its connection to blessings related to progeny and child welfare. Couples who desire the blessing of children often worship the Santaan Gopal Shaligram, seeking divine grace to be blessed with a child. It is believed to have divine properties that ensure the health, happiness, and prosperity of children, bringing overall joy and well-being to the family. The Santaan Gopal Shaligram is also valued for its spiritual significance, promoting devotion, spiritual growth, and a harmonious household.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SA"],
+      discount: 10,
+      gst: 10,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shali3.png?alt=media&token=4aaa401a-14bc-4b69-8c18-8944625f5695",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shali3.png?alt=media&token=4aaa401a-14bc-4b69-8c18-8944625f5695",
+      ],
+      inStock: 20,
+      name: "Santaan Gopal Shaligram",
+      price: 278,
+      productFeatures: [
+        "Progeny Blessings: The Santaan Gopal Shaligram is believed to bestow blessings related to the birth of children, making it highly revered among couples seeking to conceive.",
+        "Child Welfare: Worshipping this Shaligram is believed to ensure the health, protection, and prosperity of existing children, providing comfort to parents.",
+        "Spiritual Significance: The Shaligram is a source of spiritual growth, promoting devotion and enhancing one’s spiritual practices.",
+        "Holistic Well-being: It is thought to bring overall prosperity, happiness, and harmony to the household, creating a joyful family environment.",
+        "Authentic and Natural: Each Santaan Gopal Shaligram is naturally formed and sourced with care, ensuring its authenticity and divine essence.",
+        "Ideal for Gifting: The Shaligram makes a thoughtful and spiritually significant gift for occasions like baby showers, religious ceremonies, and family gatherings.",
+      ],
+      rating: 4.5,
+    },
+    "66a759c39666fb9e714578d3": {
+      _id: "66a759c39666fb9e714578d3",
+      about:
+        "Narmdeshwar Shivling, also known as Narmada Banalinga, is a unique type of Shiva Lingam found in the Narmada River in India. These lingams are naturally occurring and are revered in Hinduism for their spiritual significance. They are believed to represent Lord Shiva and are considered highly sacred. The Narmada River, one of the seven holy rivers in India, is particularly associated with these lingams.Key Features of Narmdeshwar Shivling:Natural Formation: These lingams are naturally formed due to the river's flow and are often perfectly round or oval.Symbol of Shiva: They are worshipped as a symbol of Lord Shiva, one of the principal deities in Hinduism.Spiritual Importance: It is believed that worshipping the Narmdeshwar Shivling brings peace, prosperity, and spiritual growth.Holy Origin: Originating from the Narmada River, these lingams carry the sanctity of the holy river, adding to their religious significance.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 0,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+      ],
+      inStock: 20,
+      name: "Narmdeshwar Shivling",
+      price: 528,
+      productFeatures: [
+        "Natural Formation: The Narmadeshwar Shivling is naturally formed due to the flow of the Narmada River, resulting in a perfectly round or oval shape.",
+        "Symbol of Lord Shiva: This Shivling is worshipped as a symbol of Lord Shiva, one of the principal deities in Hinduism, representing his divine presence.",
+        "Spiritual Significance: Worshipping the Narmadeshwar Shivling is believed to bring peace, prosperity, and spiritual growth to devotees.",
+        "Holy Origin: The lingam originates from the Narmada River, which carries the sanctity of the holy river, adding to its religious significance.",
+        "Cultural Heritage: The Narmadeshwar Shivling is closely associated with the religious and cultural traditions of India, particularly with the worship practices related to Lord Shiva.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a0f1bbcce202486171c": {
+      _id: "66a65a0f1bbcce202486171c",
+      about:
+        "The Rudraksha Maala 8mm is a spiritual accessory consisting of 108 + 1 beads of equal size. These beads are believed to be the tears of Lord Shiva and hold significant religious and spiritual importance. The mala is designed for daily use, suitable for both boys and girls, and is strung on a strong thread for durability.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 0,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/592/592_BrassRamDarbarSmall_Photoroom1_24052024105223.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/592/592_BrassRamDarbarSmall_Photoroom1_24052024105223.jpg",
+      ],
+      inStock: 20,
+      name: "Brass Ram Darbar Small",
+      price: 1000,
+      productFeatures: [
+        "Contains 108 + 1 beads of equal size Rudraksha.",
+        "8mm size beads, ideal for daily use.",
+        "Suitable for both boys and girls.",
+        "Can be worn at all times, including during sleep and spiritual practices.",
+        "Should not come in contact with hot water or soap.",
+        "Avoid contact with metal; can be cast in gold or silver with care.",
+        "Strong thread ensures durability.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a121bbcce202486171e": {
+      _id: "66a65a121bbcce202486171e",
+      about:
+        "The Sudarshan Shaligram is a sacred stone revered in Hinduism, associated particularly with Lord Vishnu, the preserver of the universe. Shaligram stones are naturally occurring fossilized ammonite shells found in the riverbeds of the Gandaki River in Nepal, and each Shaligram is believed to represent a different form of Vishnu. The Sudarshan Shaligram is distinguished by its unique markings that resemble the Sudarshan Chakra, the divine discus weapon of Vishnu. Devotees worship this Shaligram for protection, prosperity, and spiritual growth. It is often placed in homes, temples, or personal altars and is used in various rituals and prayers to invoke the blessings of Lord Vishnu.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 18,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/697/697_Mahalaxmi_Photoroomcopy_28062024114515.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/697/697_Mahalaxmi_Photoroomcopy_28062024114515.jpg",
+      ],
+      inStock: 20,
+      name: "Mahalaxmi Shaligram",
+      price: 1000,
+      productFeatures: [
+        "Authentic Shaligram: Naturally occurring fossilized ammonite shell from the Gandaki River in Nepal, revered as a symbol of Lord Vishnu.",
+        "Sudarshan Chakra Markings: Unique markings on the Shaligram resemble the Sudarshan Chakra, making it a powerful symbol of protection and divine power.",
+        "Spiritual Significance: Worshipping the Sudarshan Shaligram is believed to bring protection, prosperity, and spiritual growth to the devotee.",
+        "Ideal for Rituals and Prayers: Commonly used in various Hindu rituals, prayers, and as a part of daily worship to invoke the blessings of Lord Vishnu.",
+        "Perfect for Homes and Temples: This Shaligram is ideal for placement in homes, temples, or personal altars, creating a spiritually charged environment.",
+        "Durable and Long-lasting: The stone is robust and maintains its sacred energy for generations, making it a cherished family heirloom.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a161bbcce2024861720": {
+      _id: "66a65a161bbcce2024861720",
+      about:
+        "The Rudraksha Mala (8mm Beads) is a sacred necklace made from 108+1 natural Rudraksha beads, each measuring 8mm in size. Rudraksha beads are revered in Hinduism for their spiritual and medicinal properties, symbolizing the tears of Lord Shiva. According to ancient legends, these beads are considered a divine gift, bringing peace, health, and spiritual growth to those who wear them. This mala is simple yet powerful, ideal for daily use in meditation, prayer, or spiritual practice. It is designed for both boys and girls and is suitable for all age groups, making it a versatile accessory for anyone seeking spiritual upliftment.",
+      description: ["Brands : OOJUS", "Product Code : 9SKV_SC"],
+      discount: 10,
+      gst: 18,
+      images: [
+        "https://shrikashiprasadam.com/upload/products_images/46/46_RUDRAKSHMALAIMAGE_Photoroom1_15052024160936.jpg",
+        "https://shrikashiprasadam.com/upload/products_images/46/46_RUDRAKSHMALAIMAGE_Photoroom1_15052024160936.jpg",
+      ],
+      inStock: 20,
+      name: "Rudraksha Mala Normal 8mm",
+      price: 350,
+      productFeatures: [
+        "108+1 Beads: The mala is composed of 108 beads plus one additional bead, following the traditional count used in meditation practices.",
+        "8mm Bead Size: Each Rudraksha bead in the mala measures 8mm in diameter, providing a comfortable size for wearing and counting during prayers.",
+        "High-Quality Product: The mala is crafted from best-in-class natural Rudraksha beads, ensuring authenticity and effectiveness.",
+        "Ideal for All: Designed to be suitable for both boys and girls, making it an inclusive spiritual accessory.",
+        "Simple and Basic Design: The mala is simple in design, making it perfect for daily use during meditation, prayers, or spiritual rituals.",
+        "Durable and Strong Thread: The mala is strung with a strong and durable thread, ensuring it lasts long despite daily wear.",
+        "Cultural and Spiritual Significance: Wearing Rudraksha is believed to bring spiritual growth, protection, and divine blessings, making it an essential item for spiritual seekers.",
+      ],
+      rating: 4.5,
+    },
+    "66a65a1a1bbcce2024861722": {
+      _id: "66a65a1a1bbcce2024861722",
+      about:
+        "The Santaan Gopal Shaligram is a sacred stone revered in Hinduism, associated with Lord Krishna in his child form, known as Bal Gopal or Gopal. This Shaligram is particularly venerated for its connection to blessings related to progeny and child welfare. Couples who desire the blessing of children often worship the Santaan Gopal Shaligram, seeking divine grace to be blessed with a child. It is believed to have divine properties that ensure the health, happiness, and prosperity of children, bringing overall joy and well-being to the family. The Santaan Gopal Shaligram is also valued for its spiritual significance, promoting devotion, spiritual growth, and a harmonious household.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SA"],
+      discount: 10,
+      gst: 10,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shali3.png?alt=media&token=4aaa401a-14bc-4b69-8c18-8944625f5695",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/shali3.png?alt=media&token=4aaa401a-14bc-4b69-8c18-8944625f5695",
+      ],
+      inStock: 20,
+      name: "Santaan Gopal Shaligram",
+      price: 278,
+      productFeatures: [
+        "Progeny Blessings: The Santaan Gopal Shaligram is believed to bestow blessings related to the birth of children, making it highly revered among couples seeking to conceive.",
+        "Child Welfare: Worshipping this Shaligram is believed to ensure the health, protection, and prosperity of existing children, providing comfort to parents.",
+        "Spiritual Significance: The Shaligram is a source of spiritual growth, promoting devotion and enhancing one’s spiritual practices.",
+        "Holistic Well-being: It is thought to bring overall prosperity, happiness, and harmony to the household, creating a joyful family environment.",
+        "Authentic and Natural: Each Santaan Gopal Shaligram is naturally formed and sourced with care, ensuring its authenticity and divine essence.",
+        "Ideal for Gifting: The Shaligram makes a thoughtful and spiritually significant gift for occasions like baby showers, religious ceremonies, and family gatherings.",
+      ],
+      rating: 4.5,
+    },
+    "66a759c39666fb9e714578d3": {
+      _id: "66a759c39666fb9e714578d3",
+      about:
+        "Narmdeshwar Shivling, also known as Narmada Banalinga, is a unique type of Shiva Lingam found in the Narmada River in India. These lingams are naturally occurring and are revered in Hinduism for their spiritual significance. They are believed to represent Lord Shiva and are considered highly sacred. The Narmada River, one of the seven holy rivers in India, is particularly associated with these lingams.Key Features of Narmdeshwar Shivling:Natural Formation: These lingams are naturally formed due to the river's flow and are often perfectly round or oval.Symbol of Shiva: They are worshipped as a symbol of Lord Shiva, one of the principal deities in Hinduism.Spiritual Importance: It is believed that worshipping the Narmdeshwar Shivling brings peace, prosperity, and spiritual growth.Holy Origin: Originating from the Narmada River, these lingams carry the sanctity of the holy river, adding to their religious significance.",
+      description: ["Brands : OOJUS", "Product Code : 1SKV_SC"],
+      discount: 10,
+      gst: 0,
+      images: [
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/narmeshwar_shivling.png?alt=media&token=670ee50e-9f1e-4e3e-99d0-b7706f049e45",
+      ],
+      inStock: 20,
+      name: "Narmdeshwar Shivling",
+      price: 528,
+      productFeatures: [
+        "Natural Formation: The Narmadeshwar Shivling is naturally formed due to the flow of the Narmada River, resulting in a perfectly round or oval shape.",
+        "Symbol of Lord Shiva: This Shivling is worshipped as a symbol of Lord Shiva, one of the principal deities in Hinduism, representing his divine presence.",
+        "Spiritual Significance: Worshipping the Narmadeshwar Shivling is believed to bring peace, prosperity, and spiritual growth to devotees.",
+        "Holy Origin: The lingam originates from the Narmada River, which carries the sanctity of the holy river, adding to its religious significance.",
+        "Cultural Heritage: The Narmadeshwar Shivling is closely associated with the religious and cultural traditions of India, particularly with the worship practices related to Lord Shiva.",
+      ],
+      rating: 4.5,
+    },
+  };
+
+
+const swiggy =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png";
+
+const Souvenir = () => {
+
+    console.log("length of products",Object.values(products).length)
+
+  return (
+    <div className={styles.souvenir}>
+      <SouvenirNavBar />
+
+      <section>
+        <Image
+          src={swiggy}
+          layout="responsive"
+          width={1918}
+          height={533}
+          style={{}}
+          alt="Banner Image"
+        />
+      </section>
+
+      <CategoriesCarousel />
+
+      <section className={styles.margin}>
+        <h2 className={styles.heading}>Purchase Gifts</h2>
+
+        <div className={styles.visit}>
+          {Object.values(products)
+          .slice(0, 8)
+            .map((product, index) => (
+              <ProductCard key={index} {...product} />
+            ))}
+        </div>
+      </section>
+
+      <section className={styles.margin}>
+        <h2 className={styles.heading}>New Arrivals</h2>
+
+        <div className={styles.visit}>
+          {Object.values(products)
+          .slice(0, 4)
+            .map((product, index) => (
+              <ProductCard key={index} {...product} />
+            ))}
+        </div>
+      </section>
+
+      <section className={styles.margin}>
+        <h2 className={styles.heading}>Bahumukhi Rudraaksh</h2>
+
+        <div className={styles.visit}>
+          {Object.values(products)
+          .slice(0, 4)
+            .map((product, index) => (
+              <ProductCard key={index} {...product} />
+            ))}
+        </div>
+      </section>
+      <Footer />
+    </div>
+  );
+};
+
+export default Souvenir;

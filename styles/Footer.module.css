@@ -7,6 +7,22 @@
 
 }
 
+.items{
+    padding: .5rem 0;
+    font-size: .875rem;
+}
+.socialIcons{
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 1.125rem;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid #dfdfdf;
+}
 .footerContainer {
     display: flex;
     justify-content: space-between;
@@ -36,9 +52,19 @@
 }
 
 .qrCode {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
     margin-bottom: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.googleIcon{
+    /* aspect-ratio: 646/520; */
+    /* background-color: red; */
+    /* padding: 10px; */
+
 }
 
 .appLinks img {
@@ -63,7 +89,16 @@
     color: #666;
 }
 
+.socialLinks {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    gap: 10px;
+
+}
+
 .socialLinks img {
     width: 24px;
     margin-left: 10px;
+    
 }

@@ -1,0 +1,52 @@
+.image {
+    cursor: pointer;
+    margin: 0px auto;
+    background-color: white;
+    /* width: 120px;
+    height: 120px; */
+    transition: transform 0.5s;
+}
+
+.image:hover {
+    transform: scale(1.1);
+
+}
+
+.name {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-top: .5rem;
+    min-height: auto;
+    white-space: pre;
+    color: black;
+    text-align: center;
+}
+
+.carouselContainer {
+    display: flex;
+    flex-direction: row;
+    /* padding: 0 4.25rem; */
+    /* background-color: white; */
+
+
+    /* background-color: red; */
+    justify-content: space-around;
+}
+
+.carouselItem {
+    /* background-color: lightgreen; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading {
+    /* font-size: 1.75rem; */
+    color: #222;
+    font-size: 2.125rem;
+    margin-bottom: 1.875rem;
+}
+
+.superCont{
+    margin: 1rem 4.25rem ;
+}

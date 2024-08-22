@@ -8,7 +8,8 @@ const nextConfig = {
       "sa.adanione.com",
       "media-assets.swiggy.com",
       "assets-global.website-files.com",
-      "firebasestorage.googleapis.com"
+      "firebasestorage.googleapis.com",
+      "vyaparbackend.s3.amazonaws.com"
     ],
   },
 };

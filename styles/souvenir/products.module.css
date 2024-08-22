@@ -1,0 +1,78 @@
+.souvenir {}
+
+.heading {
+    font-size: 1.75rem;
+    color: #222;
+}
+
+
+.productsContainer {
+    /* margin: 1rem 4.25rem;
+    background-color: green; */
+    width: 80%;
+
+
+}
+
+.visit {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 0 1rem;
+}
+
+.sideFilters{
+    /* background-color: red; */
+    /* width: 20%; */
+    /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
+    filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 8px);
+
+    background-color: white;
+    padding: 1rem;
+    border-radius: 16px;
+    margin-right: 1rem;
+}
+
+.feedContainer{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center;
+    align-items: center; */
+    /* background-color: lightgreen; */
+    
+}
+
+.filterText{
+    color: #222;
+    font-size: 1.25rem;
+}
+
+.labels{
+    font-size: 1rem;
+    color: #222;
+    /* margin-top: 1rem; */
+    margin: 10px;
+    /* background-color: red; */
+}
+
+.labelItem{
+
+    margin: 10px;
+    /* color: #ffd700; */
+}
+
+.ratingContainer{
+    margin: 10px;
+    cursor: pointer ;
+}
+
+.star{
+    margin-right: 10px;
+
+}
+
+.feedContainer{
+    margin: 1rem 1.25rem;
+    /* background-color: red; */
+
+}
