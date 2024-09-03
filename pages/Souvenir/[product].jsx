@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../../styles/souvenir/product.module.css";
 import SouvenirNavBar from "../components/souvenirNavBar";
 import Footer from "../components/footer";
 import { products } from "./products";
 import ProductCard from "../components/productCard";
+import BreadCrum from "../components/BreadCrum";
+
+import { onValue, ref } from "firebase/database";
+import database from "../../firebase/config";
+
+import LongBanner from "../components/longBanner";
 
 const product = {
-  images: ["https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg"],
+  images: [
+    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
+    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
+  ],
   title: "Amazon Brand - Umi Lord Krishna Idol Statue",
   rating: 3.3,
   reviews: 8,
@@ -33,45 +45,69 @@ const product = {
   ],
 };
 
-const ProductComponent = ({}) => {
+const discountedPrice = (data) => {
+  return `₹${data.price - data.price * (data.discount / 100)}`;
+};
+
+const ProductComponent = (props) => {
+  const { data } = props;
+  console.log("data is here : ", data);
+
   return (
     <div className={styles.superContainer}>
       <SouvenirNavBar />
+      <BreadCrum crumbs={["Souvenir", "Product", "Brass Idol"]} />
 
       <div className={styles.productContainer}>
         {/* Product Image Carousel */}
         <div className={styles.imageCarousel}>
           <img
-            src={product.images[0]}
+            src={data?.images[0]}
             alt={`Product image`}
             className={styles.productImage}
           />
+
+          <div className={styles.imageThumbnails}>
+            {product?.images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                alt={`Product image ${index}`}
+                className={styles.thumbnail}
+              />
+            ))}
+          </div>
         </div>
 
-        <div>
+        <div className={styles.detailsContainer}>
           {/* Product Details */}
           <div className={styles.productDetails}>
-            <h1 className={styles.productTitle}>{product.title}</h1>
+            <h1 className={styles.productTitle}>{data?.name}</h1>
             <div className={styles.ratingAndReviews}>
-              <span className={styles.rating}>{product.rating} ★</span>
-              <span className={styles.reviews}>
-                ({product.reviews} ratings)
-              </span>
+              <span className={styles.rating}>{data?.rating} ★</span>
+              <span className={styles.reviews}>({3232} ratings)</span>
             </div>
             <div className={styles.priceSection}>
               <span className={styles.discountedPrice}>
-                ₹{product.discountedPrice}
+                {discountedPrice(data)}
               </span>
-              <span className={styles.originalPrice}>
-                ₹{product.originalPrice}
-              </span>
+              <span className={styles.originalPrice}>₹{data.price}</span>
               <span className={styles.discountPercentage}>
-                -{product.discountPercentage}%
+                -{data.discount}%
               </span>
             </div>
             <div className={styles.stockInfo}>
-              <span>{product.inStock ? "In stock" : "Out of stock"}</span>
-              <span>Ships from {product.seller}</span>
+              <span>
+                {data?.inStock > 0
+                  ? "Product is available in Stock"
+                  : "Out of stock"}
+              </span>
+              <span style={{ color: "red", marginLeft:5 }}>
+                {data?.inStock > 6
+                  ? "(Hurry up only few in stock are left)"
+                  : null}
+              </span>
+              {/* <span>Ships from {product.seller}</span> */}
             </div>
             <div className={styles.buyOptions}>
               <button className={styles.addToCart}>Add to Cart</button>
@@ -81,21 +117,22 @@ const ProductComponent = ({}) => {
 
           {/* Product Specifications */}
           <div className={styles.productSpecifications}>
-            <h2>Product Details</h2>
-            <ul>
-              {product.specifications.map((spec, index) => (
+            <h2>About this Product</h2>
+            {/* <ul>
+              {data?.description.map((spec, index) => (
                 <li key={index}>
-                  <strong>{spec.label}: </strong>
-                  {spec.value}
+                  <strong>{spec.split(":")[0]}</strong>: {spec.split(":")[1]}
                 </li>
               ))}
-            </ul>
+            </ul> */}
+
+            <p>{data?.about}</p>
           </div>
           {/* About the product */}
           <div className={styles.productSpecifications}>
-            <h2>About the Product</h2>
+            <h2>Product Features</h2>
             <ul>
-              {product.about.map((spec, index) => (
+              {data?.productFeatures.map((spec, index) => (
                 <li key={index}>{spec}</li>
               ))}
             </ul>
@@ -108,18 +145,48 @@ const ProductComponent = ({}) => {
 
         <div className={styles.visit}>
           {Object.values(products)
-            .slice(0, 4)
+            .slice(0, 5)
             .map((product, index) => (
-              <ProductCard key={index} {...product} />
+              <ProductCard dimension={"square"} key={index} {...product} />
             ))}
         </div>
       </section>
 
-      <Footer/>
+      <section className={styles.margin}>
+        <h2 className={styles.heading}>New Arrivals</h2>
+
+        <div className={styles.visit}>
+          {Object.values(products)
+            .slice(0, 5)
+            .map((product, index) => (
+              <ProductCard dimension={"square"} key={index} {...product} />
+            ))}
+        </div>
+      </section>
+
+      <LongBanner />
+
+      <Footer />
     </div>
   );
 };
 
 // Example product object structure
+
+export const getServerSideProps = async (context) => {
+  let data = null;
+
+  const dbRef = ref(database, "souvenir/products/66a65a061bbcce2024861716");
+  onValue(dbRef, (snapshot) => {
+    data = snapshot.val();
+    // console.log("product data: ", data);
+  });
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
 
 export default ProductComponent;

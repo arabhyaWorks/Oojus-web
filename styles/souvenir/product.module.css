@@ -1,119 +1,168 @@
-.productContainer {
-    display: flex;
-    flex-direction: row;
-    padding: 16px;
-    background-color: #fff;
+.superContainer {
+    background-color: #FBF6FA;
+    color: #222;
+}
 
-  }
-  
-  .imageCarousel {
+
+
+
+.productContainer {
+    background-color: white;
+    outline: rgb(128 128 128 / 20%) solid 1px;
+    border-radius: 5px;
+    padding: 1rem;
     display: flex;
-    overflow-x: scroll;
-    margin-bottom: 16px;
-  }
-  
-  .productImage {
-    /* max-width: 100%; */
-    margin-right: 8px;
-    border-radius: 4px;
+    background-color: white;
+    margin: 30px;
+    margin-top: 0px;
+}
+
+
+
+
+
+.imageCarousel {
+    padding: 10px;
+
+}
+
+.productImage {
     width: 475px;
     height: 475px;
-  }
-  
-  .productDetails {
+    border-radius: 5px;
+}
+
+.imageThumbnails {
+    display: flex;
+    justify-content: space-between;
+    /* padding: 0.8rem 0; */
+
+}
+
+.thumbnail {
+    width: 86px;
+    height: 86px;
+    object-fit: cover;
+    cursor: pointer;
+    padding: 5px;
+    border: none;
+    margin: 1px;
+    border: 1.5px solid #e7e7e7;
+    border-radius: 2px;
+    transition: border 0.2s ease-in-out;
+    margin-top: 4px;
+}
+
+.thumbnail:hover {
+    border: 1.5px solid #f26414;
+}
+
+.detailsContainer {
+    /* background-color: red; */
+    padding: 0 2rem;
+}
+
+.productDetails {
     margin-bottom: 16px;
     color: black;
-  }
-  
-  .productTitle {
+}
+
+.productTitle {
     font-size: 20px;
     font-weight: bold;
     color: black;
-  }
-  
-  .ratingAndReviews {
+}
+
+.ratingAndReviews {
     display: flex;
     align-items: center;
     margin: 8px 0;
     color: black;
-  }
-  
-  .rating {
-    color: #ffa41c; /* Keep the star rating in its original color */
+}
+
+.rating {
+    color: #ffa41c;
+    /* Keep the star rating in its original color */
     margin-right: 4px;
-  }
-  
-  .reviews {
+}
+
+.reviews {
     color: black;
-  }
-  
-  .priceSection {
+}
+
+.priceSection {
     display: flex;
     align-items: center;
     color: black;
-  }
-  
-  .discountedPrice {
+}
+
+.discountedPrice {
     font-size: 24px;
     font-weight: bold;
     margin-right: 8px;
     color: black;
-  }
-  
-  .originalPrice {
+}
+
+.originalPrice {
     text-decoration: line-through;
     color: black;
     margin-right: 8px;
-  }
-  
-  .discountPercentage {
+}
+
+.discountPercentage {
     color: black;
-  }
-  
-  .stockInfo {
+}
+
+.stockInfo {
     margin: 8px 0;
     color: black;
-  }
-  
-  .buyOptions button {
+}
+
+.buyOptions button {
     background-color: #ffd814;
     border: none;
+    /* padding: 10px 18px; */
+    font-size:0.9rem;
     padding: 8px 16px;
     margin-right: 8px;
     border-radius: 4px;
     cursor: pointer;
     color: black;
-  }
-  
-  .buyOptions .buyNow {
-    background-color: #ffa41c;
-  }
-  
-  .productSpecifications h2 {
-    margin: 16px 0 8px;
-    color: black;
-  }
-  
-  .productSpecifications ul {
-    list-style: none;
-    padding: 0;
-    color: black;
-  }
-  
-  .productSpecifications li {
-    margin-bottom: 8px;
-    color: black;
-  }
+}
 
-  .visit {
+.buyOptions .buyNow {
+    background-color: #ffa41c;
+}
+
+
+.margin {
+    /* margin: 1rem 4.25rem; */
+
+    outline: rgb(128 128 128 / 20%) solid 1px;
+    border-radius: 5px;
+    /* padding: 0px 1rem; */
+    padding: 1rem;
+    
+    background-color: white;
+    margin: 0 30px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+}
+
+.visit {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 1rem;
+    margin: 0 0.5rem;
+
 }
 
 
 .heading {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
     color: #222;
+    margin: 0px;
+    padding: 0px;
+    margin-bottom: 16px;
 }
