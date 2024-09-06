@@ -46,7 +46,7 @@ const product = {
 };
 
 const discountedPrice = (data) => {
-  return `₹${data.price - data.price * (data.discount / 100)}`;
+  return `₹${data?.price - data?.price * (data?.discount / 100)}`;
 };
 
 const ProductComponent = (props) => {
@@ -91,9 +91,9 @@ const ProductComponent = (props) => {
               <span className={styles.discountedPrice}>
                 {discountedPrice(data)}
               </span>
-              <span className={styles.originalPrice}>₹{data.price}</span>
+              <span className={styles.originalPrice}>₹{data?.price}</span>
               <span className={styles.discountPercentage}>
-                -{data.discount}%
+                -{data?.discount}%
               </span>
             </div>
             <div className={styles.stockInfo}>
@@ -179,7 +179,8 @@ export const getServerSideProps = async (context) => {
   const dbRef = ref(database, "souvenir/products/66a65a061bbcce2024861716");
   onValue(dbRef, (snapshot) => {
     data = snapshot.val();
-    // console.log("product data: ", data);
+    console.error("this is product data")
+    console.log("product data: ", data);
   });
 
   return {
