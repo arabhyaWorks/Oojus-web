@@ -6,6 +6,9 @@ import CategoriesCarousel from "../components/categoriesCarousel";
 import ProductCard from "../components/productCard";
 import { FaStar, FaRegStar } from "react-icons/fa";
 
+import database from "../../firebase/config";
+import { ref, onValue } from "firebase/database";
+
 const products = {
   "66a659f71bbcce2024861712": {
     _id: "66a659f71bbcce2024861712",
@@ -501,7 +504,10 @@ const products = {
 const swiggy =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png";
 
-const Souvenir = () => {
+const Souvenir = (props) => {
+  const { data } = props;
+  console.log("data is here : ", data);
+
   return (
     <div className={styles.souvenir}>
       <SouvenirNavBar />
@@ -520,276 +526,214 @@ const Souvenir = () => {
       <section className={styles.feedContainer}>
         <div>
           <div className={styles.sideFilters}>
-
-              <h2 className={styles.filterText}>Pricings</h2>
-              <div className={styles.priceFilter}>
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="under500"
-                    name="under500"
-                    value="500"
-                  />
-                  <label className={styles.labels} htmlFor="under500">
-                    Under ₹500
-                  </label>
-                </div>
-
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="between500to1000"
-                    name="between500to1000"
-                    value="500to1000"
-                  />
-                  <label className={styles.labels} htmlFor="between500to1000">
-                    ₹500 - ₹1000
-                  </label>
-                </div>
-
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="between1000to2000"
-                    name="between1000to2000"
-                    value="1000to2000"
-                  />
-                  <label className={styles.labels} htmlFor="between1000to2000">
-                    ₹1000 - ₹2000
-                  </label>
-                </div>
-
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="above2000"
-                    name="above2000"
-                    value="2000"
-                  />
-                  <label className={styles.labels} htmlFor="between1000to2000">
-                    ₹1000 - ₹2000
-                  </label>
-                </div>
-
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="above2000"
-                    name="above2000"
-                    value="2000"
-                  />
-                  <label className={styles.labels} htmlFor="between1000to2000">
-                    Alphabetically: A-Z
-                  </label>
-                </div>
-
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="above2000"
-                    name="above2000"
-                    value="2000"
-                  />
-                  <label className={styles.labels} htmlFor="between1000to2000">
-                    Alphabetically: Z-A
-                  </label>
-                </div>
-
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="above2000"
-                    name="above2000"
-                    value="2000"
-                  />
-                  <label className={styles.labels} htmlFor="between1000to2000">
-                    Featured
-                  </label>
-                </div>
-
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="above2000"
-                    name="above2000"
-                    value="2000"
-                  />
-                  <label className={styles.labels} htmlFor="between1000to2000">
-                    New Arrivals
-                  </label>
-                </div>
+            <h2 className={styles.filterText}>Pricings</h2>
+            <div className={styles.priceFilter}>
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="under500"
+                  name="under500"
+                  value="500"
+                />
+                <label className={styles.labels} htmlFor="under500">
+                  Under ₹500
+                </label>
               </div>
 
-              <h2 className={styles.filterText}>Availability</h2>
-              <div className={styles.priceFilter}>
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="under500"
-                    name="under500"
-                    value="500"
-                  />
-                  <label className={styles.labels} htmlFor="">
-                    In Stock
-                  </label>
-                </div>
-
-                <div className={styles.labelItem}>
-                  <input
-                    type="checkbox"
-                    id="between500to1000"
-                    name="between500to1000"
-                    value="500to1000"
-                  />
-                  <label className={styles.labels} htmlFor="between500to1000">
-                    Out of Stock
-                  </label>
-                </div>
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="between500to1000"
+                  name="between500to1000"
+                  value="500to1000"
+                />
+                <label className={styles.labels} htmlFor="between500to1000">
+                  ₹500 - ₹1000
+                </label>
               </div>
 
-              <h2 className={styles.filterText}>Customer Review</h2>
-              <div className={styles.priceFilter}>
-                <div className={styles.ratingContainer}>
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                </div>
-
-                <div className={styles.ratingContainer}>
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                </div>
-
-                <div className={styles.ratingContainer}>
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                </div>
-
-                <div className={styles.ratingContainer}>
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                </div>
-
-                <div className={styles.ratingContainer}>
-                  <FaStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                  <FaRegStar
-                    size="1.5em"
-                    color="#ffd700"
-                    className={styles.star}
-                  />
-                </div>
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="between1000to2000"
+                  name="between1000to2000"
+                  value="1000to2000"
+                />
+                <label className={styles.labels} htmlFor="between1000to2000">
+                  ₹1000 - ₹2000
+                </label>
               </div>
 
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="above2000"
+                  name="above2000"
+                  value="2000"
+                />
+                <label className={styles.labels} htmlFor="between1000to2000">
+                  ₹1000 - ₹2000
+                </label>
+              </div>
+
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="above2000"
+                  name="above2000"
+                  value="2000"
+                />
+                <label className={styles.labels} htmlFor="between1000to2000">
+                  Alphabetically: A-Z
+                </label>
+              </div>
+
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="above2000"
+                  name="above2000"
+                  value="2000"
+                />
+                <label className={styles.labels} htmlFor="between1000to2000">
+                  Alphabetically: Z-A
+                </label>
+              </div>
+
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="above2000"
+                  name="above2000"
+                  value="2000"
+                />
+                <label className={styles.labels} htmlFor="between1000to2000">
+                  Featured
+                </label>
+              </div>
+
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="above2000"
+                  name="above2000"
+                  value="2000"
+                />
+                <label className={styles.labels} htmlFor="between1000to2000">
+                  New Arrivals
+                </label>
+              </div>
+            </div>
+
+            <h2 className={styles.filterText}>Availability</h2>
+            <div className={styles.priceFilter}>
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="under500"
+                  name="under500"
+                  value="500"
+                />
+                <label className={styles.labels} htmlFor="">
+                  In Stock
+                </label>
+              </div>
+
+              <div className={styles.labelItem}>
+                <input
+                  type="checkbox"
+                  id="between500to1000"
+                  name="between500to1000"
+                  value="500to1000"
+                />
+                <label className={styles.labels} htmlFor="between500to1000">
+                  Out of Stock
+                </label>
+              </div>
+            </div>
+
+            <h2 className={styles.filterText}>Customer Review</h2>
+            <div className={styles.priceFilter}>
+              <div className={styles.ratingContainer}>
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+              </div>
+
+              <div className={styles.ratingContainer}>
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+              </div>
+
+              <div className={styles.ratingContainer}>
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+              </div>
+
+              <div className={styles.ratingContainer}>
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+              </div>
+
+              <div className={styles.ratingContainer}>
+                <FaStar size="1.5em" color="#ffd700" className={styles.star} />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+                <FaRegStar
+                  size="1.5em"
+                  color="#ffd700"
+                  className={styles.star}
+                />
+              </div>
+            </div>
           </div>
         </div>
 
@@ -797,28 +741,14 @@ const Souvenir = () => {
           <h2 className={styles.heading}>Purchase Gifts</h2>
 
           <div className={styles.visit}>
-            {Object.values(products)
-              .slice(0, 6)
+            {data
+              .slice(0, 9)
               .map((product, index) => (
                 <ProductCard key={index} {...product} />
               ))}
           </div>
 
-          <div className={styles.visit}>
-            {Object.values(products)
-              .slice(0, 6)
-              .map((product, index) => (
-                <ProductCard key={index} {...product} />
-              ))}
-          </div>
 
-          <div className={styles.visit}>
-            {Object.values(products)
-              .slice(0, 6)
-              .map((product, index) => (
-                <ProductCard key={index} {...product} />
-              ))}
-          </div>
         </div>
       </section>
       <Footer />
@@ -828,4 +758,19 @@ const Souvenir = () => {
 
 export default Souvenir;
 
-export {products}
+export const getServerSideProps = async (context) => {
+  let data = null;
+
+  const dbRef = ref(database, "souvenir/products/");
+  onValue(dbRef, (snapshot) => {
+    data = Object.values(snapshot.val());
+  });
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
+export { products };
