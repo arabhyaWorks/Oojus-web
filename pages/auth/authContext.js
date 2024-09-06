@@ -11,6 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [name, setName] = useState(null);
   const [email, setEmail] = useState(null);
   const [phNumber, setPhNumber] = useState(null);
+  const [authOtp, setAuthOtp] = useState(null);
 
   useEffect(() => {
     const loadAuthData = () => {
@@ -60,6 +61,8 @@ export const AuthProvider = ({ children }) => {
     phNumber,
     login,
     logout,
+    authOtp,
+    setAuthOtp,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

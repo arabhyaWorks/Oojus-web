@@ -3,9 +3,11 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../../styles/auth/signup.module.css";
 import sendWhatsAppOtp from "../utils/whatsappOtp";
+import { useAuth } from "./authContext";
 
 const Signup = () => {
   const router = useRouter();
+  const { setAuthOtp } = useAuth();
 
   const [name, setName] = useState("R Animesh");
   const [email, setEmail] = useState("animesh@civiccraft.in");
@@ -44,13 +46,13 @@ const Signup = () => {
 
       if (response.data) {
         console.log("OTP data stored:", response.data.otp);
+        setAuthOtp(response.data.otp);
         router.push({
           pathname: "/auth/verifyOtp",
           query: {
             name,
             email,
             phoneNumber: phone,
-            otp: response.data.otp,
             functionType: "register",
           },
         });
@@ -86,7 +88,7 @@ const Signup = () => {
         <input
           type="text"
           placeholder="First name and last name"
-        //   onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           value={name}
           className={styles.input}
         />
@@ -96,7 +98,7 @@ const Signup = () => {
         <input
           type="email"
           placeholder="abc@xyz.com"
-        //   onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           value={email}
           className={styles.input}
         />
@@ -106,7 +108,7 @@ const Signup = () => {
         <input
           type="tel"
           placeholder="+91 1234567890"
-        //   onChange={(e) => setPhone(e.target.value)}
+          onChange={(e) => setPhone(e.target.value)}
           value={phone}
           className={styles.input}
         />

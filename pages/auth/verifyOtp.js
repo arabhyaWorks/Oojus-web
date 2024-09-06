@@ -2,10 +2,17 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../../styles/auth/verifyOtp.module.css";
+import { useAuth } from "./authContext";
+import { ref, update } from "firebase/database";
+import database from "../../firebase/config";
 
 const VerifyOtp = () => {
   const router = useRouter();
-  const { name, email, phoneNumber, otp, functionType } = router.query;
+  const { login, authOtp } = useAuth();
+  console.log("this is context stored otp", authOtp);
+  const otp = authOtp;
+
+  const { name, email, phoneNumber, functionType } = router.query;
 
   const [userOtp, setUserOtp] = useState("");
   const [loading, setLoading] = useState(false);
@@ -14,6 +21,25 @@ const VerifyOtp = () => {
   console.log(name, email, phoneNumber, otp, functionType);
 
   console.log("OTP:", otp);
+
+  const registerUserToFirebase = async (uid, name, email, phoneNumber) => {
+    console.log("Uid received in registerUserToFirebase", uid);
+    const userRef = ref(database, "users/" + uid);
+    console.log("registering user to firebase");
+    console.log(userRef);
+
+    try {
+      await update(userRef, {
+        userName: name,
+        userEmail: email,
+        phoneNumber: phoneNumber,
+        uid: uid,
+      });
+      console.log("Data updated successfully.");
+    } catch (error) {
+      console.error("Error updating data:", error);
+    }
+  };
 
   const handleVerifyOtp = async () => {
     console.log("OTP:", otp, userOtp);
@@ -41,11 +67,20 @@ const VerifyOtp = () => {
 
         if (response.data.message === "Authentication successful") {
           // Perform any actions after successful OTP verification
-          localStorage.setItem("uid", response.data.userId);
-          localStorage.setItem("userName", name);
-          localStorage.setItem("userEmail", email);
-          localStorage.setItem("userPhone", phoneNumber);
-          router.push("/dashboard");
+          console.log("Response from backend");
+          //   console.log(response);
+          console.log("uid ", response.data.userId);
+
+          login(response.data.userId, name, email, phoneNumber);
+          registerUserToFirebase(
+            response.data.userId,
+            name,
+            email,
+            phoneNumber
+          );
+          console.log("User logged in successfully");
+
+          //   router.push("/dashboard");
         } else {
           alert("Failed to verify OTP");
         }
