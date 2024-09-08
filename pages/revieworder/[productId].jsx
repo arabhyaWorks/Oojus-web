@@ -3,8 +3,9 @@ import styles from "../../styles/pages/reviewOrder.module.css";
 import { useRouter } from "next/router";
 import { useAuth } from "../context";
 import discountedPrice from "../utils/discountedPrice";
+import { handlePayment } from "../utils/handlePayments";
 
-import { ref, get, set } from "firebase/database";
+import { ref, get, set , push} from "firebase/database";
 import database from "../../firebase/config";
 
 const ReviewOrder = () => {
@@ -20,6 +21,8 @@ const ReviewOrder = () => {
   const [sector, setSector] = useState(null);
   const [address, setAddress] = useState(null);
   const [pincode, setPincode] = useState(null);
+
+  const [isAddressNotFilled, setIsAddressNotFilled] = useState(false);
 
   useEffect(() => {
     fetchAddress();
@@ -68,6 +71,46 @@ const ReviewOrder = () => {
     }
 
     console.log("pushing Address:", flatNo, sector, address, pincode);
+  };
+
+  const performPayment = async (price, productData, quantity, uid) => {
+    const router = useRouter();
+  
+    try {
+      // Push a new booking entry to Firebase Realtime Database
+      const bookingRef = push(ref(database, "/bookings"));
+  
+      // Simulating handling of payment (this could be Razorpay, Stripe, etc.)
+      const textResponse = await handlePayment(bookingRef.key, price);
+  
+      const bookingOrder = {
+        bookingId: bookingRef.key,
+        bookingType: "souvenir_item",
+        timeStamp: new Date().getTime(),
+        name: productData.name,
+        productId: productData._id,
+        price: price,
+        image: productData.images[0],
+        quantity: quantity,
+        userId: uid,
+      };
+  
+      // Navigate to the PaymentScreen and pass necessary details
+      router.push({
+        pathname: "/payment", // Assuming you have a payment page
+        query: {
+          htmlContent: textResponse,
+          bookingId: bookingRef.key,
+          price: price,
+          quantity: quantity,
+        },
+      });
+  
+      // Alternatively, if passing a lot of sensitive data, you could store it in localStorage or context
+      localStorage.setItem("bookingOrder", JSON.stringify(bookingOrder));
+    } catch (error) {
+      console.error("Error during payment process:", error);
+    }
   };
 
   return (
@@ -152,6 +195,26 @@ const ReviewOrder = () => {
           )}
         </p>
       </div>
+
+      <button
+        onClick={() => {
+          if (
+            flatNo.trim() !== "" &&
+            sector.trim() !== "" &&
+            address.trim() !== "" &&
+            pincode.trim() !== ""
+          ) {
+            performPayment(
+              (price * quantity * productData.gst) / 100 + price * quantity
+            );
+          } else {
+            // alert('Enter the address details');
+            setIsAddressNotFilled(true);
+          }
+        }}
+      >
+        Pay
+      </button>
     </div>
   );
 };
