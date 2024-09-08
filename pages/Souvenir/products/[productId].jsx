@@ -1,62 +1,42 @@
 import React, { useState } from "react";
-import styles from "../../styles/souvenir/product.module.css";
-import SouvenirNavBar from "../components/souvenirNavBar";
-import Footer from "../components/footer";
-import { products } from "./products";
-import ProductCard from "../components/productCard";
-import BreadCrum from "../components/BreadCrum";
+import { useRouter } from "next/router";
+import styles from "../../../styles/souvenir/product.module.css";
+import { useAuth } from "../../context";
+import discountedPrice from "../../utils/discountedPrice";
+
+import SouvenirNavBar from "../../components/souvenirNavBar";
+import Footer from "../../components/footer";
+import products from "../Product";
+import ProductCard from "../../components/productCard";
+import BreadCrum from "../../components/BreadCrum";
 
 import { onValue, ref } from "firebase/database";
-import database from "../../firebase/config";
+import database from "../../../firebase/config";
 
-import LongBanner from "../components/longBanner";
+import LongBanner from "../../components/longBanner";
 
-const product = {
-  images: [
-    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
-    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
-    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
-    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
-    "https://m.media-amazon.com/images/I/71pwb1poqRL._SX679_.jpg",
-  ],
-  title: "Amazon Brand - Umi Lord Krishna Idol Statue",
-  rating: 3.3,
-  reviews: 8,
-  discountedPrice: 628,
-  originalPrice: 999,
-  discountPercentage: 37,
-  inStock: true,
-  seller: "CraftVatika",
-  specifications: [
-    { label: "Theme", value: "Figures, Religion" },
-    { label: "Brand", value: "Uml." },
-    { label: "Color", value: "Golden" },
-    { label: "Style", value: "Traditional" },
-    { label: "Material", value: "Metal" },
-    { label: "Occasion", value: "Wedding, Diwali" },
-    { label: "Product Dimensions", value: "8.9L x 8.9W x 22.9H centimeters" },
-  ],
-  about: [
-    "Nataraja Statue carved metal by artist and specially technique with color accents to give a look without sacrificing the details",
-    "Size: 7.4 Inches Height X 4.7 Inches Length X 2.3 Inches Wide | Weight : 200g| Material: Metal.",
-    "Placing dancing shiv statue at home & office. He is the ultimate source of love, compassion and wisdom and brings the same in one's life. As per vaastu, idols should be placed in north east corner of the house or office for greater results and prosperity",
-    "Shiva as Nataraja is Dance who simultaneously destroys and creates the universe anew with each cycle of his mystical dance.",
-    "As per VASTU Methology Spritual Idols Showpieces Placed in North East Direction of Drawing / Living & Pooja Room brings Wealth,Health,Peace & Happiness",
-  ],
-};
 
-const discountedPrice = (data) => {
-  return `₹${data?.price - data?.price * (data?.discount / 100)}`;
-};
 
 const ProductComponent = (props) => {
+  const router = useRouter();
+  const { setProductData } = useAuth();
+
   const { data } = props;
   console.log("data is here : ", data);
+
+  const buyNow = () => {
+    setProductData(data);
+    router.push({
+      pathname: `/revieworder/${data._id}`,
+    });
+  };
 
   return (
     <div className={styles.superContainer}>
       <SouvenirNavBar />
       <BreadCrum crumbs={["Souvenir", "Product", "Brass Idol"]} />
+
+      {/* <h1>this is product id{router.query.productId}</h1> */}
 
       <div className={styles.productContainer}>
         {/* Product Image Carousel */}
@@ -68,7 +48,18 @@ const ProductComponent = (props) => {
           />
 
           <div className={styles.imageThumbnails}>
-            {product?.images.map((image, index) => (
+            {new Array(5).fill("data").map((image, index) => (
+              <img
+                key={index}
+                src={data.images[1]}
+                alt={`Product image ${index}`}
+                className={styles.thumbnail}
+              />
+            ))}
+          </div>
+          {/* 
+          <div className={styles.imageThumbnails}>
+            {data?.images.map((image, index) => (
               <img
                 key={index}
                 src={image}
@@ -76,7 +67,7 @@ const ProductComponent = (props) => {
                 className={styles.thumbnail}
               />
             ))}
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.detailsContainer}>
@@ -102,7 +93,7 @@ const ProductComponent = (props) => {
                   ? "Product is available in Stock"
                   : "Out of stock"}
               </span>
-              <span style={{ color: "red", marginLeft:5 }}>
+              <span style={{ color: "red", marginLeft: 5 }}>
                 {data?.inStock > 6
                   ? "(Hurry up only few in stock are left)"
                   : null}
@@ -111,7 +102,9 @@ const ProductComponent = (props) => {
             </div>
             <div className={styles.buyOptions}>
               <button className={styles.addToCart}>Add to Cart</button>
-              <button className={styles.buyNow}>Buy Now</button>
+              <button onClick={buyNow} className={styles.buyNow}>
+                Buy Now
+              </button>
             </div>
           </div>
 
@@ -175,11 +168,12 @@ const ProductComponent = (props) => {
 
 export const getServerSideProps = async (context) => {
   let data = null;
+  console.log("context", context);
 
-  const dbRef = ref(database, "souvenir/products/66a65a061bbcce2024861716");
+  const dbRef = ref(database, "souvenir/products/" + context.params.productId);
   onValue(dbRef, (snapshot) => {
     data = snapshot.val();
-    console.error("this is product data")
+    console.error("this is product data");
     console.log("product data: ", data);
   });
 

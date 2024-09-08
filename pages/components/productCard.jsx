@@ -1,14 +1,35 @@
-import styles from "../../styles/ProductCard.module.css";
+import styles from "../../styles/components/ProductCard.module.css";
 import RatingImage from "../icons/rating";
+import { useRouter } from "next/router";
+import Link from 'next/link'
+
+
 
 const ProductCard = (props) => {
-  const { images, name, price, discount, dimension } = props;
+  const router = useRouter();
+  const { images, name, price, discount, dimension, _id} = props;
+  
   return (
-    <div className={styles.superCont}>
+    <Link 
+    // onClick={()=>{
+    //   // alert("Product Clicked")
+    //   router.push({
+    //     pathname: `/Souvenir/${_id}`,
+    //     query: {
+    //       name,
+    //       email,
+    //       phoneNumber: phone,
+    //       functionType: "register",
+    //     },
+    //   });
+    // }} 
+    href={`/Souvenir/products/${_id}`}
+    className={styles.superCont}>
       <div
         style={{
           backgroundImage: `url(${images[0]})`,
           // backgroundColor:'lightgreen'
+          cursor: "pointer",
         }}
         className={dimension ? styles.dimensionalCard : styles.card}
       >
@@ -38,7 +59,7 @@ const ProductCard = (props) => {
           <p className={styles.discount}> ₹{price}</p>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

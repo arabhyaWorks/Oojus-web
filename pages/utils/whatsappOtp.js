@@ -3,11 +3,12 @@ import axios from "axios";
 const sendWhatsAppOtp = async (phoneNumber, otpCode) => {
   const phone_number_id = "366490143206901";
 
-//   const access_token = process.env.GRAPH_API_TOKEN;
+  //   const access_token = process.env.GRAPH_API_TOKEN;
   const access_token =
-    "EAALqsiz91T0BO3LnVYr9PcwtAjCYrUZAvRTPG9L8xpjyRi8GWZAMs8cpNDDZCIDNabiCxiaM3Svm1ECysnRm2ZCI10J4bZAIT955mXsXFzyLZBgaTQrYOmOzyL5e38rUm9bAl0asiCGRqU0bhpNAJCHib4CFGZAZCA4gcDZBKwQ3ZB9TGAZB4dYMUoBT0lpoQbeBuZBcM59HBDuZCMXbbkm4SXnQZD";
-//   console.log("Access Token:", access_token);
-//   console.log(code === access_token);
+    "EAALqsiz91T0BOZCNTlI4R4w2ZA5Fa0O7Ojv2uRlpicqqw3lhrC54MaCCrqPpZCWKDkSZBNZAD9u7px0TV5OZAXOZAqVZAiZB9QblWHzYdJUlZBPToVu5c3b9l2PnEJSWRuOAAhmUO4roScoM3teCaO5Rf6KJFlfuZBeEII34erEKQ7w5EQuG55d45aijxmy2ojVGIuPfKnbcq4UQMD9ppRd2zUZD";
+  // "EAALqsiz91T0BO3LnVYr9PcwtAjCYrUZAvRTPG9L8xpjyRi8GWZAMs8cpNDDZCIDNabiCxiaM3Svm1ECysnRm2ZCI10J4bZAIT955mXsXFzyLZBgaTQrYOmOzyL5e38rUm9bAl0asiCGRqU0bhpNAJCHib4CFGZAZCA4gcDZBKwQ3ZB9TGAZB4dYMUoBT0lpoQbeBuZBcM59HBDuZCMXbbkm4SXnQZD";
+  //   console.log("Access Token:", access_token);
+  //   console.log(code === access_token);
 
   const url = `https://graph.facebook.com/v20.0/${phone_number_id}/messages`;
 

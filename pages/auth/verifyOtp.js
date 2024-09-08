@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../../styles/auth/verifyOtp.module.css";
-import { useAuth } from "./authContext";
+import { useAuth } from "../context";
 import { ref, update } from "firebase/database";
 import database from "../../firebase/config";
 
@@ -80,7 +80,7 @@ const VerifyOtp = () => {
           );
           console.log("User logged in successfully");
 
-          //   router.push("/dashboard");
+          router.push("/Souvenir");
         } else {
           alert("Failed to verify OTP");
         }
