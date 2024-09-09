@@ -5,17 +5,17 @@ import { useAuth } from "../context";
 import discountedPrice from "../utils/discountedPrice";
 import { handlePayment } from "../utils/handlePayments";
 
-import { ref, get, set , push} from "firebase/database";
+import { ref, get, set, push } from "firebase/database";
 import database from "../../firebase/config";
 
 const ReviewOrder = () => {
   const router = useRouter();
   const { productData, setProductData, uid, name, email, phNumber } = useAuth();
-  console.log("productData", productData);
+  // console.log("Name: ", name, "Email: ", email, "Phone Number: ", phNumber);
   const price = discountedPrice(productData);
   const [quantity, setQuantity] = useState(1);
 
-  console.log("productData", productData);
+  // console.log("productData", productData);
 
   const [flatNo, setFlatno] = useState(null);
   const [sector, setSector] = useState(null);
@@ -73,16 +73,32 @@ const ReviewOrder = () => {
     console.log("pushing Address:", flatNo, sector, address, pincode);
   };
 
-  const performPayment = async (price, productData, quantity, uid) => {
-    const router = useRouter();
-  
+  const performPayment = async (
+    price,
+    productData,
+    quantity,
+    uid,
+    name,
+    phNumber,
+    email
+  ) => {
+
+    console.log("performPayment:", price, productData, quantity, uid, name, phNumber, email);
     try {
+      
       // Push a new booking entry to Firebase Realtime Database
       const bookingRef = push(ref(database, "/bookings"));
-  
+
       // Simulating handling of payment (this could be Razorpay, Stripe, etc.)
-      const textResponse = await handlePayment(bookingRef.key, price);
-  
+      // name, phoneNo, email
+      const textResponse = await handlePayment(
+        bookingRef.key,
+        price,
+        name,
+        phNumber,
+        email
+      );
+
       const bookingOrder = {
         bookingId: bookingRef.key,
         bookingType: "souvenir_item",
@@ -94,7 +110,7 @@ const ReviewOrder = () => {
         quantity: quantity,
         userId: uid,
       };
-  
+
       // Navigate to the PaymentScreen and pass necessary details
       router.push({
         pathname: "/payment", // Assuming you have a payment page
@@ -105,7 +121,7 @@ const ReviewOrder = () => {
           quantity: quantity,
         },
       });
-  
+
       // Alternatively, if passing a lot of sensitive data, you could store it in localStorage or context
       localStorage.setItem("bookingOrder", JSON.stringify(bookingOrder));
     } catch (error) {
@@ -205,7 +221,14 @@ const ReviewOrder = () => {
             pincode.trim() !== ""
           ) {
             performPayment(
-              (price * quantity * productData.gst) / 100 + price * quantity
+              (price * quantity * productData.gst) / 100 + price * quantity,
+              productData,
+              quantity,
+              uid,
+              name,
+              phNumber,
+              email
+
             );
           } else {
             // alert('Enter the address details');
