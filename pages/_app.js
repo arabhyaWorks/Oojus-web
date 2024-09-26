@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import React, { useState, useEffect } from "react";
 
-import { AuthProvider } from "./context";
+import { AuthProvider } from "../context";
 
 function MyApp({ Component, pageProps }) {
   return (

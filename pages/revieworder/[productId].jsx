@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/pages/reviewOrder.module.css";
 import { useRouter } from "next/router";
-import { useAuth } from "../context";
-import discountedPrice from "../utils/discountedPrice";
-import { handlePayment } from "../utils/handlePayments";
-
+import { useAuth } from "../../context";
+import discountedPrice from "../../utils/discountedPrice";
 import { ref, get, set, push } from "firebase/database";
 import database from "../../firebase/config";
+import CCAvenue from "../../utils/CCAvenue";
+
+const host = "http://localhost:3000";
 
 const ReviewOrder = () => {
   const router = useRouter();
   const { productData, setProductData, uid, name, email, phNumber } = useAuth();
-  // console.log("Name: ", name, "Email: ", email, "Phone Number: ", phNumber);
-  const price = discountedPrice(productData);
   const [quantity, setQuantity] = useState(1);
 
-  // console.log("productData", productData);
-
-  const [flatNo, setFlatno] = useState(null);
-  const [sector, setSector] = useState(null);
-  const [address, setAddress] = useState(null);
-  const [pincode, setPincode] = useState(null);
-
+  // Safely check for productData and provide fallback values
+  const price = productData ? discountedPrice(productData) : 0;
+  const gst = productData?.gst ?? 0; // Default gst to 0 if it's not available
+  const [flatNo, setFlatno] = useState("");
+  const [sector, setSector] = useState("");
+  const [address, setAddress] = useState("");
+  const [pincode, setPincode] = useState("");
   const [isAddressNotFilled, setIsAddressNotFilled] = useState(false);
+  const [errors, setErrors] = useState({});
 
   useEffect(() => {
     fetchAddress();
@@ -35,42 +35,50 @@ const ReviewOrder = () => {
 
       if (snapshot.exists()) {
         const data = snapshot.val();
-        setFlatno(data.flatNo);
-        setSector(data.sector);
-        setAddress(data.address);
-        setPincode(data.pincode);
+        setFlatno(data.flatNo || "");
+        setSector(data.sector || "");
+        setAddress(data.address || "");
+        setPincode(data.pincode || "");
       } else {
         console.log("No address data available");
       }
     } catch (error) {
       console.error("Error fetching address:", error);
     }
-
-    console.log("fetching Address:", flatNo, sector, address, pincode);
   };
 
   const pushAddress = async () => {
-    if (!flatNo || !sector || !address || !pincode) {
-      alert("Please fill in all the fields to continue.");
+    if (!validateAddress()) {
       return;
     }
+
     const addressData = {
-      flatNo: flatNo,
-      sector: sector,
-      address: address,
-      pincode: pincode,
+      flatNo: flatNo.trim(),
+      sector: sector.trim(),
+      address: address.trim(),
+      pincode: pincode.trim(),
     };
 
     try {
       const addressRef = ref(database, `/users/${uid}/address`);
       await set(addressRef, addressData);
       console.log("Address added successfully");
-      closeModal();
+      setErrors({});
     } catch (error) {
       console.error("Error adding address:", error);
     }
+  };
 
-    console.log("pushing Address:", flatNo, sector, address, pincode);
+  const validateAddress = () => {
+    const newErrors = {};
+
+    if (!flatNo.trim()) newErrors.flatNo = "Flat number is required";
+    if (!sector.trim()) newErrors.sector = "Sector is required";
+    if (!address.trim()) newErrors.address = "Address is required";
+    if (!pincode.trim()) newErrors.pincode = "Pincode is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const performPayment = async (
@@ -82,22 +90,33 @@ const ReviewOrder = () => {
     phNumber,
     email
   ) => {
-
-    console.log("performPayment:", price, productData, quantity, uid, name, phNumber, email);
     try {
-      
-      // Push a new booking entry to Firebase Realtime Database
       const bookingRef = push(ref(database, "/bookings"));
 
-      // Simulating handling of payment (this could be Razorpay, Stripe, etc.)
-      // name, phoneNo, email
-      const textResponse = await handlePayment(
-        bookingRef.key,
-        price,
-        name,
-        phNumber,
-        email
-      );
+      let paymentData = {
+        merchant_id: "447588",
+        order_id: bookingRef.key,
+        amount: price.toFixed(2),
+        currency: "INR",
+        billing_email: email,
+        billing_name: name,
+        billing_address: address,
+        billing_city: "Varanasi",
+        billing_state: "UP",
+        billing_zip: pincode,
+        billing_country: "India",
+        redirect_url: `${host}/api/ccavenue-handle`,
+        cancel_url: `${host}/api/ccavenue-handle`,
+        merchant_param1: "Extra Information",
+        merchant_param2: "Extra Information",
+        merchant_param3: "Extra Information",
+        merchant_param4: "Extra Information",
+        language: "EN",
+        billing_tel: phNumber,
+      };
+
+      let encReq = CCAvenue.getEncryptedOrder(paymentData);
+      let accessCode = "AVPP15IH50BJ57PPJB";
 
       const bookingOrder = {
         bookingId: bookingRef.key,
@@ -111,133 +130,131 @@ const ReviewOrder = () => {
         userId: uid,
       };
 
-      // Navigate to the PaymentScreen and pass necessary details
       router.push({
-        pathname: "/payment", // Assuming you have a payment page
-        query: {
-          htmlContent: textResponse,
-          bookingId: bookingRef.key,
-          price: price,
-          quantity: quantity,
-        },
+        pathname: "/paymentPage",
+        query: { encReq, accessCode },
       });
 
-      // Alternatively, if passing a lot of sensitive data, you could store it in localStorage or context
-      localStorage.setItem("bookingOrder", JSON.stringify(bookingOrder));
+      localStorage.setItem(bookingRef.key, JSON.stringify(bookingOrder));
     } catch (error) {
       console.error("Error during payment process:", error);
     }
   };
 
+  const handlePaymentClick = () => {
+    if (validateAddress()) {
+      performPayment(
+        (price * quantity * gst) / 100 + price * quantity,
+        productData,
+        quantity,
+        uid,
+        name,
+        phNumber,
+        email
+      );
+    } else {
+      setIsAddressNotFilled(true);
+    }
+  };
+
   return (
     <div className={styles.superContainer}>
-      <h1 style={{ color: "black" }}>This is {router.query.productId}</h1>
+      <h1 style={{ color: "black" }}>Review Order</h1>
 
-      <div className={styles.productDetails}>
-        <div className={styles.productImage}>
-          <img src={productData?.images[0]} alt="Product" />
-        </div>
-        <div className={styles.productDescription}>
-          <h1>{productData?.name}</h1>
-          <p>{productData?.description}</p>
-          <p>Price: {productData?.price}</p>
-          <p>Discount: {productData?.discount}</p>
-          <p>
-            Discounted Price:{" "}
-            {productData?.price -
-              productData?.price * (productData?.discount / 100)}
-          </p>
-          <button
-            className={styles.buttonStyle}
-            onClick={() => setProductData(null)}
-          >
-            Back
-          </button>
-        </div>
-      </div>
+      {productData ? (
+        <>
+          <div className={styles.productDetails}>
+            <div className={styles.productImage}>
+              <img src={productData?.images[0]} alt="Product" />
+            </div>
+            <div className={styles.productDescription}>
+              <h1>{productData?.name}</h1>
+              <p>{productData?.description}</p>
+              <p>Price: {productData?.price}</p>
+              <p>Discount: {productData?.discount}</p>
+              <p>
+                Discounted Price:{" "}
+                {productData?.price -
+                  productData?.price * (productData?.discount / 100)}
+              </p>
+              <button
+                className={styles.buttonStyle}
+                onClick={() => setProductData(null)}
+              >
+                Back
+              </button>
+            </div>
+          </div>
 
-      <form>
-        <label>Enter your Details</label>
+          <form>
+            <label>Enter your Details</label>
 
-        <input
-          type="text"
-          placeholder="Flat / House no. / Floor / Building *"
-          onChange={(e) => setFlatno(e.target.value)}
-          value={flatNo}
-          className={styles.input}
-        />
+            <input
+              type="text"
+              placeholder="Flat / House no. / Floor / Building *"
+              onChange={(e) => setFlatno(e.target.value)}
+              value={flatNo}
+              className={styles.input}
+            />
+            {errors.flatNo && <p className={styles.errorText}>{errors.flatNo}</p>}
 
-        <input
-          type="text"
-          placeholder="Block / Area / Sector *"
-          onChange={(e) => setSector(e.target.value)}
-          value={sector}
-          className={styles.input}
-        />
+            <input
+              type="text"
+              placeholder="Block / Area / Sector *"
+              onChange={(e) => setSector(e.target.value)}
+              value={sector}
+              className={styles.input}
+            />
+            {errors.sector && <p className={styles.errorText}>{errors.sector}</p>}
 
-        <input
-          type="text"
-          placeholder="Address *"
-          onChange={(e) => setAddress(e.target.value)}
-          value={address}
-          className={styles.input}
-        />
+            <input
+              type="text"
+              placeholder="Address *"
+              onChange={(e) => setAddress(e.target.value)}
+              value={address}
+              className={styles.input}
+            />
+            {errors.address && (
+              <p className={styles.errorText}>{errors.address}</p>
+            )}
 
-        <input
-          type="text"
-          placeholder="Pincode *"
-          onChange={(e) => setPincode(e.target.value)}
-          value={pincode}
-          className={styles.input}
-        />
+            <input
+              type="text"
+              placeholder="Pincode *"
+              onChange={(e) => setPincode(e.target.value)}
+              value={pincode}
+              className={styles.input}
+            />
+            {errors.pincode && (
+              <p className={styles.errorText}>{errors.pincode}</p>
+            )}
 
-        <button type="button" onClick={pushAddress}>
-          Add Address
-        </button>
-      </form>
+            <button type="button" onClick={pushAddress}>
+              Add Address
+            </button>
+          </form>
 
-      <div>
-        <p>{discountedPrice(productData)}</p>
+          <div>
+            <p>{discountedPrice(productData)}</p>
 
-        <div>
-          <p>G.S.T {productData["gst"] + typeof productData["gst"]}%</p>
-          <p>Rs {(price * quantity * productData["gst"]) / 100}</p>
-        </div>
+            <div>
+              <p>G.S.T {gst}%</p>
+              <p>Rs {(price * quantity * gst) / 100}</p>
+            </div>
 
-        <p>
-          Rs{" "}
-          {Math.round(
-            (price * quantity * productData.gst) / 100 + price * quantity
-          )}
-        </p>
-      </div>
+            <p>
+              Total: Rs{" "}
+              {Math.round(
+                (price * quantity * gst) / 100 + price * quantity
+              )}
+            </p>
+          </div>
 
-      <button
-        onClick={() => {
-          if (
-            flatNo.trim() !== "" &&
-            sector.trim() !== "" &&
-            address.trim() !== "" &&
-            pincode.trim() !== ""
-          ) {
-            performPayment(
-              (price * quantity * productData.gst) / 100 + price * quantity,
-              productData,
-              quantity,
-              uid,
-              name,
-              phNumber,
-              email
-
-            );
-          } else {
-            // alert('Enter the address details');
-            setIsAddressNotFilled(true);
-          }
-        }}
-      >
-        Pay
-      </button>
+          <button onClick={handlePaymentClick}>Pay</button>
+        </>
+      ) : (
+        <p>Loading product details...</p>
+      )}
     </div>
   );
 };

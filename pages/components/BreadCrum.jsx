@@ -12,16 +12,18 @@ const BreadCrum = ({ crumbs }) => {
         Home
       </a>
       <>
-        {crumbs.map((crumb, index) => {
-          return (
-            <span>
-              /
-              <a href="" className={styles.bdText}>
-                {crumb}
-              </a>
-            </span>
-          );
-        })}
+        {crumbs &&
+          crumbs.length > 0 &&
+          crumbs.map((crumb, index) => {
+            return (
+              <span>
+                /
+                <a href="" className={styles.bdText}>
+                  {crumb}
+                </a>
+              </span>
+            );
+          })}
       </>
     </div>
   );

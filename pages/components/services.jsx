@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import styles from "../../styles/Services.module.css";
-import ServiceIcon from "../components/serviceIcon";
-import MustVisitCard from "../components/mustVisitCard";
-import CategoryCard from "../components/CategoryCard";
-import ProductCard from "../components/productCard";
+import ServiceIcon from "./serviceIcon";
+import MustVisitCard from "./mustVisitCard";
+import CategoryCard from "./CategoryCard";
+import ProductCard from "./productCard";
 
 import Image from "next/image";
 // import BannerImage from '../../public/banner.png';
@@ -13,8 +13,8 @@ const swiggy =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png";
 
 // import products from "../products";
-import PoojaCard from "../components/PoojaCard";
-import BlogPostCard from "../components/blogPost";
+import PoojaCard from "./PoojaCard";
+import BlogPostCard from "./blogPost";
 
 // import poojas from "../poojas";
 // import blogs from "../blogs";
@@ -43,7 +43,6 @@ const products = {
       "Durable and Long-lasting: The stone is robust and maintains its sacred energy for generations, making it a cherished family heirloom.",
     ],
     rating: 4.5,
-
   },
   "66a65a041bbcce2024861714": {
     _id: "66a65a041bbcce2024861714",
@@ -788,60 +787,70 @@ const services = [
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "About Kashi",
+    route: "/",
   },
   {
     title: "Purchase Gifts",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "Purchase Gifts from Kashi",
+    route: "/Souvenir",
   },
   {
     title: "Book a Pooja",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "Book a your Pooja in Kashi",
+    route: "/",
   },
   {
     title: "Tour Packages",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "Book a your Tour package for Kashi",
+    route: "/",
   },
   {
     title: "Book Cabs",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "Book a Cab in Kashi",
+    route: "/",
   },
   {
     title: "Must Visit Places",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "What are the must visit places in Kashi?",
+    route: "/",
   },
   {
     title: "Temple Timings",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "What are the timings of the temples in Kashi?",
+    route: "/",
   },
   {
     title: "Locate Utilities",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "Locate the utilities in Kashi",
+    route: "/",
   },
   {
     title: "Shastri Consultancy",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "Book online shastris consultancy",
+    route: "/",
   },
   {
     title: "Book Hotels",
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "Book Hotels",
+    route: "/",
   },
 ];
 
@@ -850,7 +859,8 @@ const blogs = [
     image:
       "https://assets-global.website-files.com/657844934fa1ee60fa5129c5/65a4d9ef54fed3eb89d702df_Image-p-800.webp",
     title: "The Importance of Kashi in Hinduism",
-    description: "Uncovering the motivation and vision of tech leaders towards AI Copilots",
+    description:
+      "Uncovering the motivation and vision of tech leaders towards AI Copilots",
     date: "Novermber 12, 2024",
     authorName: "Pooja Sharma",
     authorImage:
@@ -860,7 +870,8 @@ const blogs = [
     image:
       "https://assets-global.website-files.com/657844934fa1ee60fa5129c5/65a4d9ef54fed3eb89d702df_Image-p-800.webp",
     title: "The Importance of Kashi in Hinduism",
-    description: "Uncovering the motivation and vision of tech leaders towards AI Copilots",
+    description:
+      "Uncovering the motivation and vision of tech leaders towards AI Copilots",
     date: "Novermber 12, 2024",
     authorName: "Pooja Sharma",
     authorImage:
@@ -870,7 +881,8 @@ const blogs = [
     image:
       "https://assets-global.website-files.com/657844934fa1ee60fa5129c5/65a4d9ef54fed3eb89d702df_Image-p-800.webp",
     title: "The Importance of Kashi in Hinduism",
-    description: "Uncovering the motivation and vision of tech leaders towards AI Copilots",
+    description:
+      "Uncovering the motivation and vision of tech leaders towards AI Copilots",
     date: "Novermber 12, 2024",
     authorName: "Pooja Sharma",
     authorImage:
@@ -990,13 +1002,11 @@ const Services = () => {
 
       <h2 className={styles.blogHeading}>Latest blog posts</h2>
 
-
       <div className={styles.visit}>
         {blogs.map((product, index) => (
           <BlogPostCard key={index} {...product} />
         ))}
       </div>
-
     </div>
   );
 };

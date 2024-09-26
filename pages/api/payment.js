@@ -1,59 +1,47 @@
-import { generateOrderId } from "../utils/handlePayments"; // Import your generateOrderId utility
+// import { generateOrderId } from "../../utils/handlePayments"; 
+import CCAvenue from "../../utils/CCAvenue";
+import { useRouter } from "next/router";
 
-export default async function handler(req, res) {
-  if (req.method === "POST") {
-    const { order_id, amount, name, phoneNo, email } = req.body;
+export default function Payment() {
+  const host = "http://localhost:3000";
+  const router = useRouter();
 
-    const formData = new URLSearchParams();
-    formData.append("merchant_id", "447588");
-    formData.append("order_id", order_id || generateOrderId());
-    formData.append("currency", "INR");
-    formData.append("amount", amount); // use dynamic amount passed from client
-    formData.append("redirect_url", "http://3.84.158.78:5000/ccavResponseHandler");
-    formData.append("cancel_url", "http://3.84.158.78:5000/ccavResponseHandler");
-    formData.append("language", "EN");
-    formData.append("billing_name", name);
-    formData.append("billing_address", "Santacruz");
-    formData.append("billing_city", "Mumbai");
-    formData.append("billing_state", "MH");
-    formData.append("billing_zip", "400054");
-    formData.append("billing_country", "India");
-    formData.append("billing_tel", phoneNo);
-    formData.append("billing_email", email);
-    formData.append("delivery_name", "Sam");
-    formData.append("delivery_address", "Vile Parle");
-    formData.append("delivery_city", "Mumbai");
-    formData.append("delivery_state", "Maharashtra");
-    formData.append("delivery_zip", "400038");
-    formData.append("delivery_country", "India");
-    formData.append("delivery_tel", phoneNo);
-    formData.append("merchant_param1", "additional Info.");
-    formData.append("merchant_param2", "additional Info.");
-    formData.append("merchant_param3", "additional Info.");
-    formData.append("merchant_param4", "additional Info.");
-    formData.append("merchant_param5", "additional Info.");
-    formData.append("promo_code", "");
-    formData.append("customer_identifier", "");
+  const paymentCCAvenue = () => {
+    let paymentData = {
+      merchant_id: "447588", // Merchant ID (Required)
+      order_id: "ORD123", // Order ID - It can be generated from our project
+      amount: "1", // Payment Amount (Required)
+      currency: "INR", // Payment Currency Type (Required)
+      billing_email: "johndoe@gmail.com", // Billing Email (Optional)
+      billing_name: "John Doe", // Billing Name (Optional)
+      billing_address: "Address Details", // Billing Address (Optional)
+      billing_city: "Ahmedabad", // Billing City (Optional)
+      billing_state: "Gujarat", // Billing State (Optional)
+      billing_zip: "380002", // Billing Zip (Optional)
+      billing_country: "India", // Billing COuntry (Optional)
+      redirect_url: `${host}/api/ccavenue-handle`, // Success URL (Required)
+      cancel_url: `${host}/api/ccavenue-handle`, // Failed/Cancel Payment URL (Required)
+      merchant_param1: "Extra Information", 
+      merchant_param2: "Extra Information", 
+      merchant_param3: "Extra Information", 
+      merchant_param4: "Extra Information", 
+      language: "EN", // Language (Optional)
+      billing_tel: "1234567890", // Billing Mobile Number (Optional)
+    };
 
-    try {
-      // Make the payment request to the server
-      const response = await fetch("http://3.84.158.78:5000/ccavRequestHandler", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: formData.toString(),
-      });
+    let encReq = CCAvenue.getEncryptedOrder(paymentData);
+    let accessCode = "AVPP15IH50BJ57PPJB";
 
-      const textResponse = await response.text();
+    // router.push(URL);
+    router.push({
+      pathname: "/paymentPage",
+      query: { encReq , accessCode },
+    });
+  };
 
-      // Return the text response from the payment request
-      res.status(200).send(textResponse);
-    } catch (error) {
-      console.error("Failed to process payment:", error);
-      res.status(500).json({ error: "Payment processing failed." });
-    }
-  } else {
-    res.status(405).json({ error: "Method not allowed" });
-  }
+  return (
+    <>
+      <button onClick={paymentCCAvenue}>Pay Now</button>
+    </>
+  );
 }

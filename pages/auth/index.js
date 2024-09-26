@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../../styles/auth/signup.module.css";
-import sendWhatsAppOtp from "../utils/whatsappOtp";
-import { useAuth } from "../context/index";
+import sendWhatsAppOtp from "../../utils/whatsappOtp";
+import { useAuth } from "../../context/index";
 
 const Signup = () => {
   const router = useRouter();

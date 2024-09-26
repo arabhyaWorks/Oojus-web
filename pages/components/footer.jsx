@@ -184,14 +184,7 @@ const Footer = () => {
               // height={60}
              src={GooglePlay} alt="Get it on Google Play" /> */}
           </div>
-          <h4>Our Awards</h4>
-          <ul className={styles.awardsList}>
-            <li className={styles.items}>
-              Case Study Presentation Award, 2024
-            </li>
-            <li className={styles.items}>Greentech Award, 2024</li>
-            <li className={styles.items}>DG+ Award, 2023</li>
-          </ul>
+
         </div>
       </div>
       <div className={styles.footerBottom}>

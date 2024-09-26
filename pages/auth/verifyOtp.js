@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import styles from "../../styles/auth/verifyOtp.module.css";
-import { useAuth } from "../context";
+import { useAuth } from "../../context";
 import { ref, update } from "firebase/database";
 import database from "../../firebase/config";
 

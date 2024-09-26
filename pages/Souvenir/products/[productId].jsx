@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../../../styles/souvenir/product.module.css";
-import { useAuth } from "../../context";
-import discountedPrice from "../../utils/discountedPrice";
+import { useAuth } from "../../../context";
+import discountedPrice from "../../../utils/discountedPrice";
 
 import SouvenirNavBar from "../../components/souvenirNavBar";
 import Footer from "../../components/footer";
-import products from "../Product";
+import products from "../../../public/Product";
 import ProductCard from "../../components/productCard";
 import BreadCrum from "../../components/BreadCrum";
 

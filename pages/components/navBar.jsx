@@ -12,7 +12,7 @@ const NavBar = () => (
 
 
       <div className={styles.rgtCont}>
-        <Link className={styles.navIcon} href="/">
+        {/* <Link className={styles.navIcon} href="/">
           <IconContext.Provider
             value={{
               color: "white",
@@ -28,14 +28,16 @@ const NavBar = () => (
           >
             <IoMenuOutline />
           </IconContext.Provider>
-        </Link>
+        </Link> */}
 
-        <Image
+        {/* <Image
           src="https://www.adanione.com/static-assets/images/svg/adanione-white.svg"
           width="118"
           height="30"
           alt="Oojus: Kashi at One Step"
-        />
+        /> */}
+
+        <h1 className="logoText">OOJUS</h1>
       </div>
       <div>
         <Link className={styles.navItem} href="/">
@@ -53,7 +55,7 @@ const NavBar = () => (
         <Link className={styles.navItem} href="/">
           Purchase Gifts
         </Link>
-        <Link className={styles.navIcon} href="/">
+        {/* <Link className={styles.navIcon} href="/">
           <IconContext.Provider
             value={{
               color: "white",
@@ -63,7 +65,7 @@ const NavBar = () => (
           >
             <CiSearch />
           </IconContext.Provider>
-        </Link>
+        </Link> */}
 
         <Link className={styles.navIcon} href="/">
           <IconContext.Provider
