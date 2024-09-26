@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "../../styles/Services.module.css";
 import ServiceIcon from "./serviceIcon";
 import MustVisitCard from "./mustVisitCard";
-import CategoryCard from "./CategoryCard";
+import CategoryCard from "./categoryCard";
 import ProductCard from "./productCard";
 
 import Image from "next/image";
@@ -13,7 +13,7 @@ const swiggy =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png";
 
 // import products from "../products";
-import PoojaCard from "./PoojaCard";
+import PoojaCard from "./poojaCard";
 import BlogPostCard from "./blogPost";
 
 // import poojas from "../poojas";

@@ -2,8 +2,8 @@ import styles from "../../styles/Footer.module.css";
 import Link from "next/link";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
-import Qrcode from '../../public/qrcode.png';
-import GooglePlay from '../../public/googlePlay.png';
+import Qrcode from '/public/qrcode.png';
+import GooglePlay from '/public/googlePlay.png';
 import Image from 'next/image';
 
 const Footer = () => {
