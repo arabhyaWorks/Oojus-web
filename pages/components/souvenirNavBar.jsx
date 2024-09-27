@@ -13,8 +13,8 @@ const SouvenirNavBar = () => {
         <div className={styles.logoContainer}>
           {/* <img src={logo} alt="Souvenir Logo" className={styles.logo} /> */}
           <div className={styles.logoText}>
-            <h4>Chhatrapati Shivaji Maharaj</h4>
-            <p>INTERNATIONAL AIRPORT MUMBAI</p>
+            <h4>OOJUS</h4>
+           
           </div>
         </div>
       </div>

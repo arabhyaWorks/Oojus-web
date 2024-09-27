@@ -22,19 +22,19 @@ const Carousel = () => {
       // image:
       //   "https://staticin.sadhguru.org/in/pub/media/om/homeslider/r/u/rudraksha_web.jpg",
       image:
-        "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/HomeBanner/Web-Banner/Home_Page_Hero_Banner_DBSDF10.jpg",
+        "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/OOJUS_Header1.png?alt=media&token=5b41983d-6cb7-41fb-8d4b-43a92a94cd9d",
       content: "Slide 1 Content",
     },
-    {
-      image:
-        "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/HomeBanner/Web-Banner/Home_Page_Hero_Banner_Iphone.jpg",
-      content: "Slide 2 Content",
-    },
-    {
-      image:
-        "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/HomeBanner/Web-Banner/Hotel-home-page-banner-web.jpg",
-      content: "Slide 3 Content",
-    },
+    // {
+    //   image:
+    //     "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/HomeBanner/Web-Banner/Home_Page_Hero_Banner_Iphone.jpg",
+    //   content: "Slide 2 Content",
+    // },
+    // {
+    //   image:
+    //     "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/HomeBanner/Web-Banner/Hotel-home-page-banner-web.jpg",
+    //   content: "Slide 3 Content",
+    // },
   ];
 
   return (
