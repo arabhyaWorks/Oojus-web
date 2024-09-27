@@ -14,42 +14,42 @@ const Footer = () => {
           <h4>Discover</h4>
           <ul>
             <li className={styles.items}>
-              <Link href="/adani-one-pay">Cabs in varanasi</Link>
+              <Link href="/adani-one-pay">Shaligram</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/scan-and-pay">Scan & Pay</Link>
+              <Link href="/scan-and-pay">Bracelets</Link>
             </li>
             <li className={styles.items}>
               <Link href="/icici-credit-cards">
-                Adani One ICICI Bank Credit Cards
+                Silver Items
               </Link>
             </li>
             <li className={styles.items}>
-              <Link href="/offers-discount">Offer & Discount</Link>
+              <Link href="/offers-discount">Brass idols</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/bill-payments">Bill Payments</Link>
+              <Link href="/bill-payments">Rudraksha</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/blogs">Blogs</Link>
+              <Link href="/blogs">Oojus Specials</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/video-gallery">Video Gallery</Link>
+              <Link href="/video-gallery">Wooden</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/domestic-flights">Domestic Flights</Link>
+              <Link href="/domestic-flights">Mala</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/international-flights">International Flights</Link>
+              <Link href="/international-flights">Itra</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/international-airlines">International Airlines</Link>
+              <Link href="/international-airlines">Bhabhut</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/travel-insurance">Travel Insurance</Link>
+              <Link href="/travel-insurance">Benarasi Saree</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/long-weekend-calendar">Long Weekend Calendar</Link>
+              <Link href="/long-weekend-calendar">Paintings</Link>
             </li>
           </ul>
         </div>
@@ -57,43 +57,43 @@ const Footer = () => {
           <h4>Services</h4>
           <ul>
             <li className={styles.items}>
-              <Link href="/flight-booking">Flight Booking</Link>
+              <Link href="/flight-booking">Puja Booking</Link>
             </li>
             <li className={styles.items}>
               <Link href="/hotels">Hotels</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/trains">Trains</Link>
+              <Link href="/trains">Tour Package</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/bus">Bus</Link>
+              <Link href="/bus">Tour Guide</Link>
             </li>
             <li className={styles.items}>
               <Link href="/cab-booking">Cab Booking</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/holidays">Holidays</Link>
+              <Link href="/holidays">Boats</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/duty-free">Duty Free</Link>
+              <Link href="/duty-free">Shastri Consultancy</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/food-beverages">Food & Beverages</Link>
+              <Link href="/food-beverages">Souvenir</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/pranaam-service">Pranaam Service</Link>
+              <Link href="/pranaam-service">Iteniery</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/parking">Parking</Link>
+              <Link href="/parking">Utilities</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/porter">Porter</Link>
+              <Link href="/porter">Food in Kashi</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/lounge">Lounge</Link>
+              <Link href="/lounge">Nav Durga Yatra</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/lost-and-found">Lost & Found</Link>
+              <Link href="/lost-and-found">Bhairav Yatra</Link>
             </li>
             <li className={styles.items}>
               <Link href="/all-services">All Services</Link>
@@ -101,43 +101,43 @@ const Footer = () => {
           </ul>
         </div>
         <div className={styles.footerColumn}>
-          <h4>Airport Businesses</h4>
+          <h4>Pooja Booking</h4>
           <ul>
             <li className={styles.items}>
-              <Link href="/ground-transportation">Ground Transportation</Link>
+              <Link href="/ground-transportation">Satyanarayan katha</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/duty-free">Duty Free</Link>
+              <Link href="/duty-free">Somwar Puja</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/cargo">Cargo</Link>
+              <Link href="/cargo">Dosh Nivaran Puja</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/fuel-farm">Fuel Farm</Link>
+              <Link href="/fuel-farm">Grah Santi Puja</Link>
             </li>
           </ul>
-          <h4>Adani Businesses</h4>
+          <h4>Must Visit Places</h4>
           <ul>
             <li className={styles.items}>
-              <Link href="/airports">Airports</Link>
+              <Link href="/airports">Swarved Mandir</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/adani-total-gas">Adani Total Gas</Link>
+              <Link href="/adani-total-gas">BHU Vishwanath Temple</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/adani-electricity">Adani Electricity</Link>
+              <Link href="/adani-electricity">Markandey Mahadev Mandir</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/adani-wilmar">Adani Wilmar</Link>
+              <Link href="/adani-wilmar">Dhamek Stupa</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/adani-realty">Adani Realty</Link>
+              <Link href="/adani-realty">Bharat Mata Mandir</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/adani-capital">Adani Capital</Link>
+              <Link href="/adani-capital">Tulsi Manas Mandir</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/adani-housing-finance">Adani Housing Finance</Link>
+              <Link href="/adani-housing-finance">Vindhyachal Mandir</Link>
             </li>
           </ul>
         </div>
@@ -157,7 +157,7 @@ const Footer = () => {
               <Link href="/faqs">FAQs</Link>
             </li>
             <li className={styles.items}>
-              <Link href="/adani-one">AdaniOne</Link>
+              <Link href="/adani-one">Oojus</Link>
             </li>
           </ul>
           <h4>Company</h4>

@@ -10,7 +10,7 @@ import Image from "next/image";
 const BannerImage =
   "https://staticin.sadhguru.org/in/pub/media/wysiwyg/Isha10-Rakhi-Web.jpg";
 const swiggy =
-  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png";
+  "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/download.png?alt=media&token=adf72db0-e054-4af9-9c4a-41b5dc0cc82e";
 
 // import products from "../products";
 import PoojaCard from "./poojaCard";
@@ -857,8 +857,8 @@ const services = [
 const blogs = [
   {
     image:
-      "https://assets-global.website-files.com/657844934fa1ee60fa5129c5/65a4d9ef54fed3eb89d702df_Image-p-800.webp",
-    title: "The Importance of Kashi in Hinduism",
+      "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/blog1.jpeg?alt=media&token=a3da6dca-50bb-4f1c-84d5-99eb79c4c39d",
+    title: "How to do Diwali Puja",
     description:
       "Uncovering the motivation and vision of tech leaders towards AI Copilots",
     date: "Novermber 12, 2024",
@@ -868,8 +868,8 @@ const blogs = [
   },
   {
     image:
-      "https://assets-global.website-files.com/657844934fa1ee60fa5129c5/65a4d9ef54fed3eb89d702df_Image-p-800.webp",
-    title: "The Importance of Kashi in Hinduism",
+      "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/blog%202.png?alt=media&token=3062f108-1ed1-43e5-b4ef-dc6c780a8b2e",
+    title: "The value of Kashi in Hinduism",
     description:
       "Uncovering the motivation and vision of tech leaders towards AI Copilots",
     date: "Novermber 12, 2024",
@@ -879,8 +879,8 @@ const blogs = [
   },
   {
     image:
-      "https://assets-global.website-files.com/657844934fa1ee60fa5129c5/65a4d9ef54fed3eb89d702df_Image-p-800.webp",
-    title: "The Importance of Kashi in Hinduism",
+      "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/blog3.png?alt=media&token=427baeab-289f-442d-90be-9b1b390ec116",
+    title: "The Story of Dugrakund Mandir",
     description:
       "Uncovering the motivation and vision of tech leaders towards AI Copilots",
     date: "Novermber 12, 2024",
