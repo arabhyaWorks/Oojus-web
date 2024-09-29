@@ -22,7 +22,7 @@ const Login = () => {
       <div className={styles.left}>
         
         <div className={styles.overlayText}>
-          <h1 className={styles.heading}>Start your spiritual journey with Utsav.</h1>
+          <h1 className={styles.heading}>Start your spiritual journey with Oojus.</h1>
         
         </div>
       </div>

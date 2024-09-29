@@ -44,7 +44,6 @@ const ProductComponent = () => {
 
     return (
       <div className={styles.superContainer}>
-        <SouvenirNavBar />
         <BreadCrum crumbs={["Souvenir", "Product", "Brass Idol"]} />
 
         {/* <h1>this is product id{router.query.productId}</h1> */}
@@ -165,7 +164,7 @@ const ProductComponent = () => {
 
         <LongBanner />
 
-        <Footer />
+
       </div>
     );
   }

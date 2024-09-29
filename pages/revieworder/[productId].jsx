@@ -10,7 +10,6 @@ import { FaPlus, FaMinus } from "react-icons/fa6";
 import { RiDiscountPercentFill } from "react-icons/ri";
 import { FaShieldHalved } from "react-icons/fa6";
 
-const host = "http://localhost:3000";
 
 const ReviewOrder = () => {
   const router = useRouter();
@@ -24,6 +23,7 @@ const ReviewOrder = () => {
     phNumber,
   } = useAuth();
   const [quantity, setQuantity] = useState(1);
+  const [domain, setDomain] = useState("http://localhost:3000");
 
   // Safely check for productData and provide fallback values
   const price = productData ? discountedPrice(productData) : 0;
@@ -39,6 +39,16 @@ const ReviewOrder = () => {
   useEffect(() => {
     fetchAddress();
   }, []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const fullUrl = window.location.href; // Full URL
+      const domain = window.location.origin; // Domain name (http://localhost:3000)
+      setDomain(domain);
+
+
+    }
+  }, [router.pathname]);
 
   const fetchAddress = async () => {
     try {
@@ -105,6 +115,8 @@ const ReviewOrder = () => {
     try {
       const bookingRef = push(ref(database, "/bookings"));
       const usersRef = push(ref(database, `/users/${uid}/bookings`));
+      console.error("this is your domain")
+      console.error(domain)
 
       let paymentData = {
         merchant_id: "447588",
@@ -118,8 +130,8 @@ const ReviewOrder = () => {
         billing_state: "UP",
         billing_zip: pincode,
         billing_country: "India",
-        redirect_url: `${host}/api/ccavenue-handle`,
-        cancel_url: `${host}/api/ccavenue-handle`,
+        redirect_url: `${domain}/api/ccavenue-handle`,
+        cancel_url: `${domain}/api/ccavenue-handle`,
         merchant_param1: uid, // UID
         merchant_param2: bookingRef.key, // bookingId
         merchant_param3: usersRef.key, // id

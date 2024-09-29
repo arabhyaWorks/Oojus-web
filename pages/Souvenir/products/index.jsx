@@ -18,7 +18,6 @@ const Souvenir = (props) => {
 
   return (
     <div className={styles.souvenir}>
-      <SouvenirNavBar />
 
       <section>
         <Image
@@ -255,7 +254,6 @@ const Souvenir = (props) => {
           </div>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };

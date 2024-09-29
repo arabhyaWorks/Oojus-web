@@ -49,7 +49,7 @@ const Carousel = () => {
                   height: "80vh",
                 }}
               >
-                <NavBar />
+                {/* <NavBar /> */}
                 
               </div>
           </div>
