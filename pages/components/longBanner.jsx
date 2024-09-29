@@ -9,7 +9,6 @@ const LongBanner = (props) => {
         alt=""
         className={styles.productDetailBanner}
       />
-      <h1>this is long banner container</h1>
     </div>
   );
 };
