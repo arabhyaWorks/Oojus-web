@@ -29,6 +29,7 @@ const Login = () => {
 
       <div className={styles.right}>
         <form onSubmit={handleSubmit} className={styles.loginForm}>
+        <h1 className={styles.title}>Embark on your sacred journey through Kashi with Oojus.</h1>
           <h2>Enter Phone Number</h2>
           <div className={styles.inputGroup}>
             <div className={styles.labelHeader}>

@@ -7,7 +7,7 @@ const BreadCrum = ({ crumbs }) => {
 
   return (
     <div className={styles.bdContainer}>
-      <a href="/">
+      <a href="/" style={{display:"flex", alignItems:'center',gap:"5px"}}>
         <HomeIcon />
         Home
       </a>
