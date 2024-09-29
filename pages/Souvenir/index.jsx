@@ -497,7 +497,7 @@ const products = {
 };
 
 const swiggy =
-  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/seo/App_download_banner.png";
+  "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/download.png?alt=media&token=adf72db0-e054-4af9-9c4a-41b5dc0cc82e";
 
 const Souvenir = () => {
 

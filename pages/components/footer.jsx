@@ -1,5 +1,6 @@
 import styles from "../../styles/Footer.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import Qrcode from '../../public/qrCode.png';
@@ -7,6 +8,9 @@ import Qrcode from '../../public/qrCode.png';
 import Image from 'next/image';
 
 const Footer = () => {
+  const router = useRouter();
+  if (router.pathname !== "/login") {
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
@@ -208,7 +212,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
+  );}
 };
 
 export default Footer;
