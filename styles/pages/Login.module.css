@@ -1,0 +1,141 @@
+.container {
+    display: flex;
+    height: 100vh;
+    color: black;
+}
+
+.container h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.left {
+    flex: 1;
+    background-image: url('/temple.webp');
+    /* Your temple image in /public */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.overlayText h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.googlePlayLink {
+    margin-top: 20px;
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 40px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+}
+
+
+.inputGroup {
+    margin-bottom: 20px;
+    /* border: 2px solid #ccc; */
+    /* border-radius: 5px; */
+    /* height: 2.5rem; */
+
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    padding: 10px;
+    border-width: 1px;
+    border: 2px solid #ddd;
+    z-index: 0;
+    border-radius: 10px;
+
+}
+
+.inputContainer:focus-within {
+    border: 2px solid #ccc;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.labelHeader {
+    color: #7A7A7A;
+    margin-bottom: -10px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+.labelHeaderTxt{
+    margin: 0px;
+    z-index: 100;
+    position: relative;
+    background-color: white;
+    padding: 0px 10px;
+}
+
+
+.checkboxGroup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.checkboxGroup input {
+    margin-right: 10px;
+}
+
+.otpButton {
+    background: linear-gradient(to right, #f093fb, #f5576c);
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.otpButton:hover {
+    background: linear-gradient(to right, #f5576c, #f093fb);
+}
+
+.terms {
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.terms a {
+    color: #f093fb;
+    text-decoration: none;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}

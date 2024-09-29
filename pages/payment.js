@@ -41,7 +41,6 @@ const Payment = ({ encReq, accessCode }) => {
           value="AVPP15IH50BJ57PPJB"
         />
       </form>
-      <h1 style={{ color: "black" }}>Payment Page</h1>  
     </div>
   );
 };
