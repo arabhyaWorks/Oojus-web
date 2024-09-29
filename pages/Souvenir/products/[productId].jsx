@@ -15,8 +15,6 @@ import database from "../../../firebase/config";
 
 import LongBanner from "../../components/longBanner";
 
-
-
 const ProductComponent = (props) => {
   const router = useRouter();
   const { setProductData } = useAuth();

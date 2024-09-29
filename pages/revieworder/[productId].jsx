@@ -11,7 +11,15 @@ const host = "http://localhost:3000";
 
 const ReviewOrder = () => {
   const router = useRouter();
-  const { productData, setProductData, uid, name, email, phNumber } = useAuth();
+  const {
+    productData,
+    setProductData,
+    setUsersBooking,
+    uid,
+    name,
+    email,
+    phNumber,
+  } = useAuth();
   const [quantity, setQuantity] = useState(1);
 
   // Safely check for productData and provide fallback values
@@ -92,6 +100,7 @@ const ReviewOrder = () => {
   ) => {
     try {
       const bookingRef = push(ref(database, "/bookings"));
+      const usersRef = push(ref(database, `/users/${uid}/bookings`));
 
       let paymentData = {
         merchant_id: "447588",
@@ -107,10 +116,10 @@ const ReviewOrder = () => {
         billing_country: "India",
         redirect_url: `${host}/api/ccavenue-handle`,
         cancel_url: `${host}/api/ccavenue-handle`,
-        merchant_param1: "Extra Information",
-        merchant_param2: "Extra Information",
-        merchant_param3: "Extra Information",
-        merchant_param4: "Extra Information",
+        merchant_param1: uid, // UID
+        merchant_param2: bookingRef.key,// bookingId
+        merchant_param3: usersRef.key, // id
+        merchant_param4: "souvenir_item", // bookingType
         language: "EN",
         billing_tel: phNumber,
       };
@@ -128,20 +137,21 @@ const ReviewOrder = () => {
         image: productData.images[0],
         quantity: quantity,
         userId: uid,
+        userName: name,
+        paymentStatus: -1,
       };
 
+      await set(bookingRef, bookingOrder);
       router.push({
-        pathname: "/paymentPage",
+        pathname: "/payment",
         query: { encReq, accessCode },
       });
-
-      localStorage.setItem(bookingRef.key, JSON.stringify(bookingOrder));
     } catch (error) {
       console.error("Error during payment process:", error);
     }
   };
 
-  const handlePaymentClick = () => {
+  const handlePayment = () => {
     if (validateAddress()) {
       performPayment(
         (price * quantity * gst) / 100 + price * quantity,
@@ -159,7 +169,7 @@ const ReviewOrder = () => {
 
   return (
     <div className={styles.superContainer}>
-      <h1 style={{ color: "black" }}>Review Order</h1>
+      <h1 style={{ color: "black" }}>Review Order {name}</h1>
 
       {productData ? (
         <>
@@ -177,15 +187,10 @@ const ReviewOrder = () => {
                 {productData?.price -
                   productData?.price * (productData?.discount / 100)}
               </p>
-              <button
-                className={styles.buttonStyle}
-                onClick={() => setProductData(null)}
-              >
-                Back
-              </button>
             </div>
           </div>
 
+          {/* address details form to ask the user for their address details */}
           <form>
             <label>Enter your Details</label>
 
@@ -196,7 +201,9 @@ const ReviewOrder = () => {
               value={flatNo}
               className={styles.input}
             />
-            {errors.flatNo && <p className={styles.errorText}>{errors.flatNo}</p>}
+            {errors.flatNo && (
+              <p className={styles.errorText}>{errors.flatNo}</p>
+            )}
 
             <input
               type="text"
@@ -205,7 +212,9 @@ const ReviewOrder = () => {
               value={sector}
               className={styles.input}
             />
-            {errors.sector && <p className={styles.errorText}>{errors.sector}</p>}
+            {errors.sector && (
+              <p className={styles.errorText}>{errors.sector}</p>
+            )}
 
             <input
               type="text"
@@ -234,6 +243,7 @@ const ReviewOrder = () => {
             </button>
           </form>
 
+          {/* payment details and total payable amount  */}
           <div>
             <p>{discountedPrice(productData)}</p>
 
@@ -244,13 +254,11 @@ const ReviewOrder = () => {
 
             <p>
               Total: Rs{" "}
-              {Math.round(
-                (price * quantity * gst) / 100 + price * quantity
-              )}
+              {Math.round((price * quantity * gst) / 100 + price * quantity)}
             </p>
           </div>
 
-          <button onClick={handlePaymentClick}>Pay</button>
+          <button onClick={handlePayment}>Pay</button>
         </>
       ) : (
         <p>Loading product details...</p>

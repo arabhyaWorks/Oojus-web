@@ -18,6 +18,7 @@ export const AuthProvider = ({ children }) => {
 
   // product data setting in context at product page and getting review order page
   const [productData, setProductData] = useState(null);
+  const [usersBooking, setUsersBooking] = useState(null);
 
   useEffect(() => {
     const loadAuthData = () => {
@@ -71,6 +72,8 @@ export const AuthProvider = ({ children }) => {
     setAuthOtp,
     productData,
     setProductData,
+    usersBooking,
+    setUsersBooking,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

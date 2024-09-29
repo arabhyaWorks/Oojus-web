@@ -1,15 +1,24 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/router";
+import { useAuth } from "../context";
 
-const Payment = ({ encReq , accessCode}) => {
-    const router = useRouter();
+const Payment = ({ encReq, accessCode }) => {
+  const router = useRouter();
+  const { usersBooking } = useAuth();
+  console.log("this is user bookings", usersBooking);
 
   useEffect(() => {
     const form = document.getElementById("nonseamless");
     if (form) {
       form.submit();
     }
-  }, []); 
+  }, []);
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     router.push("/failed");
+  //   }, 2000);
+  // } , []);
 
   return (
     <div>
@@ -25,8 +34,14 @@ const Payment = ({ encReq , accessCode}) => {
           name="encRequest"
           value={router.query.encReq}
         />
-        <input type="hidden" name="access_code" id="access_code" value="AVPP15IH50BJ57PPJB" />
+        <input
+          type="hidden"
+          name="access_code"
+          id="access_code"
+          value="AVPP15IH50BJ57PPJB"
+        />
       </form>
+      <h1 style={{ color: "black" }}>Payment Page</h1>  
     </div>
   );
 };
