@@ -9,6 +9,17 @@ const NavBar = () => {
   const router = useRouter(); // Hook to get the current route
 
   useEffect(() => {
+    if (typeof window !== "undefined") {
+      const fullUrl = window.location.href; // Full URL
+      const domain = window.location.origin; // Domain name (http://localhost:3000)
+
+      console.log("Full URL:", fullUrl);
+      console.log("Domain Name:", domain); // Outputs: http://localhost:3000
+    }
+  }, []);
+
+
+  useEffect(() => {
     // Check if the current path is `/`
     if (router.pathname === "/") {
       const handleScroll = () => {
