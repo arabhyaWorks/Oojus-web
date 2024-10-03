@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const Footer = () => {
   const router = useRouter();
-  if (router.pathname !== "/login") {
+  if (router.pathname !== "/login" || router.pathname !== "/testingPayments") {
 
   return (
     <footer className={styles.footer}>

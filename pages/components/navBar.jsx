@@ -44,7 +44,7 @@ const NavBar = () => {
       setNavClass(styles.navScrolled);
     }
   }, [router.pathname]); // Run effect when the path changes
-  if (router.pathname !== "/login") {
+  if (router.pathname !== "/login" || router.pathname !== "/testingPayments") {
     return (
       <div
         className={`${styles.navContainer} ${navClass}`}

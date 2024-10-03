@@ -40,15 +40,15 @@ const ReviewOrder = () => {
     fetchAddress();
   }, []);
 
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const fullUrl = window.location.href; // Full URL
-      const domain = window.location.origin; // Domain name (http://localhost:3000)
-      setDomain(domain);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     const fullUrl = window.location.href; // Full URL
+  //     const domain = window.location.origin; // Domain name (http://localhost:3000)
+  //     setDomain(domain);
 
 
-    }
-  }, [router.pathname]);
+  //   }
+  // }, [router.pathname]);
 
   const fetchAddress = async () => {
     try {
