@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "../../styles/components/stickyHeader.module.css";
 import { useRouter } from "next/router";
+import { IoMdCart } from "react-icons/io";
+import { FaUserLarge } from "react-icons/fa6";
 
 const NavBar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -50,7 +52,11 @@ const NavBar = () => {
 
   // }
 
-  if (["/login", "/otpScreen", "/testingPayments", "/signup"].some((route) => router.pathname.includes(route))) {
+  if (
+    ["/login", "/otpScreen", "/testingPayments", "/signup"].some((route) =>
+      router.pathname.includes(route)
+    )
+  ) {
     return null;
   } else {
     return (
@@ -64,13 +70,13 @@ const NavBar = () => {
           <div className={styles.rgtCont}>
             <h1 className={styles.logoText}>OOJUS</h1>
           </div>
-          <div>
+          <div className={styles.navItemContainer}>
             <Link className={styles.navItem} href="/">
               Home
             </Link>
-            <Link className={styles.navItem} href="/about">
+            {/* <Link className={styles.navItem} href="/about">
               Shastri Consultancy
-            </Link>
+            </Link> */}
             <Link className={styles.navItem} href="/">
               Book a Pooja
             </Link>
@@ -80,6 +86,22 @@ const NavBar = () => {
             <Link className={styles.navItem} href="/">
               Purchase Gifts
             </Link>
+            <Link
+              onClick={() => {
+                localStorage.clear();
+                router.push("/login");
+              }}
+              className={styles.navItem}
+              href="/"
+            >
+              Logout
+            </Link>
+            <Link className={styles.navItem} href="/bookings">
+              Bookings
+            </Link>
+            {/* <Link className={styles.navIcon} href="/cart">
+              <FaUserLarge size={20} />
+            </Link> */}
           </div>
         </nav>
       </div>

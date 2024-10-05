@@ -117,6 +117,11 @@ const ReviewOrder = () => {
       const usersRef = push(ref(database, `/users/${uid}/bookings`));
       console.error("this is your domain")
       console.error(domain)
+      console.log("")
+      console.log("")
+      console.log("---------Performing Payment---------");
+      console.log(name, email, phNumber, uid);
+      console.log("")
 
       let paymentData = {
         merchant_id: "447588",

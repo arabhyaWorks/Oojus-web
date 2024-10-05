@@ -41,24 +41,54 @@
   .navContainer.navScrolled .logoText {
     color: black;
   }
+
+  .navItemContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
   
   .navItem {
-    padding: 0.38rem 1rem;
-    border-radius: 40px;
-    transition: 0.5s;
-    font-size: 16px;
+    /* padding: 0.38rem 1rem; */
+    /* border-radius: 40px;
     margin: 0 0.3rem;
     justify-content: center;
     align-items: center;
     color: white;
     text-decoration: none;
-    transition: background-color 0.5s ease, color 0.5s ease;
+
+    transition: background-color 0.5s ease, color 0.5s ease; */
+    /* display: flex ;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row; */
+    /* font-size: 16px; */
+    padding: 0.38rem 1rem;
+    /* background-color: #ffffff32; */
+    height: 35px;
+    border-radius: 40px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
   }
   
   .navIcon {
-    border-radius: 100px;
-    margin-right: 10px;
+    /* border-radius: 100px; */
+    /* margin-right: 10px; */
     color: white;
+    /* background-color: #ffffff32; */
+    /* padding: 0rem 1rem; */
+    height: 35px;
+    width: 35px;
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+
+
+
     transition: background-color 0.5s ease, color 0.5s ease;
   }
   

@@ -102,7 +102,7 @@ const Login = () => {
             passLoginData.phoneNumber
           );
           router.push({
-            pathname: `/revieworder/${productData._id}`,
+            pathname: productData ? `/revieworder/${productData._id}` : "/",
           });
         } else {
           alert("Failed to verify OTP");
