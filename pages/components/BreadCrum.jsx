@@ -3,7 +3,6 @@ import styles from "../../styles/components/BreadCrum.module.css";
 import HomeIcon from "../icons/homeIcon";
 
 const BreadCrum = ({ crumbs }) => {
-  console.log("Crumbs: ", crumbs);
 
   return (
     <div className={styles.bdContainer}>

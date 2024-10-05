@@ -13,7 +13,6 @@ const nextConfig = {
       "firebasestorage.googleapis.com",
       "vyaparbackend.s3.amazonaws.com",
       "firebasestorage.googleapis.com",
-      
     ],
   },
 };

@@ -787,7 +787,7 @@ const services = [
     image:
       "https://sa.adanione.com/-/media/Project/Campaigns/Valentine-s-Day/Service-Icon-Web/Food-and-beverages--4.png",
     alt: "About Kashi",
-    route: "/",
+    route: "/aboutKashi",
   },
   {
     title: "Purchase Gifts",

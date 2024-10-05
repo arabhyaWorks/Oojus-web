@@ -1,0 +1,46 @@
+.superContainer {
+    background-color: #FBF6FA;
+    color: #222;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+.pujaContainer {
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    margin-top: 0px;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 5px;
+    outline: rgb(128 128 128 / 20%) solid 1px;
+}
+
+
+.imageContainer {
+    padding: 10px;
+}
+
+.pujaImage {
+    width: 475px;
+    border-radius: 5px;
+}
+
+
+.detailsContainer{
+    padding: 0 2rem;
+}
+
+.bookButton{
+    background-color: #f26414;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
