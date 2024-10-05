@@ -18,7 +18,6 @@ const NavBar = () => {
     }
   }, []);
 
-
   useEffect(() => {
     // Check if the current path is `/`
     if (router.pathname === "/") {
@@ -44,7 +43,16 @@ const NavBar = () => {
       setNavClass(styles.navScrolled);
     }
   }, [router.pathname]); // Run effect when the path changes
-  if (router.pathname !== "/login" || router.pathname !== "/testingPayments") {
+  // if (router.pathname !== "/login"
+  //   // || router.pathname !== "/testingPayments"
+
+  // ) {
+
+  // }
+
+  if (["/login", "/otpScreen", "/testingPayments", "/signup"].some((route) => router.pathname.includes(route))) {
+    return null;
+  } else {
     return (
       <div
         className={`${styles.navContainer} ${navClass}`}
@@ -72,17 +80,6 @@ const NavBar = () => {
             <Link className={styles.navItem} href="/">
               Purchase Gifts
             </Link>
-            {/* <Link className={styles.navIcon} href="/">
-            <IconContext.Provider
-              value={{
-                color: "inherit",
-                size: "1.6em",
-                style: { verticalAlign: "middle", marginTop: -3 },
-              }}
-            >
-              <CiShoppingCart />
-            </IconContext.Provider>
-          </Link> */}
           </div>
         </nav>
       </div>

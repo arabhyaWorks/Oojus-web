@@ -9,7 +9,11 @@ import Image from 'next/image';
 
 const Footer = () => {
   const router = useRouter();
-  if (router.pathname !== "/login" || router.pathname !== "/testingPayments") {
+
+
+  if (["/login", "/otpScreen", "/testingPayments", "/signup"].some((route) => router.pathname.includes(route))) {
+    return null;
+  } else {
 
   return (
     <footer className={styles.footer}>

@@ -6,7 +6,7 @@ const TestingPayments = () => {
   const router = useRouter();
   const handleClick = async () => {
     const response = await handlePayment();
-    // console.log(response);
+    console.log(response);
     router.push({
       pathname: "/payment2",
       query: { response },

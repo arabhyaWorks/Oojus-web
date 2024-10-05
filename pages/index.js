@@ -9,6 +9,7 @@ import NavBar from "./components/navBar";
 // import "slick-carousel/slick/slick-theme.css";
 
 const HomePage = () => (
+  
   <div>
     {/* <NavHeader /> */}
     {/* <StickyHeader /> */}

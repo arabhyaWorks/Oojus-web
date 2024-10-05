@@ -22,9 +22,9 @@ const handlePayment = async (
   formData.append("amount", "1");
   formData.append(
     "redirect_url",
-    "https://a8c2-2402-a00-1b2-12f6-4403-824a-7dd6-fd6a.ngrok-free.app/ccavResponseHandler"
+    "https://2bfc-2402-a00-1b2-12f6-9d90-a62c-a651-a201.ngrok-free.app/ccavResponseHandler"
   );
-  formData.append("cancel_url", "https://a8c2-2402-a00-1b2-12f6-4403-824a-7dd6-fd6a.ngrok-free.app/ccavResponseHandler");
+  formData.append("cancel_url", "https://2bfc-2402-a00-1b2-12f6-9d90-a62c-a651-a201.ngrok-free.app/ccavResponseHandler");
   formData.append("language", "EN");
   formData.append("billing_name", name);
   formData.append("billing_address", "Santacruz");
@@ -50,7 +50,7 @@ const handlePayment = async (
   formData.append("customer_identifier", "");
 
   try {
-    const response = await fetch("https://a8c2-2402-a00-1b2-12f6-4403-824a-7dd6-fd6a.ngrok-free.app/ccavRequestHandler", {
+    const response = await fetch("https://2bfc-2402-a00-1b2-12f6-9d90-a62c-a651-a201.ngrok-free.app/ccavRequestHandler", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",

@@ -16,6 +16,13 @@ export const AuthProvider = ({ children }) => {
   const [phNumber, setPhNumber] = useState(null);
   const [authOtp, setAuthOtp] = useState(null);
 
+  const [passLoginData, setPassLoginData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    otp: "",
+  });
+
   // product data setting in context at product page and getting review order page
   const [productData, setProductData] = useState(null);
   const [usersBooking, setUsersBooking] = useState(null);
@@ -74,6 +81,8 @@ export const AuthProvider = ({ children }) => {
     setProductData,
     usersBooking,
     setUsersBooking,
+    passLoginData,
+    setPassLoginData,
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

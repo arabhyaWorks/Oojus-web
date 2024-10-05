@@ -5,26 +5,43 @@ import styles from "../styles/pages/Login.module.css";
 import { OrbitProgress } from "react-loading-indicators";
 import axios from "axios";
 import { useAuth } from "../context";
+import Link from "next/link";
 
 const Login = () => {
   const router = useRouter();
   const { passLoginData, setPassLoginData } = useAuth();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const [whatsappUpdates, setWhatsappUpdates] = useState(true);
   const [visible, setVisible] = useState(false);
 
   const toggleOverlay = () => {
     setVisible(!visible);
   };
 
+  const isValidEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Phone Number:", phoneNumber);
+    console.log("WhatsApp Updates:", whatsappUpdates);
   };
 
-  const handleLogin = async () => {
-    if (!phoneNumber) {
+  const handleCreateAccount = async () => {
+    if (!name || !email || !phoneNumber) {
       toggleOverlay();
+      return;
+    }
+
+    if (!isValidEmail(email)) {
+      alert("Invalid Email", "Please enter a valid email address.");
       return;
     }
 
@@ -33,19 +50,19 @@ const Login = () => {
       const response = await axios.post(
         "http://3.84.158.78:5000/api/auth/send-otp",
         {
-          name: "",
-          email: "",
+          name,
+          email,
           phoneNumber: phoneNumber,
         }
       );
 
       if (response.data) {
         setPassLoginData({
-          name: "",
-          email: "",
+          name,
+          email,
           phoneNumber,
           otp: response.data.otp,
-          functionType:"login"
+          functionType: "register",
         });
 
         router.push("/otpScreen");
@@ -87,6 +104,44 @@ const Login = () => {
           <h1 className={styles.title}>
             Embark on your sacred journey through Kashi with Oojus.
           </h1>
+          {/* <h2>Enter Phone Number</h2> */}
+
+          <div className={styles.inputGroup}>
+            <div className={styles.labelHeader}>
+              <p className={styles.labelHeaderTxt}>Enter Your Name</p>
+            </div>
+            <div className={styles.inputContainer}>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => {
+                  setName(e.target.value);
+                }}
+                className={styles.input}
+                required
+              />
+            </div>
+          </div>
+
+          <div className={styles.inputGroup}>
+            <div className={styles.labelHeader}>
+              <p className={styles.labelHeaderTxt}>Enter Your Email Address</p>
+            </div>
+            <div className={styles.inputContainer}>
+              {/* +91 */}
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                className={styles.input}
+                required
+              />
+            </div>
+          </div>
 
           <div className={styles.inputGroup}>
             <div className={styles.labelHeader}>
@@ -110,12 +165,24 @@ const Login = () => {
             </div>
           </div>
 
+          <div className={styles.checkboxGroup}>
+            <input
+              type="checkbox"
+              id="whatsappUpdates"
+              checked={whatsappUpdates}
+              onChange={() => setWhatsappUpdates(!whatsappUpdates)}
+            />
+            <label htmlFor="whatsappUpdates">
+              Send puja updates on WhatsApp
+            </label>
+          </div>
+
           <button
             type="submit"
             // disabled={true}
             className={styles.otpButton}
             // loading={loading}
-            onClick={handleLogin}
+            onClick={handleCreateAccount}
           >
             {/* Create Account */}
             {loading ? (
@@ -127,9 +194,10 @@ const Login = () => {
                 textColor=""
               />
             ) : (
-              "Login "
+              "Create Account"
             )}
           </button>
+          <p className={styles.terms}>Already have an <Link href={'/login'}  >Account</Link>?</p>
           <p className={styles.terms}>
             By continuing, you agree to our{" "}
             <a href="/terms">Terms of Service</a> and{" "}
