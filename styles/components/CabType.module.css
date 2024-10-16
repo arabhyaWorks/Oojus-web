@@ -1,0 +1,58 @@
+.animatedView {
+    border-radius: 20px;
+    padding: 7px;
+    border: 1.8px solid #78006e;
+    background-color: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    align-items: center;
+    text-align: left;
+
+
+  }
+  
+  .selected {
+    background-color: #78006e;
+  }
+  
+  .unselected {
+    background-color: white;
+  }
+  
+  .cabButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .cabDetails {
+    margin-left: 5px;
+  }
+  
+  .selectedText {
+    font-weight: 600;
+    font-size: 12px;
+    color: white;
+  }
+  
+  .unselectedText {
+    font-weight: 600;
+    font-size: 12px;
+    color: black;
+  }
+  
+  .price {
+    font-weight: 600;
+    font-size: 12px;
+    color: #78006e;
+  }
+  
+  .selectedPrice {
+    color: white;
+  }

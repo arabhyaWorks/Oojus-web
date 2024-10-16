@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/components/RightCardContainer.module.css";
 
-const RightCardContainer = ({ image, Icon, buttonTitle, children }) => {
+const RightCardContainer = ({ image, Icon, buttonTitle, children, onClick }) => {
   return (
     <div className={styles.rgtCardCont}>
       {image ? <img src={image} className={styles.cardTopImg} /> : null}
@@ -9,7 +9,7 @@ const RightCardContainer = ({ image, Icon, buttonTitle, children }) => {
         {children ? children : null}
 
         {buttonTitle ? (
-          <button>
+          <button onClick={onClick}>
             {Icon && <Icon />}
             {buttonTitle}
           </button>

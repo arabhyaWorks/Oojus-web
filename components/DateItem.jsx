@@ -1,56 +1,26 @@
-import React from 'react';
+import React from "react";
+import styles from "../styles/components/DateItem.module.css";
 
 const DateItem = ({ date, onClick, selected, day, index }) => {
   return (
     <button
       onClick={onClick}
-      style={{
-        ...styles.dateItem,
-        marginLeft: index === 0 ? 0 : '10px',
-        ...(selected ? styles.selected : styles.unselected),
-      }}
+      className={`${styles.dateItem} ${
+        selected ? styles.selected : styles.unselected
+      }`}
+      style={{ marginLeft: index === 0 ? 0 : "10px" }}
     >
-      <p
-        style={{
-          fontWeight: '600',
-          fontSize: '14px',
-          color: selected ? 'white' : styles.color,
-        }}
-      >
+      <p className={selected ? styles.selectedText : styles.unselectedText}>
         {date}
       </p>
       <p
-        style={{
-          fontWeight: '500',
-          marginTop: '-4px',
-          fontSize: '15px',
-          color: selected ? 'white' : styles.color,
-        }}
+        className={selected ? styles.selectedText : styles.unselectedText}
+        style={{ marginTop: "-4px" }}
       >
         {day}
       </p>
     </button>
   );
-};
-
-const styles = {
-  dateItem: {
-    borderRadius: '10px',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '55px',
-    height: '60px',
-    padding: '10px',
-    cursor: 'pointer',
-  },
-  selected: {
-    backgroundColor: '#B01432',
-  },
-  unselected: {
-    border: '1.7px solid #B01432',
-  },
-  color: '#B01432',
 };
 
 export default DateItem;

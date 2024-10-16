@@ -1,0 +1,30 @@
+.dateItem {
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  transition: 0.3s;
+}
+
+.selected {
+  background-color: #B01432;
+  border: 1.9px solid #B01432;
+}
+
+.unselected {
+  border: 1.9px solid #B01432;
+}
+
+.selectedText {
+  font-weight: 600;
+  color: white;
+}
+
+.unselectedText {
+  font-weight: 600;
+  color: #B01432;
+}

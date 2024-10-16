@@ -33,7 +33,7 @@ const ArrowIcon = ({ }) => {
         width="24"
         height="24"
         viewBox="0 0 24 24"
-        class="transform scale-50 text-gray-400"
+        className="transform scale-50 text-gray-400"
         fill="#9ca3af"
       >
         <g fill="none" fill-rule="evenodd">
@@ -330,6 +330,11 @@ const TourPackage = () => {
           {/* Price card container */}
           <RightCardContainer
             // image="https://book.visitsaudi.com/sta/cta-border-art.png"
+            onClick={() => {
+              router.push({
+                pathname: `/tour-package/review-tour-package`,
+              });
+            }}
             image={patternImg1}
             Icon={() => <LuTicket color="white" size={"1.25rem"} />}
             buttonTitle="Book Now"
