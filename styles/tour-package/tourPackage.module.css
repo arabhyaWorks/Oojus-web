@@ -1,0 +1,312 @@
+.superContainer {
+    background-color: #F8F8F8;
+    color: black;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.crumTitle {
+    color: black;
+    padding: 0px;
+}
+
+
+/* Text, titles and descriptions */
+
+.heading{
+    /* padding: 10px 0 ; */
+    padding: 10px 0 ;
+    /* background-color: red; */
+}
+.title {
+    color: black;
+    line-height: 70px;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.desc{
+    color: rgba(0, 0, 0, 0.792);
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+.imgCont {
+    display: flex;
+    height: 430px;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.lftImgCont {
+    width: 70%;
+}
+
+.rgtImgCont {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.lftImg {
+    box-sizing: border-box;
+    object-fit: cover;
+    border-radius: 25px;
+    width: 100%;
+    height: 100%;
+}
+
+.rgtImg {
+    box-sizing: border-box;
+    object-fit: cover;
+    border-radius: 25px;
+    width: 100%;
+    height: calc(50% - 15px);
+}
+
+
+.sectionCont {
+    display: flex;
+    gap: 30px;
+}
+
+.lftSecCont {
+    width: 70%;
+    /* background-color: red; */
+}
+
+
+.rgtSecCont {
+    width: 30%;
+    margin-top: 20px;
+    /* background-color: lightgreen; */
+}
+
+
+.overViewCont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.overIconsFlex {
+    display: flex;
+    gap: 10px;
+
+
+}
+
+.overViewIcon {
+    background-color: white;
+    border-radius: 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(rgba(0, 0, 0, 0.04) 0px 2px 8px);
+}
+
+.rgtCardHeading{
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+}
+
+.rgtCardDesc{
+    font-size: 14px;
+    text-align: left;
+    color: grey;
+    line-height: 1.5;
+    margin: 0px;
+    padding: 0px;
+}
+
+.cardFlex{
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* Information container */
+
+.informationCont{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.lftInfoCont{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rgtDesc{
+    font-weight: 550;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Price card container */
+
+.priceCardCont h2{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+.priceCardCont span{
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
+}
+
+.priceCardCont .priceContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.priceCardCont p{
+    text-align: center;
+}
+
+
+
+
+
+
+.accordianFlex{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 5px;
+    /* padding: 5px; */
+}
+
+.accordianFlex p{
+    margin: 0px;
+    padding: 0px;
+    font-size: 18px;
+    color: grey;
+}
+
+.cancellationRefund{
+    font-size: 16px;
+    color: #374151;
+    line-height: 2;
+    width: 90%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.itinaryCont{
+    display: flex;
+    align-items: center;
+    height: 36px;
+    gap: 10px;
+}
+
+.itinaryPointerCont{
+    display: flex;
+    align-items: center;
+    height: 46px;
+    gap: 10px;
+}
+
+.itinaryBlock{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itinaryLineCont{
+    width: 36px;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.itinaryDot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb; 
+}
+
+.itenaryLine{
+    background-color: #e5e7eb;
+    width: 2px;
+    height: 23px;
+}
+
+.itinaryBlock p{
+    font-weight: 700;
+    color: rgb(54, 54, 54);
+}
+
+
+
+
+.itinaryText {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.itinaryText h3{
+    font-size:18px;
+    font-weight: 600;
+    margin: 0px;
+    padding: 0px;
+}
+
+.itinaryText p{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+.itinaryDetail{
+    padding: 8px 10px;
+    border: 2px solid #e5e7eb; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+} */

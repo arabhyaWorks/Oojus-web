@@ -1,0 +1,173 @@
+.superContainer {
+    background-color: #F8F8F8;
+    color: black;
+    margin: 0px;
+    padding: 0px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+/* Early Bird Offer Container */
+.earlyBirdContainer {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    gap: 6px;
+    filter: drop-shadow(rgba(0, 0, 0, 0.04) 0px 2px 8px);
+    margin-top: 20px;
+}
+
+.earlyBird {
+    font-size: 18px;
+    font-weight: 450;
+}
+
+/* Right Card Headings and Description */
+.rgtCardHeading {
+    margin: 0px;
+    padding: 0px;
+    font-size: 14px;
+}
+
+.rgtCardDesc {
+    font-size: 14px;
+    text-align: left;
+    color: grey;
+    line-height: 1.5;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Information container */
+.informationCont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.lftInfoCont {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.rgtDesc {
+    font-weight: 550;
+    font-size: 14px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Price card container */
+.priceCardCont h2 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.priceCardCont span {
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0px;
+    padding: 0px;
+}
+
+.priceCardCont .priceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.priceCardCont p {
+    text-align: center;
+}
+
+/* Section layout */
+.sectionCont {
+    display: flex;
+    gap: 30px;
+}
+
+.lftSecCont {
+    width: 70%;
+}
+
+.rgtSecCont {
+    width: 30%;
+    margin-top: 20px;
+}
+
+/* Padding with Border */
+.paddingWithBorder {
+    background-color: white;
+    padding: 8px;
+    border-radius: 10px;
+    filter: drop-shadow(rgba(0, 0, 0, 0.04) 0px 2px 8px);
+    margin-top: 20px;
+}
+
+/* Input fields */
+.inputGroup {
+    margin-bottom: 20px;
+}
+
+.labelHeader {
+    color: #7A7A7A;
+    margin-bottom: -10px;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+}
+
+.labelHeaderTxt {
+    margin: 0px;
+    z-index: 100;
+    position: relative;
+    background-color: white;
+    padding: 0px 10px;
+}
+
+.inputContainer {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.5rem;
+    padding: 10px;
+    border-width: 1px;
+    border: 2px solid #ddd;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.inputContainer:focus-within {
+    border: 2px solid #ccc;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+
+
+/* selecting journey date */
+
+.horizontalScroll {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    gap: 10px;
+}
+
+.horizontalScroll::-webkit-scrollbar {
+    display: none;
+}

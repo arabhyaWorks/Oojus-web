@@ -1,108 +1,88 @@
 .navContainer {
-    display: flex;
-    padding: 0 4.25rem;
-    height: 5rem;
-    /* background-color: red; */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.5s ease, color 0.5s ease;
-    
-
-  }
-  
-  .navScrolled {
-    background-color: white;
-    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
-   
-    /* Optional shadow */
-  }
-  
-  .flexCont {
-    flex-direction: row;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .rgtCont {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logoText {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-    transition: color 0.5s ease;
-  }
-  
-  .navContainer.navScrolled .logoText {
-    color: black;
-  }
-
-  .navItemContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .navItem {
-    /* padding: 0.38rem 1rem; */
-    /* border-radius: 40px;
-    margin: 0 0.3rem;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-
-    transition: background-color 0.5s ease, color 0.5s ease; */
-    /* display: flex ;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row; */
-    /* font-size: 16px; */
-    padding: 0.38rem 1rem;
-    /* background-color: #ffffff32; */
-    height: 35px;
-    border-radius: 40px;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-  }
-  
-  .navIcon {
-    /* border-radius: 100px; */
-    /* margin-right: 10px; */
-    color: white;
-    /* background-color: #ffffff32; */
-    /* padding: 0rem 1rem; */
-    height: 35px;
-    width: 35px;
-    border-radius: 100px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  display: flex;
+  padding: 0 4.25rem;
+  height: 5rem;
+  /* background-color: red; */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.5s ease, color 0.5s ease;
 
 
+}
 
+.navScrolled {
+  background-color: white;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
 
-    transition: background-color 0.5s ease, color 0.5s ease;
-  }
-  
-  .navItem:hover,
-  .navIcon:hover {
-    background-color: #ffffff32;
-  }
-  
-  .navContainer.navScrolled .navItem,
-  .navContainer.navScrolled .navIcon {
-    color: black;
-  }
-  
-  .navContainer.navScrolled .navItem:hover,
-  .navContainer.navScrolled .navIcon:hover {
-    background-color: #e0e0e0;
-  }
+  /* Optional shadow */
+}
+
+.flexCont {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.rgtCont {
+  display: flex;
+  align-items: center;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  transition: color 0.5s ease;
+}
+
+.navContainer.navScrolled .logoText {
+  color: black;
+}
+
+.navItemContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.navItem {
+  padding: 0.38rem 1rem;
+  display: flex;
+  height: 35px;
+  border-radius: 40px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.navIcon {
+  color: white;
+  height: 35px;
+  width: 35px;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+.navItem:hover,
+.navIcon:hover {
+  background-color: #ffffff32;
+}
+
+.navContainer.navScrolled .navItem,
+.navContainer.navScrolled .navIcon {
+  color: black;
+}
+
+.navContainer.navScrolled .navItem:hover,
+.navContainer.navScrolled .navIcon:hover {
+  background-color: #e0e0e0;
+}

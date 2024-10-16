@@ -808,15 +808,9 @@ const services = [
     image:
       "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/services_web%2FTour_package.png?alt=media&token=3f133f2a-c771-4c09-8fa6-cfbcba5c04e2",
     alt: "Book a your Tour package for Kashi",
-    route: "/",
+    route: "/tour-package",
   },
-  {
-    title: "Book Cabs",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/services_web%2Fcabs.png?alt=media&token=a06b9ff3-9a74-4812-acd0-6eb9a8f2a06b",
-    alt: "Book a Cab in Kashi",
-    route: "/",
-  },
+
   {
     title: "Must Visit Places",
     image:
@@ -824,34 +818,8 @@ const services = [
     alt: "What are the must visit places in Kashi?",
     route: "/",
   },
-  {
-    title: "Temple Timings",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/services_web%2FTemple_timings.png?alt=media&token=6d17a692-8ca2-43a1-8cbf-94c6148e261c",
-    alt: "What are the timings of the temples in Kashi?",
-    route: "/",
-  },
-  {
-    title: "Locate Utilities",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/services_web%2FUtilities.png?alt=media&token=63b8694c-c322-48e3-8e64-5d0043b91a89",
-    alt: "Locate the utilities in Kashi",
-    route: "/",
-  },
-  {
-    title: "Shastri Consultancy",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/services_web%2FShastri.png?alt=media&token=0b8fbf98-effa-4ff3-a0bb-975b5dc5ccfd",
-    alt: "Book online shastris consultancy",
-    route: "/",
-  },
-  {
-    title: "Book Hotels",
-    image:
-      "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/services_web%2FHotels.png?alt=media&token=02ea77c4-b39d-4063-8bca-22e921cd8914",
-    alt: "Book Hotels",
-    route: "/",
-  },
+
+
 ];
 
 const blogs = [

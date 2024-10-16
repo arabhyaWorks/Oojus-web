@@ -1,10 +1,27 @@
 .footer {
     /* background-color: #f2ebfc; */
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
+    background-color: white;
     /* padding: 20px; */
     margin: 0px;
     padding: 0 4.25rem;
 
+}
+.footerParentCont {
+    background-color: white;
+    margin: 0px;
+}
+
+.borderImage{
+    width: 100%;
+    padding: 0 -4.25rem;
+    opacity: 0.4;
+    height: 50px;
+    background-repeat: repeat-x;
+    background-image: url("https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/tour-packages%2FborderImage2.png?alt=media&token=2df6065e-d7b3-4e2e-a54a-f36dcbb69597");
+    background-size: contain;
+    margin-top: 20px;
+    opacity: 0.4;
 }
 
 .items{

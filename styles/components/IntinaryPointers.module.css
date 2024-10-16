@@ -1,0 +1,88 @@
+
+
+.itinaryCont{
+    display: flex;
+    align-items: center;
+    height: 36px;
+    gap: 10px;
+}
+
+.itinaryPointerCont{
+    display: flex;
+    align-items: center;
+    height: 46px;
+    gap: 10px;
+}
+
+.itinaryBlock{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid #e5e7eb; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.itinaryLineCont{
+    width: 36px;
+    height: 46px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+
+.itinaryDot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    /* background-color:#e5e7eb; */
+    border: 2px solid #e5e7eb; 
+}
+
+.itenaryLine{
+    background-color: #e5e7eb;
+    width: 2px;
+    height: 23px;
+}
+
+.itinaryBlock p{
+    font-weight: 700;
+    color: rgb(54, 54, 54);
+}
+
+
+
+
+.itinaryText {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+}
+.itinaryText h3{
+    font-size:18px;
+    font-weight: 600;
+    margin: 0px;
+    padding: 0px;
+}
+
+.itinaryText p{
+    margin: 0px;
+    padding: 0px;
+
+}
+
+
+.itinaryDetail{
+    padding: 8px 10px;
+    border: 2px solid #e5e7eb; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+}

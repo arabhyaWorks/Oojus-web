@@ -7,6 +7,9 @@ import Qrcode from '../../public/qrCode.png';
 // import GooglePlay from '/public/googlePlay.png';
 import Image from 'next/image';
 
+// const borderImage = "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/tour-packages%2FborderImage.png?alt=media&token=6ad0928d-e7d1-4c37-87e0-31bed6b29474"
+const borderImage ="https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/tour-packages%2FborderImage2.png?alt=media&token=2df6065e-d7b3-4e2e-a54a-f36dcbb69597"
+
 const Footer = () => {
   const router = useRouter();
 
@@ -16,7 +19,10 @@ const Footer = () => {
   } else {
 
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footerParentCont}>
+            <div src={borderImage} className={styles.borderImage} />
+    <div className={styles.footer}>
+
       <div className={styles.footerContainer}>
         <div className={styles.footerColumn}>
           <h4>Discover</h4>
@@ -215,6 +221,7 @@ const Footer = () => {
           </Link>
         </div>
       </div>
+    </div>
     </footer>
   );}
 };

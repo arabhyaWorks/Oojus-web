@@ -44,13 +44,7 @@ const NavBar = () => {
     } else {
       setNavClass(styles.navScrolled);
     }
-  }, [router.pathname]); // Run effect when the path changes
-  // if (router.pathname !== "/login"
-  //   // || router.pathname !== "/testingPayments"
-
-  // ) {
-
-  // }
+  }, [router.pathname]);
 
   if (
     ["/login", "/otpScreen", "/testingPayments", "/signup"].some((route) =>
@@ -74,9 +68,6 @@ const NavBar = () => {
             <Link className={styles.navItem} href="/">
               Home
             </Link>
-            {/* <Link className={styles.navItem} href="/about">
-              Shastri Consultancy
-            </Link> */}
             <Link className={styles.navItem} href="/">
               Book a Pooja
             </Link>
