@@ -910,12 +910,9 @@ const Services = () => {
       </div>
 
       <section>
-        <Image
+        <img
           src={BannerImage}
-          layout="responsive"
-          width={1918}
-          height={533}
-          style={{ borderRadius: 10, marginTop: "2rem" }}
+          className={styles.bannerImage}
           alt="Banner Image"
         />
       </section>
