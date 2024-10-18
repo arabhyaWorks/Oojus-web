@@ -1,18 +1,16 @@
 .footer {
-    /* background-color: #f2ebfc; */
-    /* background-color: #f5f5f5; */
     background-color: white;
-    /* padding: 20px; */
     margin: 0px;
     padding: 0 4.25rem;
 
 }
+
 .footerParentCont {
     background-color: white;
     margin: 0px;
 }
 
-.borderImage{
+.borderImage {
     width: 100%;
     padding: 0 -4.25rem;
     opacity: 0.4;
@@ -24,11 +22,12 @@
     opacity: 0.4;
 }
 
-.items{
+.items {
     padding: .5rem 0;
     font-size: .875rem;
 }
-.socialIcons{
+
+.socialIcons {
     width: 2.25rem;
     height: 2.25rem;
     border-radius: 1.125rem;
@@ -40,6 +39,7 @@
     position: relative;
     border: 1px solid #dfdfdf;
 }
+
 .footerContainer {
     display: flex;
     justify-content: space-between;
@@ -77,7 +77,7 @@
     border-radius: 5px;
 }
 
-.googleIcon{
+.googleIcon {
     /* aspect-ratio: 646/520; */
     /* background-color: red; */
     /* padding: 10px; */
@@ -117,5 +117,34 @@
 .socialLinks img {
     width: 24px;
     margin-left: 10px;
-    
+
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+
+    .footerBottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+
+    .footer {
+        background-color: white;
+        margin: 0px;
+        padding: 0px;
+    }
+
+    #scanImage {
+        display: none;
+    }
+
+    .footerColumn {
+        font-size: 10px;
+        font-weight: 450;
+    }
 }

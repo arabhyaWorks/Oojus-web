@@ -38,7 +38,7 @@
   }
 
   .overlay {
-    width: 214px!important;
+    width: 214px !important;
     width: 100%;
     height: 80px;
 
@@ -47,7 +47,7 @@
     justify-content: flex-end;
   }
 
-  .title{
+  .title {
     width: 90%;
     font-size: 1.35rem;
     padding-left: 10px;

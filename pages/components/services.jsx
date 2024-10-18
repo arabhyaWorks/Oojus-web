@@ -818,8 +818,6 @@ const services = [
     alt: "What are the must visit places in Kashi?",
     route: "/",
   },
-
-
 ];
 
 const blogs = [
@@ -894,11 +892,9 @@ const Services = () => {
 
       <div className={styles.services}>
         {services.map((service, index) => (
-          <div style={{
-            // marginLeft: index === 0 ? ''
-          }}>
+          <div style={{}}>
             <ServiceIcon key={index} {...service} />
-            </div>
+          </div>
         ))}
       </div>
 
@@ -928,14 +924,9 @@ const Services = () => {
       </div>
 
       <section>
-        <Image
-          src={
-            "https://staticin.sadhguru.org/in/pub/media/wysiwyg/homepage/Rudraksh-Guide-Mar-22-Web.jpg"
-          }
-          layout="responsive"
-          width={1918}
-          height={533}
-          style={{ borderRadius: 10, marginTop: "2rem" }}
+        <img
+          src={BannerImage}
+          className={styles.bannerImage}
           alt="Banner Image"
         />
       </section>
@@ -951,14 +942,7 @@ const Services = () => {
       </div>
 
       <section>
-        <Image
-          src={swiggy}
-          layout="responsive"
-          width={1918}
-          height={533}
-          style={{ borderRadius: 10, marginTop: "2rem" }}
-          alt="Banner Image"
-        />
+        <img src={swiggy} className={styles.bannerImage} alt="Banner Image" />
       </section>
 
       <h2 className={styles.heading}>Perform Pooja in Kashi</h2>

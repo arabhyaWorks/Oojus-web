@@ -113,3 +113,18 @@
 .detailsDimension{
     width: 240px;
 }
+
+
+
+
+@media (max-width: 768px) {
+
+    .card{
+        width: 270px;
+        height: 200px;
+    }
+
+    .rating{
+        gap: 5px;
+    }
+  }

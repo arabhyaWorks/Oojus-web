@@ -82,3 +82,17 @@
 .details {
     margin: 10px 0px;
 }
+
+
+
+@media (max-width: 768px) {
+
+    .card {
+        width: 270px;
+        height: 170px;
+    }
+
+    .rating {
+        gap: 5px;
+    }
+}

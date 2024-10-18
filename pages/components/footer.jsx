@@ -109,7 +109,7 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className={styles.footerColumn}>
+            <div id={styles.poojaBooking} className={styles.footerColumn}>
               <h4>Pooja Booking</h4>
               <ul>
                 <li className={styles.items}>
@@ -178,21 +178,10 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className={styles.footerColumn}>
+            <div id={styles.scanImage} className={styles.footerColumn}>
               <h4>Scan to Download App</h4>
               <Image src={Qrcode} alt="QR Code" className={styles.qrCode} />
               <div className={styles.appLinks}>
-                {/* <img
-              src="/path-to-apple-store-badge"
-              alt="Download on the App Store"
-            /> */}
-
-                {/* <img src={"/googlePlay.png"} alt="" style={{width:'100%', height:undefined}} /> */}
-
-                {/* <Image className={styles.googleIcon}
-             width={250}
-              // height={60}
-             src={GooglePlay} alt="Get it on Google Play" /> */}
               </div>
             </div>
           </div>
