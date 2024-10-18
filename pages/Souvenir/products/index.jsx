@@ -34,13 +34,7 @@ const Souvenir = () => {
   return (
     <div className={styles.souvenir}>
       <section>
-        <Image
-          src={swiggy}
-          layout="responsive"
-          width={1918}
-          height={533}
-          alt="Banner Image"
-        />
+        <img src={swiggy} className={styles.bannerImage}/>
       </section>
 
       <section className={styles.feedContainer}>
@@ -119,7 +113,7 @@ const Souvenir = () => {
 
           <div className={styles.visit}>
             {data?.slice(0, 9).map((product, index) => (
-              <ProductCard key={index} {...product} />
+              <ProductCard screen key={index} {...product} />
             ))}
           </div>
         </div>

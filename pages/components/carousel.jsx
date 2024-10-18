@@ -41,8 +41,7 @@ const Carousel = () => {
         {slides.map((slide, index) => (
           <div key={index}>
             <img
-              // src={slide.image}
-              src="https://m.media-amazon.com/images/I/61J17mGbZlL._SR1236,1080_.jpg"
+              src={slide.image}
               alt="Kashi at one place"
               className={styles.sliderCarousel}
             />

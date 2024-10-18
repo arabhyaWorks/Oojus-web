@@ -7,11 +7,7 @@
 
 
 .productsContainer {
-    /* margin: 1rem 4.25rem;
-    background-color: green; */
     width: 80%;
-
-
 }
 
 .visit {
@@ -21,58 +17,86 @@
     margin: 0 1rem;
 }
 
-.sideFilters{
-    /* background-color: red; */
-    /* width: 20%; */
-    /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15)); */
+.sideFilters {
     filter: drop-shadow(rgba(0, 0, 0, 0.1) 0px 2px 8px);
-
     background-color: white;
     padding: 1rem;
     border-radius: 16px;
     margin-right: 1rem;
 }
 
-.feedContainer{
+.feedContainer {
     display: flex;
     flex-direction: row;
-    /* justify-content: center;
-    align-items: center; */
-    /* background-color: lightgreen; */
-    
 }
 
-.filterText{
+.filterText {
     color: #222;
     font-size: 1.25rem;
 }
 
-.labels{
+.labels {
     font-size: 1rem;
     color: #222;
-    /* margin-top: 1rem; */
     margin: 10px;
-    /* background-color: red; */
 }
 
-.labelItem{
-
+.labelItem {
     margin: 10px;
-    /* color: #ffd700; */
 }
 
-.ratingContainer{
+.ratingContainer {
     margin: 10px;
-    cursor: pointer ;
+    cursor: pointer;
 }
 
-.star{
+.star {
     margin-right: 10px;
 
 }
 
-.feedContainer{
+.feedContainer {
     margin: 1rem 1.25rem;
-    /* background-color: red; */
+}
+
+
+.bannerImage {
+    width: 100%;
+    height: 100px;
+    border-radius: 0;
+    margin: 0px;
+    object-fit: cover;
+}
+
+
+
+@media (max-width: 768px) {
+
+    .sideFilters {
+        display: none;
+    }
+
+    .visit {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 0;
+
+        /* background-color: green; */
+    }
+
+
+    .productsContainer {
+        width: 100%;
+        /* background-color: red; */
+    }
+
+
+    .feedContainer {
+        margin: 0;
+        margin: 0 1rem;
+        /* background-color: red; */
+    }
+
 
 }

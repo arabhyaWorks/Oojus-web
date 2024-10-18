@@ -50,7 +50,7 @@ const ProductCard = (props) => {
           </p>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "row", margin: 0 }}>
+        <div style={{ display: "flex", flexDirection: "row", margin: 0, display:'flex',flex:1 }}>
           <p className={styles.price}>₹{discount > 0 ? discountedPrice.toFixed(2) : price}</p>
           {discount > 0 && <p className={styles.discount}> ₹{price}</p>}
         </div>

@@ -63,9 +63,9 @@ const NavBar = () => {
     return (
       <div
         className={`${styles.navContainer} ${navClass}`}
-        // style={{
-        //   marginBottom: router.pathname === "/" ? "-100px" : null,
-        // }}
+        style={{
+          marginBottom: router.pathname === "/" ? "-100px" : null,
+        }}
       >
         <nav className={styles.flexCont}>
           <div className={styles.rgtCont}>
