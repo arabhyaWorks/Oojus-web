@@ -10,11 +10,11 @@
 }
 
 .services {
-  /* display: flex;
+  display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   column-gap: 5rem;
-  row-gap: 3rem; */
+  row-gap: 3rem;
 }
 
 .visit {
@@ -42,7 +42,7 @@
     margin: 0;
   }
 
-  .heading{
+  .heading {
     padding: 0 1rem;
     color: #222;
     font-size: 1.375rem;
@@ -50,12 +50,40 @@
   }
 
 
-  .services{
+  .services {
     display: flex;
     overflow-x: scroll;
-    padding:0 1rem;
+    padding: 0 1rem;
     gap: 1rem;
-    
+    justify-content: none;
+    flex-wrap: nowrap;
+  }
 
+  .services::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .visit {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
+
+  .visit::-webkit-scrollbar {
+    display: none;
+  }
+
+  .visit {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
