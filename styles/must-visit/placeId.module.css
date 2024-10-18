@@ -93,6 +93,7 @@
     margin: 0px;
     padding: 0px;
     font-size: 14px;
+    text-transform: uppercase;
 }
 
 .rgtCardDesc {
@@ -151,4 +152,32 @@
 
 .priceCardCont p {
     text-align: center;
+}
+
+
+.tableContent{
+    width: 100%;
+    margin-bottom: 48px;
+    padding: 1rem;
+}
+
+.underLineBlock{
+    background-color: #79006E;
+    width: 50px;
+    height: 3.5px;
+    margin: 5px 0;
+}
+
+.listItem{
+    margin: 10px 0;
+}
+
+.listItem a:hover{
+    text-decoration: underline;
+}
+
+.listItem span{
+    color: #79006E;
+    font-weight: 550;
+    margin-right: 10px;
 }

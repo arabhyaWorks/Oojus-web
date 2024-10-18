@@ -2,7 +2,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "../../styles/Carosel.module.css"; 
+import styles from "../../styles/Carosel.module.css";
 import NavBar from "./navBar";
 
 const Carousel = () => {
@@ -13,35 +13,39 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2000,
+    autoplaySpeed: 3000, // Adjust speed as needed
     fade: true,
+    lazyLoad: true,
+    arrows: true, // Make sure this is enabled
   };
 
   const slides = [
     {
-      image: "/carousel1.png", // Use the path from the public folder
+      image: "/carousel1.png",
       content: "Slide 1 Content",
     },
-    // {
-    //   image: "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/OOJUS_Header1.png?alt=media&token=5b41983d-6cb7-41fb-8d4b-43a92a94cd9d",
-    //   content: "Slide 2 Content",
-    // },
+    {
+      image: "/carousel1.png",
+      content: "Slide 1 Content",
+    },
+    {
+      image: "/carousel1.png",
+      content: "Slide 1 Content",
+    },
+   
   ];
 
   return (
-    <div>
+    <div className={styles.sliderContainer}>
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index}>
-            <div
+            <img
+              // src={slide.image}
+              src="https://m.media-amazon.com/images/I/61J17mGbZlL._SR1236,1080_.jpg"
+              alt="Kashi at one place"
               className={styles.sliderCarousel}
-              style={{
-                backgroundImage: `url(${slide.image})`,
-                height: "80vh",
-              }}
-            >
-              {/* You can include content or navigation here */}
-            </div>
+            />
           </div>
         ))}
       </Slider>

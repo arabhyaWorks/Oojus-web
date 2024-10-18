@@ -2,17 +2,18 @@
   display: flex;
   padding: 0 4.25rem;
   height: 5rem;
-  /* background-color: red; */
   position: sticky;
   top: 0;
   z-index: 1000;
   transition: background-color 0.5s ease, color 0.5s ease;
 
 
+
 }
 
 .navScrolled {
   background-color: white;
+  /* background-color: red; */
   box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
 
   /* Optional shadow */
@@ -85,4 +86,44 @@
 .navContainer.navScrolled .navItem:hover,
 .navContainer.navScrolled .navIcon:hover {
   background-color: #e0e0e0;
+}
+
+.svgStyles {
+  display: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+
+  .navContainer {
+    padding: 0 1rem;
+    background-color: white;
+  }
+
+  .navItemContainer {
+    display: none;
+  }
+
+  .svgStyles {
+    display: block;
+    fill: grey;
+    transition: fill 0.3s ease;
+  }
+
+  .svgScrolled {
+    fill: black;
+  }
+
+  .logoText {
+    color: black;
+  }
+
+
+  .navScrolled {
+    border-bottom: 1px solid #e2e2e2;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.01);
+  }
 }

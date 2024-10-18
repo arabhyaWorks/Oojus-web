@@ -899,11 +899,11 @@ const Services = () => {
       </div>
 
       <h2 className={styles.heading}>Must Visit Places</h2>
-      <div className={styles.visit}>
+      {/* <div className={styles.visit}>
         {MustVisit.slice(0, 4).map((place, index) => (
           <MustVisitCard key={index} {...place} />
         ))}
-      </div>
+      </div> */}
 
       <section>
         <Image
@@ -918,13 +918,13 @@ const Services = () => {
 
       <h2 className={styles.heading}>Souvenir Categories</h2>
 
-      <div className={styles.visit}>
+      {/* <div className={styles.visit}>
         {Object.values(products)
           .slice(0, 4)
           .map((place, index) => (
             <CategoryCard key={index} {...place} />
           ))}
-      </div>
+      </div> */}
 
       <section>
         <Image
@@ -941,13 +941,13 @@ const Services = () => {
 
       <h2 className={styles.heading}>Purchase Gifts</h2>
 
-      <div className={styles.visit}>
+      {/* <div className={styles.visit}>
         {Object.values(products)
           .slice(4, 8)
           .map((product, index) => (
             <ProductCard key={index} {...product} />
           ))}
-      </div>
+      </div> */}
 
       <section>
         <Image
@@ -962,19 +962,19 @@ const Services = () => {
 
       <h2 className={styles.heading}>Perform Pooja in Kashi</h2>
 
-      <div className={styles.visit}>
+      {/* <div className={styles.visit}>
         {poojas.map((product, index) => (
           <PoojaCard key={index} {...product} />
         ))}
-      </div>
+      </div> */}
 
       <h2 className={styles.blogHeading}>Latest blog posts</h2>
-
+{/* 
       <div className={styles.visit}>
         {blogs.map((product, index) => (
           <BlogPostCard key={index} {...product} />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

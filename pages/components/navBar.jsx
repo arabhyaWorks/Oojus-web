@@ -4,11 +4,15 @@ import styles from "../../styles/components/stickyHeader.module.css";
 import { useRouter } from "next/router";
 import { IoMdCart } from "react-icons/io";
 import { FaUserLarge } from "react-icons/fa6";
+import { IoMdMenu as HamMenu} from "react-icons/io";
+import MenuIcon from '../icons/menuIcon';
+
 
 const NavBar = () => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [navClass, setNavClass] = useState("");
-  const router = useRouter(); // Hook to get the current route
+  const router = useRouter();
+  const [fill, setFill] = useState("white")
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -29,7 +33,10 @@ const NavBar = () => {
 
         if (position > 50) {
           setNavClass(styles.navScrolled); // Add white background and black text
+          setFill(styles.svgScrolled)
         } else {
+          setFill("white")
+
           setNavClass(""); // Reset to transparent background
         }
       };
@@ -56,9 +63,9 @@ const NavBar = () => {
     return (
       <div
         className={`${styles.navContainer} ${navClass}`}
-        style={{
-          marginBottom: router.pathname === "/" ? "-100px" : null,
-        }}
+        // style={{
+        //   marginBottom: router.pathname === "/" ? "-100px" : null,
+        // }}
       >
         <nav className={styles.flexCont}>
           <div className={styles.rgtCont}>
@@ -90,10 +97,8 @@ const NavBar = () => {
             <Link className={styles.navItem} href="/bookings">
               Bookings
             </Link>
-            {/* <Link className={styles.navIcon} href="/cart">
-              <FaUserLarge size={20} />
-            </Link> */}
           </div>
+            <MenuIcon fill={'black'} styles={`${styles.svgStyles} ${fill}`}/>
         </nav>
       </div>
     );
