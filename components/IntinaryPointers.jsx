@@ -17,6 +17,7 @@ const ItinaryItemHeader = ({ day }) => {
 const ItinaryItem = ({ time, activity, last }) => {
   return (
     <div className={styles.itinaryPointerCont}>
+      <div className={styles.parentItinaryLineCont}>
       <div
         className={styles.itinaryLineCont}
         style={{ justifyContent: last ? "flex-start" : "center" }}
@@ -24,6 +25,7 @@ const ItinaryItem = ({ time, activity, last }) => {
         <div className={styles.itenaryLine} />
         <div className={styles.itinaryDot} />
         {last ? null : <div className={styles.itenaryLine} />}
+      </div>
       </div>
 
       <div className={styles.itinaryText}>

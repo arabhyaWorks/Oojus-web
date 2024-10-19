@@ -2,3 +2,17 @@
     color: black;
     padding: 0px;
 }
+
+.parentContainer{
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width:768px){
+    .crumTitle {
+        font-size: 14px;
+        font-weight: 550;
+        color: rgb(88, 88, 88);
+
+    }
+}

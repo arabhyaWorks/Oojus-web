@@ -28,7 +28,7 @@ const ArrowIcon = ({}) => {
 
 const NormarlBreadCrum = ({ crums }) => {
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <div  className={styles.parentContainer}>
       {crums.map((data, index) => {
         return (
           <>

@@ -192,24 +192,6 @@ const ReviewOrder = () => {
     <div className={styles.superContainer}>
       {productData ? (
         <>
-          {/* <div>
-            <div>
-              <div>
-                <img src={productData?.images[0]} alt="Product" />
-              </div>
-              <div>
-                <h1>{productData?.name}</h1>
-                <p>{productData?.description}</p>
-                <p>Price: {productData?.price}</p>
-                <p>Discount: {productData?.discount}</p>
-                <p>
-                  Discounted Price:{" "}
-                  {productData?.price -
-                    productData?.price * (productData?.discount / 100)}
-                </p>
-              </div>
-            </div>
-          </div> */}
 
           <div className={styles.leftContainer}>
             {/* Early bird discount container */}
@@ -240,10 +222,12 @@ const ReviewOrder = () => {
                 {/*Price and Info */}
                 <h1 className={styles.productTitle}>{productData?.name}</h1>
                 <div className={styles.priceSection}>
+                  <div style={{display:"flex", flexDirection:'row', gap:"10px"}}>
                   <span className={styles.price}>
                     ₹{discountedPrice(productData)}
                   </span>
                   <span className={styles.ogPrice}>₹{productData?.price}</span>
+                  </div>
                   <span className={styles.off}>
                     ₹
                     {(
@@ -379,7 +363,8 @@ const ReviewOrder = () => {
             </div>
           </div>
 
-          {/* address details form to ask the user for their address details */}
+          <>
+{/* address details form to ask the user for their address details */}
           {/* <form>
             <label>Enter your Details</label>
 
@@ -443,6 +428,8 @@ const ReviewOrder = () => {
             </p>
           <button onClick={handlePayment}>Pay</button>
           </div> */}
+
+          </>
         </>
       ) : (
         <p>Loading product details...</p>

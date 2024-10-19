@@ -32,3 +32,16 @@
     width: 100%;
     height: calc(50% - 15px);
 }
+
+
+@media (max-width:768px) {
+    .rgtImgCont {
+        display: none;
+    }
+
+    .lftImgCont {
+        width: 100%;
+    }
+
+
+}

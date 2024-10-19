@@ -152,3 +152,33 @@
 .priceCardCont p {
     text-align: center;
 }
+
+
+@media (max-width:768px) {
+    .superContainer {
+        margin: 0;
+        padding: 0 10px
+    }
+
+    .title {
+        font-size: 40px;
+        line-height: 1.2;
+    }
+
+
+    .sectionCont {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lftSecCont {
+        width: 100%;
+    }
+
+    .rgtSecCont {
+        width: 100%;
+
+    }
+
+
+}

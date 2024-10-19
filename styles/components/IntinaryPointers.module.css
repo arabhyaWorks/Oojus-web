@@ -1,88 +1,138 @@
-
-
-.itinaryCont{
+.itinaryCont {
     display: flex;
+    flex-direction: row;
     align-items: center;
-    height: 36px;
     gap: 10px;
 }
 
-.itinaryPointerCont{
+.itinaryPointerCont {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
     height: 46px;
-    gap: 10px;
 }
 
-.itinaryBlock{
+.itinaryBlock {
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    border: 2px solid #e5e7eb; 
+    border: 2px solid #e5e7eb;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.itinaryLineCont{
-    width: 36px;
+.itinaryLineCont {
+    width: 36px !important;
     height: 46px;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
+    justify-content: space-between;
+    /* Ensures proper alignment */
+    box-sizing: border-box;
+    /* Ensures padding/borders don't affect width */
 }
 
-
-.itinaryDot{
+.itinaryDot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    /* background-color:#e5e7eb; */
-    border: 2px solid #e5e7eb; 
+    border: 2px solid #e5e7eb;
 }
 
-.itenaryLine{
+.itenaryLine {
     background-color: #e5e7eb;
     width: 2px;
     height: 23px;
 }
 
-.itinaryBlock p{
+.itinaryBlock p {
     font-weight: 700;
     color: rgb(54, 54, 54);
+    margin: 0;
+    padding: 0;
 }
-
-
-
 
 .itinaryText {
     display: flex;
     align-items: center;
     gap: 10px;
-
 }
-.itinaryText h3{
-    font-size:18px;
+
+.itinaryText h3 {
+    font-size: 18px;
     font-weight: 600;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
-.itinaryText p{
-    margin: 0px;
-    padding: 0px;
-
+.itinaryText p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #555;
 }
 
-
-.itinaryDetail{
+.itinaryDetail {
     padding: 8px 10px;
-    border: 2px solid #e5e7eb; 
+    border: 2px solid #e5e7eb;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
     font-size: 12px;
     font-weight: 600;
+    background-color: #f9f9f9;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .itinaryCont {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .itinaryPointerCont {
+        flex-direction: row;
+        justify-content: flex-start;
+        width: 100%;
+    }
+
+    .parentItinaryLineCont{
+        width: 36px;
+        /* background-color: lightgreen; */
+    }
+
+    .itinaryLineCont {
+        width: 100%;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: flex-start;
+        /* background-color: red; */
+    }
+
+    .itinaryBlock {
+        width: 28px;
+        height: 28px;
+    }
+
+    .itenaryLine {
+        width: 2px;
+        height: 12px;
+    }
+
+    .itinaryDetail {
+        font-size: 10px;
+        padding: 6px 8px;
+    }
+
+    .itinaryText h3 {
+        font-size: 16px;
+    }
+
+    .itinaryText p {
+        font-size: 12px;
+    }
 }
