@@ -7,8 +7,9 @@ import discountedPrice from "../../../utils/discountedPrice";
 import SouvenirNavBar from "../../components/souvenirNavBar";
 import Footer from "../../components/footer";
 import products from "../../../public/Product";
-import ProductCard from "../../components/productCard";
+import ProductCard from "../../components/productCardProductPage";
 import BreadCrum from "../../components/BreadCrum";
+import { FaStar } from "react-icons/fa";
 
 import { onValue, ref, set } from "firebase/database";
 import database from "../../../firebase/config";
@@ -21,7 +22,7 @@ const ProductComponent = () => {
   const { setProductData } = useAuth();
   const [uid, setUid] = useState(null);
 
-  console.log("data is here : ", data);
+  //console.log("data is here : ", data);
 
   const buyNow = () => {
     setProductData(data);
@@ -53,8 +54,6 @@ const ProductComponent = () => {
     <div className={styles.superContainer}>
       <BreadCrum crumbs={["Souvenir", "Product", "Brass Idol"]} />
 
-      {/* <h1>this is product id{router.query.productId}</h1> */}
-
       <>
         {data && (
           <div className={styles.productContainer}>
@@ -81,9 +80,11 @@ const ProductComponent = () => {
             <div className={styles.detailsContainer}>
               {/* Product Details */}
               <div className={styles.productDetails}>
-                <h1 className={styles.productTitle}>{data?.name}</h1>
+                <h2 className={styles.productTitle}>{data?.name}</h2>
                 <div className={styles.ratingAndReviews}>
-                  <span className={styles.rating}>{data?.rating} ★</span>
+                  <span className={styles.rating}>{data?.rating}</span>
+                  <FaStar className={styles.rating} />
+
                   <span className={styles.reviews}>({3232} ratings)</span>
                 </div>
                 <div className={styles.priceSection}>
@@ -119,13 +120,6 @@ const ProductComponent = () => {
               {/* Product Specifications */}
               <div className={styles.productSpecifications}>
                 <h2>About this Product</h2>
-                {/* <ul>
-                {data?.description.map((spec, index) => (
-                  <li key={index}>
-                    <strong>{spec.split(":")[0]}</strong>: {spec.split(":")[1]}
-                  </li>
-                ))}
-              </ul> */}
 
                 <p>{data?.about}</p>
               </div>
@@ -150,7 +144,11 @@ const ProductComponent = () => {
           {Object.values(products)
             .slice(0, 5)
             .map((product, index) => (
-              <ProductCard dimension={"square"} key={index} {...product} />
+              <div style={{
+                marginLeft:index === 0 ? "1rem" : null,
+              }}>
+                <ProductCard key={index} {...product} />
+              </div>
             ))}
         </div>
       </section>
@@ -162,34 +160,20 @@ const ProductComponent = () => {
           {Object.values(products)
             .slice(0, 5)
             .map((product, index) => (
-              <ProductCard dimension={"square"} key={index} {...product} />
+              <div style={{
+                marginLeft:index === 0 ? "1rem" : null,
+              }}>
+                <ProductCard key={index} {...product} />
+              </div>
             ))}
         </div>
       </section>
+
+
 
       <LongBanner />
     </div>
   );
 };
-
-// Example product object structure
-
-// export const getServerSideProps = async (context) => {
-//   let data = null;
-//   console.log("context", context);
-
-//   const dbRef = ref(database, "souvenir/products/" + context.params.productId);
-//   onValue(dbRef, (snapshot) => {
-//     data = snapshot.val();
-//     console.error("this is product data");
-//     console.log("product data: ", data);
-//   });
-
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// };
 
 export default ProductComponent;
