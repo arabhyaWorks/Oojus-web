@@ -18,14 +18,12 @@
     color: white;
     backdrop-filter: blur(2.5px);
     padding-left: 30px;
-    /* background-color: #00000080; */
     display: flex;
     flex-direction: column;
     padding-top: 20px;
-    /* justify-content: center; */
 }
 
-.blurContainer h1{
+.blurContainer h1 {
     font-size: 80px;
     font-weight: 600;
     margin: 0px;
@@ -34,7 +32,7 @@
     text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 16px;
 }
 
-.blurContainer h2{
+.blurContainer h2 {
     font-size: 22px;
     font-weight: 600;
     margin: 0px;
@@ -155,53 +153,104 @@
     font-weight: 800;
 }
 
-.dateCardContainer {
-    background-color: #00000080;
-    color: white;
-    width: 70px;
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 10px;
+
+
+
+
+
+@media (max-width: 768px) {
+    .superContainer {}
+
+    .image {
+        height: 40vh;
+    }
+
+    .blurContainer {
+        height: 20vh;
+        transform: translate(0%, -105%);
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .blurContainer h1 {
+        font-size: 36px;
+    }
+
+    .blurContainer h2 {
+        font-size: 16px;
+    }
+
+    .overViewContainer {
+        flex-direction: column;
+        margin: 0;
+        margin-top: -160px;
+        padding: 10px;
+    }
+
+    .leftContainer,
+    .rightContainer {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .wheatherContainer {
+        padding: 1rem;
+        padding-left: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .mustVisitContainer {
+        padding: 10px;
+    }
+
+    .mustVisitFlex {
+        flex-direction: row;
+        overflow: scroll;
+        gap: 15px;
+        margin-left: -10px;
+        margin-right: -10px;
+    }
+
+    .cardImage {
+        width: 100%;
+        height: 300px;
+    }
+
+    .heading {
+        font-size: 26px;
+        margin: 0;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
 }
 
-.cardImageContainer {
-    width: 390px;
-    height: 390px;
-    border-radius: 20px;
+/* @media (max-width: 480px) {
+    .blurContainer h1 {
+        font-size: 36px;
+    }
 
+    .blurContainer h2 {
+        font-size: 16px;
+    }
 
-}
+    .wheatherContainer h1 {
+        font-size: 1.1rem;
+    }
 
-.dateCard {
-    background-color: #00000080;
-    color: white;
-    width: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 10px;
+    .wheatherContainer p, .wheatherFlex h2 {
+        font-size: 14px;
+    }
 
+    .cardTitle {
+        font-size: 16px;
+    }
 
-}
+    .mustVisitContainer {
+        padding: 5px;
+    }
 
-.txt1 {
-    font-size: 32px;
-    margin: 0px;
-    padding: 0px;
-}
-
-.txt2 {
-    font-size: 18px;
-    margin: 0px;
-    padding: 0px;
-}
-
-.txt3 {
-    font-size: 18px;
-    margin: 0px;
-    padding: 0px;
-}
+    .heading {
+        font-size: 24px;
+        margin-left: 5px;
+    }
+} */

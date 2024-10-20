@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/pages/aboutkashi.module.css";
-import BreadCrum from "./components/BreadCrum";
+import { PackageCard, EventPackageCard } from "../components/PackageCard";
 
 const mustVisitImages = [
   {
@@ -52,25 +52,19 @@ const events = [
 const AboutKashi = () => {
   return (
     <div className={styles.superContainer}>
-      {/* <img
-        src="https://scth.scene7.com/is/image/scth/getting-around-banner:crop-1920x768?defaultImage=getting-around-banner&wid=1500&hei=600"
-        // src="https://images.pexels.com/photos/18728098/pexels-photo-18728098/free-photo-of-boats-moored-on-river-in-city-in-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        alt="Kashi"
-        className={styles.image}
-      /> */}
+
 
       <div className={styles.mainImageContainer}>
         <img
-                // src="https://images.pexels.com/photos/18728098/pexels-photo-18728098/free-photo-of-boats-moored-on-river-in-city-in-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-
           src="https://scth.scene7.com/is/image/scth/getting-around-banner:crop-1920x768?defaultImage=getting-around-banner&wid=1500&hei=600"
           alt="Kashi"
           className={styles.image}
         />
         <div className={styles.blurContainer}>
-            <>
+          <>
             <h1>Kashi Ancient than History</h1>
-            <h2>The Past, Present & Future</h2></>
+            <h2>The Past, Present & Future</h2>
+          </>
         </div>
       </div>
 
@@ -131,16 +125,6 @@ const AboutKashi = () => {
               humility.
             </p>
 
-            {/* <p className={styles.desc}>
-              The city of Kashi is one of the oldest cities in the world. It is
-              the spiritual capital of India. It is also known as Varanasi. It
-              is a city in the northern Indian state of Uttar Pradesh dating to
-              the 11th century B.C. Regarded as the spiritual capital of India,
-              the city draws Hindu pilgrims who bathe in the Ganges River’s
-              sacred waters and perform funeral rites. Along its winding streets
-              are some 2,000 temples, including Kashi Vishwanath, the “Golden
-              Temple,” dedicated to the Hindu god Shiva.
-            </p> */}
           </div>
         </div>
         <div className={styles.rightContainer}>
@@ -188,13 +172,7 @@ const AboutKashi = () => {
 
         <div className={styles.mustVisitFlex}>
           {mustVisitImages.map((item, index) => (
-            <div
-              style={{ marginLeft: index == 0 ? "40px" : "" }}
-              className={styles.mustVisitItem}
-            >
-              <img src={item.image} alt="temple" className={styles.cardImage} />
-              <h2 className={styles.cardTitle}>{item.title}</h2>
-            </div>
+            <PackageCard item={item} image={item.image} title={item.title} index={index} />
           ))}
         </div>
       </section>
@@ -204,44 +182,7 @@ const AboutKashi = () => {
 
         <div className={styles.mustVisitFlex}>
           {events.map((item, index) => (
-            <div
-              style={{ marginLeft: index == 0 ? "40px" : "" }}
-              className={styles.mustVisitItem}
-            >
-              {/* <img src={item.image} alt="temple" className={styles.cardImage} /> */}
-              <div
-                style={{
-                  backgroundImage: `url(${item.image})`,
-                  backgroundSize: "cover",
-                }}
-                className={styles.cardImageContainer}
-              >
-                <div
-                  style={{
-                    borderTopLeftRadius: "20px",
-                    borderBottomWidth: "1px",
-                    borderBottomStyle: "solid",
-                    borderBottomColor: "white",
-                  }}
-                  className={styles.dateCard}
-                >
-                  <p className={styles.txt1}>15</p>
-                  <p className={styles.txt2}>Nov</p>
-                  <p className={styles.txt3}>2024</p>
-                </div>
-                <div
-                  style={{
-                    borderBottomRightRadius: "20px",
-                  }}
-                  className={styles.dateCard}
-                >
-                  <p className={styles.txt1}>20</p>
-                  <p className={styles.txt2}>Nov</p>
-                  <p className={styles.txt3}>2024</p>
-                </div>
-              </div>
-              <h2 className={styles.cardTitle}>{item.title}</h2>
-            </div>
+            <EventPackageCard item={item} index={index} />
           ))}
         </div>
       </section>

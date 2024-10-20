@@ -10,6 +10,8 @@ import { PiCake } from "react-icons/pi";
 import { RiDiscountPercentFill } from "react-icons/ri";
 import { FaShieldHalved } from "react-icons/fa6";
 
+import Accordion from "../../components/Accordian";
+
 import RightCardContainer from "../../components/RightCardContainer";
 import DateItem from "../../components/DateItem";
 import TimeSlotItem from "../../components/TimeSlotItem";
@@ -304,8 +306,9 @@ const LeftSideContainer = ({
       </div>
 
       <div className={styles.trmsCont}>
-        <h3>Cancellation policy</h3>
-        <p>
+       
+        <h3>Cancellation & Refund Policy</h3>
+        <p className={styles.trmsContTxt}>
           Return, exchange and cancellation policy Replacement policy: You may
           be asked to pay additional fees for modification, and these fees vary
           according to the type of service that was requested. When requesting
@@ -339,6 +342,49 @@ const LeftSideContainer = ({
           and in this case we will try as much as possible to implement your
           request
         </p>
+      </div>
+
+      <div className={styles.accordionTrmsCont}>
+      <Accordion
+          className={styles.someH3Heading}
+          title="Cancellation & Refund Policy"
+        >
+          <p className={styles.trmsContTxt}>
+            Return, exchange and cancellation policy Replacement policy: You may
+            be asked to pay additional fees for modification, and these fees
+            vary according to the type of service that was requested. When
+            requesting to amend sites, the date, or adding notes such as the
+            type of transportation, meals, and any other requests, contact
+            customer service to implement the request. Cancellation policy:
+            Requests must be submitted by the customer through the future
+            welfare customer service For each cancellation of a booking by the
+            customer, Future Luxury will charge a cancellation fee of 15% The
+            amount is 100% deducted four days before the trip, and the amount is
+            non-refundable after that, and the customer is not entitled to claim
+            it. Return policy: When the customer requests a refund of the amount
+            he paid four days before the trip, the future luxury charges a 15%
+            fee and refunds the amount after the fees, noting that the refund
+            mechanism and method is based on the same payment method. If the
+            payment was made by credit card, the refund will be made within 48
+            hours of working days, and the amount will be returned from the bank
+            within 7 working days, and there may be a delay by the bank. If the
+            payment is made via our customer service it takes 48 hours of our
+            working days. If the amount is not refunded after the
+            above-mentioned period, please contact customer service or send a
+            request and contact the company's customer service to request a
+            refund. In the event that reservations that are non-refundable are
+            confirmed and the customer has no right to claim them except in
+            force majeure, the approval of the refund is conditional on the
+            service provider's approval and acceptance of the refund. Upgrade
+            flights: Passengers can upgrade the special flights that they have
+            contracted for, through customer service and pay the difference
+            before the aforementioned modification date, according to the
+            availability of the possibility, as the luxury of the future does
+            not guarantee the upgrade of flights upon the arrival of the
+            customer, and in this case we will try as much as possible to
+            implement your request
+          </p>
+        </Accordion>
       </div>
     </div>
   );

@@ -138,9 +138,13 @@
 
 /* Responsive Styling */
 @media (max-width: 768px) {
+
+  .superContainer {
+    padding: 0;
+  }
   .bookingHistorySection {
-    margin: 1rem;
-    padding: 1rem;
+    margin: 0;
+    padding: 10px;
   }
 
   .bookingCardContent {

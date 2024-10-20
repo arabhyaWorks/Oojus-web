@@ -1,78 +1,129 @@
 .superContainer {
     background-color: #F8F8F8;
     color: #222;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     padding-left: 50px;
     padding-right: 50px;
 }
 
-.cardTitle {
-    color: black;
-}
-
-.heading {
-    font-size: 2rem;
-    font-size: 35px;
-    font-weight: 800;
-    margin: 0px;
-    padding: 0px;
-    margin-top: 40px;
-}
-
-
-.hrContt{
+/* Adjust card layout on different screen sizes */
+.hrContt {
     display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    margin-top: 20px;
-
+    flex-wrap: nowrap;
+    gap: 30px;
+    overflow-x: auto;
+    margin-left: -50px;
+    margin-right: -50px;
+    padding: 20px 0;
+    scroll-behavior: smooth;
 }
 
-.cardItem{
+.cardItem {
     width: 320px;
 }
 
-.cardImg{
+.cardImg {
     width: 320px;
     height: 320px;
     object-fit: cover;
     border-radius: 12px;
 }
 
-.hrlabelsCont{
-    display: flex;
-    gap: 20px;
-    margin-top: 5px;
-}
-
-.cardTitle{
-    font-weight: 600;
-    margin: 0px;
-    padding: 0px;
-
-}
-
-.book{
+.book {
     border: none;
-    background-color: #78006E ;
+    background-color: #78006E;
     color: white;
     font-weight: 600;
     width: 170px;
     height: 35px;
-    border-radius:5px;
+    border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-
 }
 
-.book:hover{
-    background-color: #b100a3 ;
-
-
+.book:hover {
+    background-color: #b100a3;
 }
 
-.discoverImage{
+/* Heading Styles */
+.heading {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    margin-top: 40px;
+    text-align: left;
+}
+
+/* Discover Image Styling */
+.discoverImage {
     width: 420px;
     border-radius: 12px;
+    margin-left: 50px;
+}
+
+.marginLeft {
+    margin-left: 10px;
+}
+
+.marginRight {
+    margin-right: 50px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .superContainer {
+        margin: 0;
+        padding: 0;
+    }
+
+    .bannerImageContainer {
+        background-color: red;
+
+    }
+
+    .heading {
+        font-size: 1.5rem;
+        margin-left: 10px;
+        margin-bottom: 15px;
+    }
+
+    .hrContt {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 15px;
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0;
+        overflow-x: auto;
+    }
+
+    .cardItem {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .cardImg {
+        width: 100%;
+        height: auto;
+    }
+
+    .book {
+        width: 100%;
+    }
+
+    .discoverImage {
+        height: 180px;
+        margin-left: 10px;
+    }
+
+
+
+    .marginLeft {
+        margin-left: 0;
+    }
+
+    .marginRight {
+        margin-right: 10px;
+    }
 }

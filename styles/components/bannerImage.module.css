@@ -43,3 +43,31 @@
     margin-top: 0.1rem;
     text-shadow: rgba(0, 0, 0, 0.5) 0px 0px 16px;
 }
+
+
+
+@media (max-width: 768px) {
+    .superContainer {
+        margin: 0px;
+        margin-bottom: -160px;
+    }
+
+    .image {
+        height: 40vh;
+    }
+
+    .blurContainer {
+        height: 20vh;
+        transform: translate(0%, -105%);
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .blurContainer h1 {
+        font-size: 36px;
+    }
+
+    .blurContainer h2 {
+        font-size: 16px;
+    }
+}

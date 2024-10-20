@@ -66,28 +66,6 @@
     filter: drop-shadow(rgba(0, 0, 0, 0.04) 0px 2px 8px);
 }
 
-/* Accordion Section */
-.accordianFlex {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding: 10px 5px;
-}
-
-.accordianFlex p {
-    margin: 0px;
-    padding: 0px;
-    font-size: 18px;
-    color: grey;
-}
-
-.cancellationRefund {
-    font-size: 16px;
-    color: #374151;
-    line-height: 2;
-    width: 90%;
-}
-
 /* Right Card Section */
 .rgtCardHeading {
     margin: 0px;
@@ -105,12 +83,6 @@
     padding: 0px;
 }
 
-.cardFlex {
-    display: flex;
-    align-items: center;
-}
-
-/* Information Container */
 .informationCont {
     display: flex;
     align-items: center;
@@ -131,53 +103,67 @@
     padding: 0px;
 }
 
-/* Price Card Container */
-.priceCardCont h2 {
-    margin: 0px;
-    padding: 0px;
-}
-
-.priceCardCont span {
-    font-size: 14px;
-    font-weight: normal;
-    margin: 0px;
-    padding: 0px;
-}
-
-.priceCardCont .priceContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.priceCardCont p {
-    text-align: center;
-}
-
-
-.tableContent{
+/* Table of Content */
+.tableContent {
     width: 100%;
     margin-bottom: 48px;
     padding: 1rem;
 }
 
-.underLineBlock{
+.underLineBlock {
     background-color: #79006E;
     width: 50px;
     height: 3.5px;
     margin: 5px 0;
 }
 
-.listItem{
+.listItem {
     margin: 10px 0;
 }
 
-.listItem a:hover{
+.listItem a:hover {
     text-decoration: underline;
 }
 
-.listItem span{
+.listItem span {
     color: #79006E;
     font-weight: 550;
     margin-right: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .superContainer {
+        padding: 0 10px;
+    }
+
+    .title {
+        font-size: 40px;
+        line-height: 1.2;
+    }
+
+    .sectionCont {
+        flex-direction: column;
+    }
+
+    .lftSecCont,
+    .rgtSecCont {
+        width: 100%;
+    }
+
+    .overIconsFlex {
+        justify-content: space-around;
+    }
+
+    .rgtCardDesc {
+        font-size: 13px;
+    }
+
+    .rgtCardHeading {
+        font-size: 12px;
+    }
+
+    .tableContent{
+        display: none;
+    }
 }
