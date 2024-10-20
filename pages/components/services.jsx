@@ -816,7 +816,7 @@ const services = [
     image:
       "https://firebasestorage.googleapis.com/v0/b/oojus-ad231.appspot.com/o/services_web%2FMust_visit.png?alt=media&token=6a20d588-350c-4974-8d51-ce63a94e6482",
     alt: "What are the must visit places in Kashi?",
-    route: "/",
+    route: "/must-visit",
   },
 ];
 
