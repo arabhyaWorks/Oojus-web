@@ -5,7 +5,7 @@ import { query, ref, orderByChild, equalTo, onValue } from "firebase/database";
 import database from "../firebase/config";
 import styles from "../styles/pages/Bookings.module.css";
 import { OrbitProgress } from "react-loading-indicators";
-import timeStampToDate from "../utils/timeStampToDate";
+import timeStampToDate from "../utils/timestampToDate";
 import BreadCrum from "./components/BreadCrum";
 
 const BookingCard = (booking, index, uid) => {

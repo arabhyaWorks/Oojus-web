@@ -22,4 +22,3 @@ const timeStampToDate = (timestamp) => {
 
 export default timeStampToDate;
 
-// console.log(timeStampToDate("1727338681308")); // 12:58 PM 24/07/34
