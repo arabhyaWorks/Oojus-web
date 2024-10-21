@@ -16,3 +16,22 @@
     flex-wrap: wrap;
 }
 
+
+
+@media (max-width: 768px) {
+    .visit {}
+
+    .heading {
+        font-size: 1.3rem;
+    }
+
+
+    .margin {
+        margin: 0;
+        padding: 0;
+    }
+
+    .heading {
+        margin-left: 10px;
+    }
+}

@@ -33,17 +33,17 @@
 
 @media (max-width: 768px) {
   .imageCont {
-    width: 81px;
-    height: 81px;
+    width: 90px;
+    height: 90px;
   }
 
   .image {
-    width: 81px;
-    height: 81px;
+    width: 90px;
+    height: 90px;
   }
 
   .title {
-    font-size: 12px;
+    font-size: 13px;
     color: #6d6d6d;
     font-weight: 600;
     margin: 0px;

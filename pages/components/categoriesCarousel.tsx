@@ -46,28 +46,22 @@ const data = [
 
 const CategoriesCarousel = () => {
   return (
-
     <div className={styles.superCont}>
       <h2 className={styles.heading}>Souvenir Categories</h2>
-    <div className={styles.carouselContainer}>
+      <div className={styles.carouselContainer}>
+        {data.map((item, index) => {
+          return (
+            <div key={index} 
 
-
-      {data.map((item, index) => {
-        return (
-          <div key={index} className={styles.carouselItem}>
-            <Image
-              src={item.image}
-              alt="category"
-              //   layout="responsive"
-              className={styles.image}
-              width={120}
-              height={120}
-            />
-            <p className={styles.name}>{item.name}</p>
-          </div>
-        );
-      })}
-    </div>
+            className={`${styles.carouselItem} ${index === 0 && styles.marginLeft}`}>
+              <img src={item.image} alt="category" className={styles.image} />
+              <div className={styles.nameContainer}>
+                <p className={styles.name}>{item.name}</p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

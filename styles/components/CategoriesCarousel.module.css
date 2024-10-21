@@ -1,52 +1,82 @@
-.image {
-    cursor: pointer;
-    margin: 0px auto;
+.carouselItem {
+    display: flex;
+    flex-direction: column;
+    width: 120px;
     background-color: white;
-    /* width: 120px;
-    height: 120px; */
-    transition: transform 0.5s;
+    margin: 0;
 }
 
-.image:hover {
-    transform: scale(1.1);
 
+.heading {
+    color: black;
+}
+
+.nameContainer {
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    white-space: normal;
+    word-wrap: break-word;
+    margin-top: 0.5rem;
 }
 
 .name {
     font-size: 1rem;
-    line-height: 1.5rem;
-    margin-top: .5rem;
-    min-height: auto;
-    white-space: pre;
+    line-height: 1.2rem;
     color: black;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
+
+.nameContainer {}
 
 .carouselContainer {
     display: flex;
     flex-direction: row;
-    /* padding: 0 4.25rem; */
-    /* background-color: white; */
-
-
-    /* background-color: red; */
     justify-content: space-around;
+    overflow-x: auto;
 }
 
-.carouselItem {
-    /* background-color: lightgreen; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.image {
+    cursor: pointer;
+    transition: 0.5s;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: 0 auto;
 }
 
-.heading {
-    /* font-size: 1.75rem; */
-    color: #222;
-    font-size: 2.125rem;
-    margin-bottom: 1.875rem;
+.superCont {
+    margin: 1rem 4.25rem;
 }
 
-.superCont{
-    margin: 1rem 4.25rem ;
+
+@media (max-width: 768px) {
+    .carouselContainer {
+        overflow-x: scroll;
+        gap: 15px;
+        margin: 0 -10px;
+    }
+
+    .superCont {
+        margin: 0 10px;
+    }
+
+    .heading {
+        font-size: 1.3rem;
+    }
+
+    .image {
+        width: 90px;
+        height: 90px;
+    }
+
+    .image:hover {
+        transform: scale(1);
+    }
+
+    .marginLeft {
+        margin-left: 10px;
+    }
 }
