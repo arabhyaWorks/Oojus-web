@@ -3,9 +3,11 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styles from "../../styles/Carosel.module.css";
-import NavBar from "./navBar";
+import useMediaQuery from "../../hooks/useMediaQuery";
 
 const Carousel = () => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+
   const settings = {
     dots: true,
     infinite: true,
@@ -13,26 +15,17 @@ const Carousel = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // Adjust speed as needed
+    autoplaySpeed: 3000,
     fade: true,
     lazyLoad: true,
-    arrows: true, // Make sure this is enabled
+    arrows: true,
   };
 
   const slides = [
     {
-      image: "/carousel1.png",
+      image: isMobile ? "/responsiveCarousel.png" : "/carousel1.png",
       content: "Slide 1 Content",
     },
-    {
-      image: "/carousel1.png",
-      content: "Slide 1 Content",
-    },
-    {
-      image: "/carousel1.png",
-      content: "Slide 1 Content",
-    },
-   
   ];
 
   return (

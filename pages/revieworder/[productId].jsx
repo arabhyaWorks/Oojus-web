@@ -354,7 +354,9 @@ const ReviewOrder = () => {
                     ).toFixed(2)}
                   </span>
                 </p>
-                <button onClick={handlePayment}>Checkout</button>
+                <button
+                //  onClick={handlePayment}
+                >Checkout</button>
               </div>
             </div>
             <div className={styles.secure} >
